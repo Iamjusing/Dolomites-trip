@@ -7,31 +7,25 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-serif;background:#f5f5f0;color:#1a1a1a;font-size:14px}
-/* ── HEADER ── */
 .header{background:linear-gradient(135deg,#1e3a5f 0%,#2d5986 50%,#1e3a5f 100%);color:#fff;padding:24px 20px 16px;text-align:center}
 .header h1{font-size:22px;font-weight:700;letter-spacing:.5px;margin-bottom:4px}
 .header .sub{font-size:13px;opacity:.8;margin-bottom:12px}
 .header .pills{display:flex;justify-content:center;flex-wrap:wrap;gap:6px}
 .header .pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 10px;font-size:11px}
-/* ── TABS ── */
 .tabs{background:#fff;border-bottom:1px solid #e0e0e0;display:flex;overflow-x:auto;position:sticky;top:0;z-index:100}
 .tab{flex:0 0 auto;padding:11px 16px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:#666;white-space:nowrap;transition:all .2s}
 .tab.active{color:#1e3a5f;border-bottom-color:#1e3a5f}
 .tab:hover{color:#1e3a5f;background:#f8f9fa}
-/* ── PANELS ── */
 .panel{display:none;padding:0 0 40px}
 .panel.active{display:block}
-/* ── LEGEND ── */
 .legend{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px;background:#fff;border-bottom:1px solid #eee}
 .leg{display:flex;align-items:center;gap:4px;font-size:11px;color:#555}
 .leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-/* ── DAY CARDS ── */
 .day-card{margin:8px 12px;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)}
 .day-header{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;user-select:none;transition:opacity .15s}
 .day-header:hover{opacity:.9}
 .day-date{font-size:11px;font-weight:700;opacity:.7;min-width:36px;text-align:center;line-height:1.2}
 .day-date .dow{font-size:10px;opacity:.7}
-.day-icon{font-size:18px;flex-shrink:0}
 .day-title{flex:1;font-size:13px;font-weight:600;line-height:1.35}
 .day-members{display:flex;gap:3px;flex-shrink:0}
 .member-badge{font-size:9px;font-weight:700;padding:2px 5px;border-radius:8px;background:rgba(255,255,255,.3);color:rgba(255,255,255,.9)}
@@ -39,7 +33,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .day-card.open .day-chevron{transform:rotate(180deg)}
 .day-body{display:none;background:#fff;border-top:1px solid rgba(0,0,0,.06)}
 .day-card.open .day-body{display:block}
-/* ── ACTIVITY ROWS ── */
 .activity{display:flex;gap:10px;padding:10px 14px;border-bottom:1px solid #f0f0f0}
 .activity:last-child{border-bottom:none}
 .act-time{font-size:11px;color:#888;min-width:52px;padding-top:1px;flex-shrink:0}
@@ -47,11 +40,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .act-title{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:2px}
 .act-detail{font-size:12px;color:#555;line-height:1.55;white-space:pre-line}
 .act-note{font-size:11px;color:#e67e22;margin-top:3px;font-style:italic}
-.act-members{font-size:11px;color:#888;margin-top:3px}
-/* ── STAY BAR ── */
 .stay-bar{padding:8px 14px;background:#f9f9f9;border-top:1px solid #eee;font-size:12px;color:#555;display:flex;align-items:center;gap:6px}
 .stay-bar strong{color:#1a1a1a}
-/* ── FLIGHT CARDS ── */
 .section-title{font-size:13px;font-weight:700;color:#1e3a5f;padding:16px 16px 6px;text-transform:uppercase;letter-spacing:.8px}
 .flight-group{margin:0 12px 16px;border-radius:10px;overflow:hidden;border:1px solid #e0e0e0}
 .flight-group-header{background:#1e3a5f;color:#fff;padding:10px 14px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
@@ -66,8 +56,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .flight-badge{font-size:10px;padding:2px 7px;border-radius:8px;font-weight:600}
 .badge-ok{background:#e8f5e9;color:#2e7d32}
 .badge-wait{background:#fff8e1;color:#e65100}
-.badge-warn{background:#fce4d6;color:#bf360c}
-/* ── ACCOMMODATION ── */
 .accom-card{margin:0 12px 14px;background:#fff;border-radius:10px;border:1px solid #e0e0e0;overflow:hidden}
 .accom-header{padding:12px 14px;display:flex;align-items:center;gap:10px}
 .accom-icon{font-size:24px;flex-shrink:0}
@@ -80,7 +68,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .accom-val{color:#1a1a1a;flex:1;word-break:break-all}
 .accom-val a{color:#1e3a5f}
 .accom-status{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:8px;font-size:11px;font-weight:600;margin:4px 14px 10px}
-/* ── ATTRACTIONS ── */
 .attr-card{margin:0 12px 12px;background:#fff;border-radius:10px;border:1px solid #e0e0e0;overflow:hidden}
 .attr-header{padding:11px 14px;display:flex;gap:10px;align-items:center}
 .attr-emoji{font-size:20px;flex-shrink:0}
@@ -90,10 +77,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .attr-tag{background:#f5f5f0;border-radius:6px;padding:3px 8px;font-size:11px;color:#555}
 .attr-tag.ok{background:#e8f5e9;color:#2e7d32}
 .attr-tag.warn{background:#fff3e0;color:#e65100}
-.attr-body{padding:0 14px 11px;font-size:12px;color:#555;line-height:1.55;border-top:1px solid #f5f5f5}
 .attr-img{width:64px;height:64px;object-fit:cover;border-radius:8px;flex-shrink:0;background:#eee;border:1px solid #e5e5e5}
 .attr-section{padding:10px 14px;border-top:1px solid #f5f5f5}
-.attr-section h4{font-size:12px;font-weight:700;color:#1e3a5f;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.attr-section h4{font-size:12px;font-weight:700;color:#1e3a5f;margin-bottom:6px}
 .attr-section ul{list-style:none;padding:0;margin:0}
 .attr-section li{font-size:12px;color:#444;line-height:1.7;padding-left:12px;position:relative}
 .attr-section li::before{content:"·";position:absolute;left:3px;color:#1e3a5f;font-weight:700}
@@ -104,11 +90,45 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .attr-highlight{padding:9px 14px;background:#fff8e1;border-top:1px solid #f5f5f5;font-size:12px;color:#5d4037;font-weight:600}
 .attr-trip{padding:10px 14px;background:#e8f5e9;border-top:1px solid #f5f5f5;font-size:12px;color:#1b5e20;line-height:1.6}
 .attr-trip b{color:#1b5e20}
-/* ── UTILS ── */
-.status-ok{color:#2e7d32}
-.status-wait{color:#e65100}
-.status-warn{color:#bf360c}
-/* location color themes */
+/* ── CAR ── */
+.car-summary{margin:12px 12px 0;background:#fff;border-radius:12px;border:2px solid #1e3a5f;overflow:hidden}
+.car-summary-header{background:#1e3a5f;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.car-summary-header .car-icon{font-size:30px}
+.car-summary-header h2{font-size:16px;font-weight:700;margin-bottom:2px}
+.car-summary-header p{font-size:12px;opacity:.8}
+.car-badge-row{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;background:#f0f4f8;border-bottom:1px solid #dce5f0}
+.car-badge{display:flex;flex-direction:column;align-items:center;background:#fff;border:1px solid #dce5f0;border-radius:8px;padding:8px 10px;min-width:72px;flex:1}
+.car-badge .cb-icon{font-size:18px;margin-bottom:3px}
+.car-badge .cb-val{font-size:11px;font-weight:700;color:#1e3a5f;text-align:center}
+.car-badge .cb-key{font-size:10px;color:#888;margin-top:1px}
+.car-info-grid{padding:12px 16px}
+.car-row{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:12px;align-items:flex-start}
+.car-row:last-child{border-bottom:none}
+.car-key{color:#888;min-width:90px;flex-shrink:0;padding-top:1px}
+.car-val{color:#1a1a1a;flex:1;line-height:1.5}
+.car-val strong{color:#1e3a5f}
+.car-event{margin:8px 12px;background:#fff;border-radius:10px;border:1px solid #e0e0e0;overflow:hidden}
+.car-event-header{padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #f0f0f0}
+.car-event-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.car-event-title{font-size:13px;font-weight:600;flex:1}
+.car-event-date{font-size:11px;color:#888}
+.car-event-body{padding:10px 14px}
+.car-event-row{display:flex;gap:8px;font-size:12px;padding:4px 0;color:#444;border-bottom:1px solid #f8f8f8}
+.car-event-row:last-child{border-bottom:none}
+.car-event-row b{color:#1a1a1a;min-width:62px;flex-shrink:0}
+.car-warn{margin:8px 12px;background:#fff8e1;border:1px solid #ffcc80;border-radius:10px;padding:12px 14px}
+.car-warn h4{font-size:12px;font-weight:700;color:#e65100;margin-bottom:8px}
+.car-warn ul{list-style:none;padding:0}
+.car-warn li{font-size:12px;color:#5d4037;padding:4px 0 4px 20px;position:relative;line-height:1.5;border-bottom:1px solid rgba(0,0,0,.05)}
+.car-warn li:last-child{border-bottom:none}
+.car-warn li::before{content:"⚠️";position:absolute;left:0;font-size:11px}
+.car-parking{margin:8px 12px;background:#fff;border-radius:10px;border:1px solid #e0e0e0;overflow:hidden}
+.car-parking-header{background:#37474f;color:#fff;padding:10px 14px;font-size:13px;font-weight:600}
+.car-parking-day{padding:10px 14px;border-bottom:1px solid #f5f5f5;display:flex;gap:10px;font-size:12px}
+.car-parking-day:last-child{border-bottom:none}
+.car-parking-date{font-weight:700;color:#1e3a5f;min-width:52px;flex-shrink:0}
+.car-parking-info{flex:1;color:#444;line-height:1.6}
+.car-parking-info a{color:#1e3a5f}
 .loc-fly{background:#fff3e0;color:#bf360c}
 .loc-berlin{background:#e8f5e9;color:#1b5e20}
 .loc-venice{background:#fff8e1;color:#f57f17}
@@ -121,7 +141,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 <body>
 <div class="header">
   <h1>🇩🇪🇮🇹 柏林馬拉松 & 義大利多洛米蒂</h1>
-  <div class="sub">2026 / 9/24（四）– 10/11（日） &nbsp;·&nbsp; 18天 &nbsp;·&nbsp; 4組人馬</div>
+  <div class="sub">2026 / 9/24（四）– 10/11（日） · 18天 · 4組人馬</div>
   <div class="pills">
     <span class="pill">M&amp;J 台北</span>
     <span class="pill">B&amp;K 香港/多倫多</span>
@@ -134,10 +154,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
   <div class="tab active" onclick="showTab('itinerary',this)">📅 行程</div>
   <div class="tab" onclick="showTab('flights',this)">✈️ 航班</div>
   <div class="tab" onclick="showTab('accommodation',this)">🏨 住宿</div>
+  <div class="tab" onclick="showTab('car',this)">🚗 租車</div>
   <div class="tab" onclick="showTab('attractions',this)">🏔 多洛米蒂經典景點</div>
 </div>
 
-<!-- ══════════════════════════════════════════ ITINERARY ══ -->
+<!-- ══ ITINERARY ══ -->
 <div id="panel-itinerary" class="panel active">
 <div class="legend">
   <div class="leg"><div class="leg-dot" style="background:#bf360c"></div>✈️ 航班</div>
@@ -147,15 +168,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
   <div class="leg"><div class="leg-dot" style="background:#0d47a1"></div>⛰️ 多洛米蒂東</div>
   <div class="leg"><div class="leg-dot" style="background:#4a148c"></div>⛰️ 多洛米蒂西</div>
 </div>
-
 <div id="days-container"></div>
 </div>
 
-<!-- ══════════════════════════════════════════ FLIGHTS ══ -->
+<!-- ══ FLIGHTS ══ -->
 <div id="panel-flights" class="panel">
 <div class="section-title">M&amp;J — Mars &amp; Jusing</div>
 <div class="flight-group">
-  <div class="flight-group-header">📤 去程：台北桃園(TPE) → 柏林勃蘭登堡(BER) &nbsp;<span class="flight-badge badge-ok">✅ 已確認</span></div>
+  <div class="flight-group-header">📤 去程：台北桃園(TPE) → 柏林勃蘭登堡(BER) <span class="flight-badge badge-ok">✅ 已確認</span></div>
   <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">台北桃園(TPE T2) → 新加坡樟宜(SIN)</div><div class="flight-detail">SQ879 新加坡航空 · Boeing 787 · 17:45→22:15 · 4h30m<br>行李：手提1×8kg(55×40×23cm) + 個人物品 + 托運1×23kg</div></div></div>
   <div class="flight-seg transfer"><div class="flight-info">⟳ 新加坡樟宜(SIN) 轉機 1h10m（需換航廈 T0→T2）</div></div>
   <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">新加坡樟宜(SIN T2) → 慕尼黑(MUC T2)</div><div class="flight-detail">LH769 漢莎 · A350-900 · 23:25(9/24)→06:00(9/25) · 12h35m</div></div></div>
@@ -163,69 +183,64 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
   <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">慕尼黑(MUC T2) → 柏林勃蘭登堡(BER T1)</div><div class="flight-detail">LH1928 漢莎 · A321neo · 07:00→08:05 · 1h05m</div></div></div>
 </div>
 <div class="flight-group">
-  <div class="flight-group-header">✈️ 中段：柏林(BER) → 威尼斯(VCE) &nbsp;<span class="flight-badge badge-ok">✅ KBWPK1D</span></div>
-  <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">柏林勃蘭登堡(BER T1) → 威尼斯馬可波羅(VCE)</div><div class="flight-detail">EJU5085 easyJet · 17:20→19:00(9/28) · 1h40m<br>⚠️ 已加購托運 · Bag drop: 15:20–16:40<br>Jusing: 座位 7A &nbsp;|&nbsp; Mars: 座位 7B<br>B&amp;K 同班（座位⏳待確認）</div></div></div>
+  <div class="flight-group-header">✈️ 中段：柏林(BER) → 威尼斯(VCE) <span class="flight-badge badge-ok">✅ KBWPK1D</span></div>
+  <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">柏林勃蘭登堡(BER T1) → 威尼斯馬可波羅(VCE)</div><div class="flight-detail">EJU5085 easyJet · 17:20→19:00(9/28) · 1h40m<br>⚠️ 已加購托運 · Bag drop: 15:20–16:40<br>Jusing: 座位 7A | Mars: 座位 7B · B&amp;K 同班（座位⏳待確認）</div></div></div>
 </div>
 <div class="flight-group">
-  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 台北桃園(TPE) &nbsp;<span class="flight-badge badge-ok">✅ 已確認</span></div>
+  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 台北桃園(TPE) <span class="flight-badge badge-ok">✅ 已確認</span></div>
   <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">威尼斯馬可波羅(VCE) → 伊斯坦堡(IST)</div><div class="flight-detail">TK1870 土耳其航空 · A321-200neo · 20:00→23:35(10/10) · 2h35m</div></div></div>
   <div class="flight-seg transfer"><div class="flight-info">⟳ 伊斯坦堡(IST) 轉機 1h55m</div></div>
-  <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">伊斯坦堡(IST) → 台北桃園(TPE T2)</div><div class="flight-detail">TK24 土耳其航空 · B777-300ER · 01:30→17:55(10/11) · 11h25m<br>行李：托運1×30kg</div></div></div>
+  <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">伊斯坦堡(IST) → 台北桃園(TPE T2)</div><div class="flight-detail">TK24 土耳其航空 · B777-300ER · 01:30→17:55(10/11) · 11h25m · 行李：托運1×30kg</div></div></div>
 </div>
-
 <div class="section-title">Becky</div>
 <div class="flight-group">
-  <div class="flight-group-header">📤 去程：香港(HKG) → 柏林(BER) &nbsp;<span class="flight-badge badge-ok">✅ 已確認</span></div>
+  <div class="flight-group-header">📤 去程：香港(HKG) → 柏林(BER) <span class="flight-badge badge-ok">✅ 已確認</span></div>
   <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">香港國際機場(HKG T1) → 伊斯坦堡(IST)</div><div class="flight-detail">TK 土耳其航空 · 22:30(9/25)→05:00(9/26) · 11h30m</div></div></div>
   <div class="flight-seg transfer"><div class="flight-info">⟳ 伊斯坦堡(IST) 轉機 2h30m（無需領行李）</div></div>
   <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">伊斯坦堡(IST) → 柏林勃蘭登堡(BER T1)</div><div class="flight-detail">TK 土耳其航空 · 07:30→09:15(9/26) · 2h45m</div></div></div>
 </div>
 <div class="flight-group">
-  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 香港(HKG) &nbsp;<span class="flight-badge badge-ok">✅ 與M&amp;J同班TK1870</span></div>
+  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 香港(HKG) <span class="flight-badge badge-ok">✅ 與M&amp;J同班TK1870</span></div>
   <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">威尼斯馬可波羅(VCE) → 伊斯坦堡(IST)</div><div class="flight-detail">TK1870 · 20:00→23:35(10/10) · 2h35m · ★ 與M&amp;J同班！</div></div></div>
   <div class="flight-seg transfer"><div class="flight-info">⟳ 伊斯坦堡(IST) 轉機 2h（無需領行李）</div></div>
   <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">伊斯坦堡(IST) → 香港國際機場(HKG T1)</div><div class="flight-detail">TK 土耳其航空 · 01:35→17:20(10/11) · 10h45m</div></div></div>
 </div>
-
 <div class="section-title">凱祺 (YY)</div>
 <div class="flight-group">
-  <div class="flight-group-header">📤 去程：多倫多(YYZ) → 威尼斯(VCE) &nbsp;<span class="flight-badge badge-wait">⏳ 待確認</span></div>
+  <div class="flight-group-header">📤 去程：多倫多(YYZ) → 威尼斯(VCE) <span class="flight-badge badge-wait">⏳ 待確認</span></div>
   <div class="flight-seg"><div class="flight-info"><div class="flight-route">⏳ 航班待確認</div><div class="flight-detail">預計 9/28 抵達 威尼斯馬可波羅機場(VCE)</div></div></div>
 </div>
 <div class="flight-group">
-  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 多倫多(YYZ) &nbsp;<span class="flight-badge badge-ok">✅ ⚠️ 最早出發！</span></div>
+  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 多倫多(YYZ) <span class="flight-badge badge-ok">✅ ⚠️ 最早出發！</span></div>
   <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">威尼斯馬可波羅(VCE) → 法蘭克福(FRA)</div><div class="flight-detail">Condor 神鷹航空 · 11:40→13:00(10/10) · 1h20m · ⚠️ 最早出發，需早上退房！</div></div></div>
   <div class="flight-seg transfer"><div class="flight-info">⟳ 法蘭克福(FRA) 轉機 2h15m（無需領行李）</div></div>
   <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">法蘭克福(FRA) → 多倫多皮爾遜(YYZ T3)</div><div class="flight-detail">Condor 神鷹航空 · 15:15→17:55(10/10) · 8h40m</div></div></div>
 </div>
-
 <div class="section-title">Y&amp;W — 馬兒 &amp; Wolfgang大叔</div>
 <div class="flight-group">
-  <div class="flight-group-header">🚂 漢堡→柏林 火車 &nbsp;<span class="flight-badge badge-wait">⏳ 日期待確認</span></div>
+  <div class="flight-group-header">🚂 漢堡→柏林 火車 <span class="flight-badge badge-wait">⏳ 日期待確認</span></div>
   <div class="flight-seg"><div class="flight-info"><div class="flight-route">漢堡 Hamburg Hbf → 柏林 Berlin Hbf</div><div class="flight-detail">ICE 高速列車 · 約1.5h · 預計9/25（五）下午抵達</div></div></div>
 </div>
 <div class="flight-group">
   <div class="flight-group-header">🚗 10/8 開車回漢堡</div>
   <div class="flight-seg"><div class="flight-info"><div class="flight-route">Ortisei → 漢堡（A22高速）</div><div class="flight-detail">約10–11小時，10/8（四）08:30 出發道別</div></div></div>
 </div>
-
 <div class="section-title">S&amp;K — Sonia &amp; Kelvin</div>
 <div class="flight-group">
-  <div class="flight-group-header">✈️ 英國 → 多洛米蒂附近機場 &nbsp;<span class="flight-badge badge-wait">⏳ 全部待確認</span></div>
+  <div class="flight-group-header">✈️ 英國 → 多洛米蒂附近機場 <span class="flight-badge badge-wait">⏳ 全部待確認</span></div>
   <div class="flight-seg"><div class="flight-info"><div class="flight-route">英國出發機場 → 多洛米蒂附近機場</div><div class="flight-detail">⏳ 航班待確認 · 預計10/1前抵達多洛米蒂</div></div></div>
 </div>
-</div><!-- /flights -->
+</div>
 
-<!-- ══════════════════════════════════════════ ACCOMMODATION ══ -->
+<!-- ══ ACCOMMODATION ══ -->
 <div id="panel-accommodation" class="panel">
 <div class="section-title" style="padding-top:12px">住宿一覽</div>
-
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">🏙️</div><div><div class="accom-title">Three Little Pigs Hostel — 柏林</div><div class="accom-sub">9/25（五）– 9/27（日）&nbsp;3晚</div></div></div>
+  <div class="accom-header"><div class="accom-icon">🏙️</div><div><div class="accom-title">Three Little Pigs Hostel — 柏林</div><div class="accom-sub">9/25（五）– 9/27（日） 3晚</div></div></div>
   <span class="accom-status badge-ok">✅ 已訂</span>
   <div class="accom-body">
     <div class="accom-row"><div class="accom-key">地址</div><div class="accom-val">Stresemannstr. 66, 腓特烈斯海因-克羅伊茨貝格, 10963 柏林</div></div>
-    <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">✅ M&amp;J &nbsp;✅ Becky &nbsp;⏳ Y&amp;W 待確認</div></div>
+    <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">✅ M&amp;J  ✅ Becky  ⏳ Y&amp;W 待確認</div></div>
     <div class="accom-row"><div class="accom-key">M&amp;J 9/25</div><div class="accom-val">混合宿舍 6人房 單人床位（共用衛浴）· TWD 1,500/人</div></div>
     <div class="accom-row"><div class="accom-key">M&amp;J 9/26–9/27</div><div class="accom-val">4人宿舍房 單人床位（共用衛浴）· TWD 1,500/人/晚</div></div>
     <div class="accom-row"><div class="accom-key">Becky 9/26–9/27</div><div class="accom-val">混合宿舍 6人房 單人床位（共用衛浴）</div></div>
@@ -233,35 +248,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
     <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val">11:00 前</div></div>
   </div>
 </div>
-
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">🛶</div><div><div class="accom-title">威尼斯迪樂公寓 Venicedire</div><div class="accom-sub">9/28（一）– 9/30（三）&nbsp;2晚</div></div></div>
+  <div class="accom-header"><div class="accom-icon">🛶</div><div><div class="accom-title">威尼斯迪樂公寓 Venicedire</div><div class="accom-sub">9/28（一）– 9/30（三） 2晚</div></div></div>
   <span class="accom-status badge-ok">✅ 已訂</span>
   <div class="accom-body">
     <div class="accom-row"><div class="accom-key">位置</div><div class="accom-val">Santa Croce 區，靠近 Piazzale Roma</div></div>
     <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">M&amp;J + Becky + 凱祺（4人）</div></div>
-    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://urldefense.com/v3/__https://reurl.cc/lpWqKj__;!!Nyu6ZXf5!uW6NiwX1zsex6OmPHYSerKG3YhYn_JHPLl1HBTjec949t7R70X-C_vCsA-dBO2iWJz1hgx0JD5hGkWUMMHE$" target="_blank">Venicedire 連結</a></div></div>
+    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://reurl.cc/lpWqKj" target="_blank">Venicedire 連結</a></div></div>
   </div>
 </div>
-
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">⛰️</div><div><div class="accom-title">Airbnb Cortina d'Ampezzo（6人）</div><div class="accom-sub">9/30（三）– 10/3（六）&nbsp;3晚</div></div></div>
+  <div class="accom-header"><div class="accom-icon">⛰️</div><div><div class="accom-title">Airbnb Cortina d'Ampezzo（6人）</div><div class="accom-sub">9/30（三）– 10/3（六） 3晚</div></div></div>
   <span class="accom-status badge-ok">✅ 已訂（馬兒付款）</span>
   <div class="accom-body">
-    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://urldefense.com/v3/__https://www.airbnb.it/rooms/2612583__;!!Nyu6ZXf5!uW6NiwX1zsex6OmPHYSerKG3YhYn_JHPLl1HBTjec949t7R70X-C_vCsA-dBO2iWJz1hgx0JD5hGbB3dflw$" target="_blank">airbnb.it/rooms/2612583</a></div></div>
+    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://www.airbnb.it/rooms/2612583" target="_blank">airbnb.it/rooms/2612583</a></div></div>
     <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">M&amp;J + B&amp;K + Y&amp;W（6人）· S&amp;K 另行安排</div></div>
     <div class="accom-row"><div class="accom-key">Check-in</div><div class="accom-val">17:00 – 00:00</div></div>
     <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val">⚠️ 10:00 前</div></div>
     <div class="accom-row"><div class="accom-key">停車</div><div class="accom-val">⏳ 確認中（需聯絡馬兒）</div></div>
-    <div class="accom-row"><div class="accom-key">費用</div><div class="accom-val">⏳ 確認中</div></div>
   </div>
 </div>
-
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">⛰️</div><div><div class="accom-title">Airbnb Ortisei（6人）</div><div class="accom-sub">10/3（六）– 10/8（四）&nbsp;5晚</div></div></div>
+  <div class="accom-header"><div class="accom-icon">⛰️</div><div><div class="accom-title">Airbnb Ortisei（6人）</div><div class="accom-sub">10/3（六）– 10/8（四） 5晚</div></div></div>
   <span class="accom-status badge-ok">✅ 已訂（馬兒付款）⚠️ 不可取消！</span>
   <div class="accom-body">
-    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://urldefense.com/v3/__https://www.airbnb.com/rooms/618625291973760281__;!!Nyu6ZXf5!uW6NiwX1zsex6OmPHYSerKG3YhYn_JHPLl1HBTjec949t7R70X-C_vCsA-dBO2iWJz1hgx0JD5hGL4T4x8g$" target="_blank">airbnb.com/rooms/618625291973760281</a></div></div>
+    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://www.airbnb.com/rooms/618625291973760281" target="_blank">airbnb.com/rooms/618625291973760281</a></div></div>
     <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">M&amp;J + B&amp;K + Y&amp;W（6人）· S&amp;K 另行安排</div></div>
     <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val">⚠️ 09:00 前（非常早！前一晚收拾好）</div></div>
     <div class="accom-row"><div class="accom-key">停車</div><div class="accom-val">✅ 免費停車 · 最多3輛車</div></div>
@@ -270,16 +281,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
     <div class="accom-row"><div class="accom-key">取消政策</div><div class="accom-val">⚠️ 不可取消，請勿更改！</div></div>
   </div>
 </div>
-
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">🏙️</div><div><div class="accom-title">Riviera Views Apartment by Welc(H)ome — Treviso</div><div class="accom-sub">10/8（四）– 10/10（六）&nbsp;2晚</div></div></div>
+  <div class="accom-header"><div class="accom-icon">🏙️</div><div><div class="accom-title">Riviera Views Apartment by Welc(H)ome — Treviso</div><div class="accom-sub">10/8（四）– 10/10（六） 2晚</div></div></div>
   <span class="accom-status badge-ok">✅ 已訂 NT$14,570</span>
   <div class="accom-body">
     <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">M&amp;J + Becky + 凱祺（4人）</div></div>
-    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://urldefense.com/v3/__https://www.booking.com/hotel/it/riviera-views-apartment-by-welc-h-ome.zh-tw.html__;!!Nyu6ZXf5!uW6NiwX1zsex6OmPHYSerKG3YhYn_JHPLl1HBTjec949t7R70X-C_vCsA-dBO2iWJz1hgx0JD5hGfRQBK3w$" target="_blank">Booking.com 連結</a></div></div>
+    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://www.booking.com/hotel/it/riviera-views-apartment-by-welc-h-ome.zh-tw.html" target="_blank">Booking.com 連結</a></div></div>
   </div>
 </div>
-
 <div class="accom-card">
   <div class="accom-header"><div class="accom-icon">🏕️</div><div><div class="accom-title">S&amp;K 多洛米蒂住宿</div><div class="accom-sub">約 10/1 – 10/8</div></div></div>
   <span class="accom-status" style="background:#fff8e1;color:#e65100">⏳ 待確認</span>
@@ -288,84 +297,222 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
     <div class="accom-row"><div class="accom-key">注意</div><div class="accom-val">請確認後告知大家會合地點！</div></div>
   </div>
 </div>
-</div><!-- /accommodation -->
+</div>
 
+<!-- ══ CAR RENTAL ══ -->
+<div id="panel-car" class="panel">
 
-<!-- ══════════════════════════════════════════ ATTRACTIONS ══ -->
+<div class="car-summary">
+  <div class="car-summary-header">
+    <div class="car-icon">🚗</div>
+    <div>
+      <h2>Locauto 租車確認 ✅</h2>
+      <p>威尼斯馬可波羅機場(VCE) &nbsp;·&nbsp; 9天 &nbsp;·&nbsp; TWD 26,886</p>
+    </div>
+  </div>
+  <div class="car-badge-row">
+    <div class="car-badge"><div class="cb-icon">🚙</div><div class="cb-val">Skoda Octavia Estate</div><div class="cb-key">車款</div></div>
+    <div class="car-badge"><div class="cb-icon">👥</div><div class="cb-val">5人座</div><div class="cb-key">座位</div></div>
+    <div class="car-badge"><div class="cb-icon">🧳</div><div class="cb-val">3大+3小</div><div class="cb-key">行李空間</div></div>
+    <div class="car-badge"><div class="cb-icon">⚙️</div><div class="cb-val">自動排檔</div><div class="cb-key">排檔</div></div>
+    <div class="car-badge"><div class="cb-icon">♾️</div><div class="cb-val">無限里程</div><div class="cb-key">里程</div></div>
+    <div class="car-badge"><div class="cb-icon">❄️</div><div class="cb-val">有空調</div><div class="cb-key">冷氣</div></div>
+  </div>
+  <div class="car-info-grid">
+    <div class="car-row"><div class="car-key">租車公司</div><div class="car-val"><strong>Locauto</strong></div></div>
+    <div class="car-row"><div class="car-key">取車地點</div><div class="car-val">威尼斯馬可波羅機場(VCE) — Locauto 取車櫃台</div></div>
+    <div class="car-row"><div class="car-key">還車地點</div><div class="car-val">威尼斯馬可波羅機場(VCE) — Locauto 還車區</div></div>
+    <div class="car-row"><div class="car-key">總費用</div><div class="car-val"><strong>TWD 26,886</strong>（9天）</div></div>
+    <div class="car-row"><div class="car-key">燃油政策</div><div class="car-val">⏳ 請確認 PDF 確認單（Full-to-Full？）</div></div>
+    <div class="car-row"><div class="car-key">保險</div><div class="car-val">⏳ 請確認保險內容（CDW / 超額損失險）</div></div>
+  </div>
+</div>
+
+<div class="section-title" style="padding-top:14px">📍 取車 &amp; 還車</div>
+
+<div class="car-event">
+  <div class="car-event-header">
+    <div class="car-event-dot" style="background:#2e7d32"></div>
+    <div class="car-event-title">🟢 取車</div>
+    <div class="car-event-date">9/30（三）09:00</div>
+  </div>
+  <div class="car-event-body">
+    <div class="car-event-row"><b>時間</b>09:00（請提前10分鐘到達）</div>
+    <div class="car-event-row"><b>地點</b>威尼斯馬可波羅機場(VCE) — Locauto 取車櫃台</div>
+    <div class="car-event-row"><b>必帶文件</b>護照 + 信用卡（預授權用）+ 駕照 + 國際駕照 + 訂車確認單</div>
+    <div class="car-event-row"><b>取車時</b>仔細拍攝車身四周 360° 照片存檔！確認油表讀數</div>
+    <div class="car-event-row"><b>取車後</b>走 A27→SS51 景觀公路前往 Cortina d'Ampezzo（約 130km / 2h）</div>
+  </div>
+</div>
+
+<div class="car-event">
+  <div class="car-event-header">
+    <div class="car-event-dot" style="background:#bf360c"></div>
+    <div class="car-event-title">🔴 還車</div>
+    <div class="car-event-date">10/8（四）約 17:00</div>
+  </div>
+  <div class="car-event-body">
+    <div class="car-event-row"><b>時間</b>約 17:00（Ortisei 08:30 出發，下午抵達 VCE）</div>
+    <div class="car-event-row"><b>地點</b>威尼斯馬可波羅機場(VCE) — Locauto 還車區</div>
+    <div class="car-event-row"><b>還車前</b>加滿油（Full-to-Full 的話）· 拍照記錄車況</div>
+    <div class="car-event-row"><b>還車後</b>搭火車 VCE→Treviso（約 20 分，€4/人）→ 18:00 Treviso check-in → 19:30 晚餐</div>
+  </div>
+</div>
+
+<div class="section-title">🗺️ 行車路線概覽（全程 9 天）</div>
+
+<div class="car-event">
+  <div class="car-event-header">
+    <div class="car-event-dot" style="background:#7b1fa2"></div>
+    <div class="car-event-title">逐日路線</div>
+    <div class="car-event-date">9/30 – 10/8</div>
+  </div>
+  <div class="car-event-body">
+    <div class="car-event-row"><b>9/30</b>VCE取車 → A27 → SS51 → Cortina d'Ampezzo（約130km / 2h）</div>
+    <div class="car-event-row"><b>10/1</b>Cortina → Parcheggio Auronzo 三尖峰（約15km / 30分）</div>
+    <div class="car-event-row"><b>10/2</b>Cortina → 布萊埃斯湖 → Prato Piazza → Cortina（約70km）</div>
+    <div class="car-event-row"><b>10/3</b>Cortina → Cinque Torri → Passo Falzarego → Passo Gardena → Ortisei（約70km）</div>
+    <div class="car-event-row"><b>10/4</b>Ortisei → Seceda纜車站（市區內，約2km）</div>
+    <div class="car-event-row"><b>10/5</b>Ortisei → Alpe di Siusi（09:00前開車，約15km）</div>
+    <div class="car-event-row"><b>10/6</b>Ortisei → Val di Funes（約45km / 50分）</div>
+    <div class="car-event-row"><b>10/7</b>Ortisei → Lago di Carezza（約30km / 30分）</div>
+    <div class="car-event-row"><b>10/8</b>Ortisei → Passo Sella → Passo Pordoi → Lago di Alleghe → Belluno → VCE還車（約200km / 4h）</div>
+  </div>
+</div>
+
+<div class="section-title">⚠️ 重要注意事項</div>
+
+<div class="car-warn">
+  <h4>行前必讀</h4>
+  <ul>
+    <li>確認燃油政策：通常 Full-to-Full，取車時確認油表並拍照</li>
+    <li>取車時用信用卡預授權押金（通常 €500–1,000），取車後才扣</li>
+    <li>帶台灣駕照 + 國際駕照（缺一不可！）</li>
+    <li>確認保險內容：CDW 碰撞損失減免是否含括，建議補充超額保險</li>
+    <li>取車時仔細拍攝車身 360° 照片，存入雲端備用</li>
+    <li>義大利有 ZTL 禁行區（限制通行區），進市區前確認，GPS 不一定提示</li>
+    <li>多洛米蒂山區收費停車場多，備妥 € 現金和硬幣</li>
+    <li>三尖峰停車場只收現金！</li>
+  </ul>
+</div>
+
+<div class="section-title">🅿️ 各天停車規劃</div>
+
+<div class="car-parking">
+  <div class="car-parking-header">🗓️ 逐日停車資訊</div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">9/30（三）</div>
+    <div class="car-parking-info">Cortina d'Ampezzo — Airbnb 住宿停車<br><span style="color:#e65100">⏳ 停車位詳情確認中（聯絡馬兒）</span></div>
+  </div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">10/1（四）</div>
+    <div class="car-parking-info"><strong>🔴 三尖峰 Parcheggio Auronzo — 必須提前預約！</strong><br>網址：<a href="https://pass.auronzo.info" target="_blank">pass.auronzo.info</a><br>⚠️ 2台車共 €80 · 建議時段：07:00 · <strong>只收現金！</strong><br>帳號：cocochou79@pwc.com · 取車後需補填車牌號碼</div>
+  </div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">10/2（五）</div>
+    <div class="car-parking-info">布萊埃斯湖 — 直接開車停湖邊停車場（10月已解禁）<br>Prato Piazza — <span style="color:#e65100">⏳ 確認中</span>（10:00後Ponticello有車輛管制）</div>
+  </div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">10/3（六）</div>
+    <div class="car-parking-info">Cinque Torri — <strong>Bai de Dones 停車場（免費）</strong><br>Passo Falzarego / Passo Gardena — 路邊免費停車<br>Ortisei Airbnb — ✅ 免費停車（最多3輛）</div>
+  </div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">10/4–10/7</div>
+    <div class="car-parking-info">Ortisei Airbnb 停車場（✅ 免費，最多3輛）</div>
+  </div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">10/5（一）</div>
+    <div class="car-parking-info"><strong>⚠️ Alpe di Siusi — 09:00–17:00 禁止私家車進 Compatsch</strong><br>選A：09:00前開車上山停 Compatsch 停車場<br>選B：搭 Mont Sëuc 纜車上山（€39/人）</div>
+  </div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">10/6（二）</div>
+    <div class="car-parking-info">Val di Funes — <strong>Parcheggio Putzen（€4/全天）</strong><br>⚠️ 不可開車進入村道！</div>
+  </div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">10/7（三）</div>
+    <div class="car-parking-info">Lago di Carezza — 湖邊停車場（€3/h）</div>
+  </div>
+  <div class="car-parking-day">
+    <div class="car-parking-date">10/8（四）</div>
+    <div class="car-parking-info">各景觀點路邊停車（Passo Sella / Pordoi / Alleghe 均有免費停車位）<br>還車地點：威尼斯馬可波羅機場(VCE) Locauto 還車區</div>
+  </div>
+</div>
+
+</div><!-- /car -->
+
+<!-- ══ ATTRACTIONS ══ -->
 <div id="panel-attractions" class="panel">
-
 <div class="section-title" style="padding-top:12px">東區景點 — Cortina d'Ampezzo</div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="三尖峰.png" alt="三尖峰 Tre Cime di Lavaredo"><div style="flex:1"><div class="attr-title">三尖峰 Tre Cime di Lavaredo</div><div class="attr-day">✅ 10/1（四）</div></div><div class="attr-emoji" style="font-size:18px">🔴</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★★☆☆</span><span class="attr-tag ">環線 9–10km</span><span class="attr-tag ">3.5–5h</span><span class="attr-tag warn">⚠️ 07:30前到</span><span class="attr-tag warn">停車€40/車</span></div>
+  <div class="attr-header"><img class="attr-img" src="三尖峰.png" alt="三尖峰"><div style="flex:1"><div class="attr-title">三尖峰 Tre Cime di Lavaredo</div><div class="attr-day">✅ 10/1（四）</div></div><div class="attr-emoji">🔴</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★★★☆☆</span><span class="attr-tag">環線 9–10km</span><span class="attr-tag">3.5–5h</span><span class="attr-tag warn">⚠️ 07:30前到</span><span class="attr-tag warn">停車€40/車</span></div>
   <div class="attr-section"><h4>📌 特色</h4><ul><li>多洛米蒂最具代表性的三座石灰岩山峰（世界遺產）</li><li>可「繞整圈」，360°觀景，是最經典健行路線</li><li>沿途有山屋（rifugio），補給方便</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊（經典環線）</h4><div class="route-grid"><b>距離</b><span>約 9–10 km</span><b>時間</b><span>約 3.5–5 小時</span><b>爬升</b><span>約 350–450 m</span><b>難度</b><span>中（但路況良好）</span></div></div>
+  <div class="attr-route"><h4>🚶 路線資訊（經典環線）</h4><div class="route-grid"><b>距離</b><span>約 9–10 km</span><b>時間</b><span>約 3.5–5 小時</span><b>爬升</b><span>約 350–450 m</span><b>難度</b><span>中（路況良好）</span></div></div>
   <div class="attr-highlight">✅ 重點：Dolomites 必走 NO.1</div>
   <div class="attr-trip"><b>本團安排：</b>逆時針環線 Rifugio Auronzo → Lavaredo → Forcella → Locatelli 山屋（午餐，⚠️只收現金！）。10月可能初雪結冰，需備冰爪。</div>
 </div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="魔多之塔.png" alt="魔多之塔 Cadini di Misurina"><div style="flex:1"><div class="attr-title">魔多之塔 Cadini di Misurina</div><div class="attr-day">✅ 10/1（四）下午</div></div><div class="attr-emoji" style="font-size:18px">🗡</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag ">來回 3.2km</span><span class="attr-tag ">1–2h</span><span class="attr-tag warn">懸崖注意⚠️</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>鋸齒狀尖塔山群（像魔戒場景，因此有「魔多之塔」之稱）</li><li>IG 最紅的「懸崖伸出拍照點」</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊（觀景點來回）</h4><div class="route-grid"><b>距離</b><span>約 3.2 km（來回）</span><b>時間</b><span>約 1–2 小時</span><b>爬升</b><span>約 150–200 m</span><b>難度</b><span>簡單（但最後有懸崖須注意）</span></div></div>
+  <div class="attr-header"><img class="attr-img" src="魔多之塔.png" alt="魔多之塔"><div style="flex:1"><div class="attr-title">魔多之塔 Cadini di Misurina</div><div class="attr-day">✅ 10/1（四）下午</div></div><div class="attr-emoji">🗡</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">來回 3.2km</span><span class="attr-tag">1–2h</span><span class="attr-tag warn">懸崖注意⚠️</span></div>
+  <div class="attr-section"><h4>📌 特色</h4><ul><li>鋸齒狀尖塔山群（像魔戒場景）</li><li>IG 最紅的「懸崖伸出拍照點」</li></ul></div>
+  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 3.2 km（來回）</span><b>時間</b><span>約 1–2 小時</span><b>爬升</b><span>約 150–200 m</span><b>難度</b><span>簡單（最後有懸崖須注意）</span></div></div>
   <div class="attr-highlight">✅ 建議：可跟 Tre Cime 同一天</div>
-  <div class="attr-trip"><b>本團安排：</b>三尖峰下午接續走，423 步石階上去，30–45 分鐘近距離仰望刀鋒尖峰。</div>
+  <div class="attr-trip"><b>本團安排：</b>三尖峰下午接續走，423 步石階，30–45 分鐘近距離仰望刀鋒尖峰。</div>
 </div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="布萊埃斯湖.png" alt="布萊埃斯湖 Lago di Braies"><div style="flex:1"><div class="attr-title">布萊埃斯湖 Lago di Braies</div><div class="attr-day">✅ 10/2（五）</div></div><div class="attr-emoji" style="font-size:18px">💎</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag ">環湖 3.5–4km</span><span class="attr-tag ">1–1.5h</span><span class="attr-tag ok">10月已解禁✅</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>多洛米蒂最著名湖景（翡翠湖＋木船）</li><li>也可簡單環湖</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊（環湖步道）</h4><div class="route-grid"><b>距離</b><span>約 3.5–4 km（環湖）</span><b>時間</b><span>約 1–1.5 小時</span><b>爬升</b><span>幾乎平坦（&lt; 50 m）</span><b>難度</b><span>容易</span></div></div>
+  <div class="attr-header"><img class="attr-img" src="布萊埃斯湖.png" alt="布萊埃斯湖"><div style="flex:1"><div class="attr-title">布萊埃斯湖 Lago di Braies</div><div class="attr-day">✅ 10/2（五）</div></div><div class="attr-emoji">💎</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">環湖 3.5–4km</span><span class="attr-tag">1–1.5h</span><span class="attr-tag ok">10月已解禁✅</span></div>
+  <div class="attr-section"><h4>📌 特色</h4><ul><li>多洛米蒂最著名湖景（翡翠湖＋木船）</li><li>環湖步道輕鬆平坦</li></ul></div>
+  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 3.5–4 km</span><b>時間</b><span>約 1–1.5 小時</span><b>爬升</b><span>幾乎平坦</span><b>難度</b><span>容易</span></div></div>
   <div class="attr-highlight">✅ 重點：觀光型景點（非登山）</div>
-  <div class="attr-trip"><b>本團安排：</b>10 月無需預約直接開車進入，清晨最美。可租划艇（€10–15／30 分鐘）。</div>
+  <div class="attr-trip"><b>本團安排：</b>10 月無需預約直接開車，清晨最美。可租划艇（€10–15／30 分鐘）。</div>
 </div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="斯佩奇山.jpg" alt="斯佩奇山 Monte Specie（Strudelkopf）"><div style="flex:1"><div class="attr-title">斯佩奇山 Monte Specie（Strudelkopf）</div><div class="attr-day">✅ 10/2（五）下午</div></div><div class="attr-emoji" style="font-size:18px">🔭</div></div>
+  <div class="attr-header"><img class="attr-img" src="斯佩奇山.jpg" alt="Monte Specie"><div style="flex:1"><div class="attr-title">斯佩奇山 Monte Specie（Strudelkopf）</div><div class="attr-day">✅ 10/2（五）下午</div></div><div class="attr-emoji">🔭</div></div>
   <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">步道#34</span><span class="attr-tag">8.8–9.5km</span><span class="attr-tag">約3h</span><span class="attr-tag ok">遊客較少✅</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>多洛米蒂「最容易登頂的全景山」之一</li><li>山頂可 360° 看到 Tre Cime、Cadini、Cristallo 等經典山群</li><li>路線為高山草原＋緩坡，視野開闊、沒有壓迫感</li><li>遊客相對 Tre Cime 較少，體驗更舒服</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊（Prato Piazza 經典路線）</h4><div class="route-grid"><b>距離</b><span>約 8.8–9.5 km</span><b>時間</b><span>約 3 小時</span><b>爬升</b><span>約 300–400 m</span><b>難度</b><span>簡單</span></div></div>
-  <div class="attr-highlight">✅ 重點：「最輕鬆看到 Dolomites 經典山景的高 CP 值登山點」</div>
-  <div class="attr-trip"><b>本團安排：</b>布萊埃斯湖上午行程後，下午接續 Prato Piazza 起登。山頂大十字架，360° 全景含 Tre Cime、Cadini、Cristallo。坡度和緩、好走推薦。</div>
+  <div class="attr-section"><h4>📌 特色</h4><ul><li>多洛米蒂「最容易登頂的全景山」</li><li>山頂 360° 看到 Tre Cime、Cadini、Cristallo</li><li>高山草原緩坡，視野開闊</li></ul></div>
+  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 8.8–9.5 km</span><b>時間</b><span>約 3 小時</span><b>爬升</b><span>約 300–400 m</span><b>難度</b><span>簡單</span></div></div>
+  <div class="attr-highlight">✅ 重點：最輕鬆看到 Dolomites 全景的高 CP 值登山點</div>
+  <div class="attr-trip"><b>本團安排：</b>布萊埃斯湖上午後，下午接續 Prato Piazza 起登。山頂大十字架，360° 全景。</div>
 </div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="五塔山.png" alt="Cinque Torri 五塔山"><div style="flex:1"><div class="attr-title">Cinque Torri 五塔山</div><div class="attr-day">✅ 10/3（六）上午</div></div><div class="attr-emoji" style="font-size:18px">💎</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag ">5–6km</span><span class="attr-tag ">2–3h</span><span class="attr-tag ">椅式纜車€26</span><span class="attr-tag ok">✅ 10/3 開放</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>五座巨大岩塔</li><li>可搭配 WWI 戰壕遺跡</li></ul></div>
+  <div class="attr-header"><img class="attr-img" src="五塔山.png" alt="Cinque Torri"><div style="flex:1"><div class="attr-title">Cinque Torri 五塔山</div><div class="attr-day">✅ 10/3（六）上午</div></div><div class="attr-emoji">💎</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">5–6km</span><span class="attr-tag">2–3h</span><span class="attr-tag">椅式纜車€26</span><span class="attr-tag ok">✅ 10/3 開放</span></div>
+  <div class="attr-section"><h4>📌 特色</h4><ul><li>五座巨大岩塔，景色壯觀</li><li>WWI 戰壕遺跡（免費參觀）</li></ul></div>
   <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 5–6 km</span><b>時間</b><span>約 2–3 小時</span><b>爬升</b><span>約 200–300 m</span><b>難度</b><span>簡單～中</span></div></div>
   <div class="attr-highlight">✅ 建議：可搭纜車縮短行程</div>
-  <div class="attr-trip"><b>本團安排：</b>五座壯觀石塔 + 一戰壕溝博物館（免費）。東→西移動日的上午精彩加碼。Bai de Dones 停車場免費。</div>
+  <div class="attr-trip"><b>本團安排：</b>東→西移動日上午加碼。Bai de Dones 停車場免費。</div>
 </div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="索拉皮斯湖.png" alt="Lago di Sorapis 索拉皮斯湖"><div style="flex:1"><div class="attr-title">Lago di Sorapis 索拉皮斯湖</div><div class="attr-day">💡 進階備案</div></div><div class="attr-emoji" style="font-size:18px">🦋</div></div>
-  <div class="attr-meta"><span class="attr-tag warn">★★★★☆</span><span class="attr-tag ">來回 11–13km</span><span class="attr-tag ">4–6h</span><span class="attr-tag warn">⚠️ 鐵鍊路段</span></div>
+  <div class="attr-header"><img class="attr-img" src="索拉皮斯湖.png" alt="Lago di Sorapis"><div style="flex:1"><div class="attr-title">Lago di Sorapis 索拉皮斯湖</div><div class="attr-day">💡 進階備案</div></div><div class="attr-emoji">🦋</div></div>
+  <div class="attr-meta"><span class="attr-tag warn">★★★★☆</span><span class="attr-tag">來回 11–13km</span><span class="attr-tag">4–6h</span><span class="attr-tag warn">⚠️ 鐵鍊路段</span></div>
   <div class="attr-section"><h4>📌 特色</h4><ul><li>藍色夢幻牛奶湖（極高人氣）</li><li>必走峭壁步道，非常刺激</li></ul></div>
   <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 11–13 km（來回）</span><b>時間</b><span>約 4–6 小時</span><b>爬升</b><span>約 500–700 m</span><b>難度</b><span>中～偏難（部分鐵鍊路段）</span></div></div>
   <div class="attr-highlight">✅ 重點：Dolomites 最推薦「進階必走」</div>
-  <div class="attr-trip"><b>本團安排：</b>體力與天氣允許時的進階備案路線。鐵鍊路段需小心，建議攜帶手套。</div>
+  <div class="attr-trip"><b>本團安排：</b>體力與天氣允許時的進階備案。鐵鍊路段建議攜帶手套。</div>
 </div>
-
 <div class="section-title">西區景點 — Val Gardena / Ortisei</div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="Seceda 刀鋒稜線.png" alt="Seceda 刀鋒稜線"><div style="flex:1"><div class="attr-title">Seceda 刀鋒稜線</div><div class="attr-day">✅ 10/4（日）</div></div><div class="attr-emoji" style="font-size:18px">⚡</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag ">纜車€74/人</span><span class="attr-tag ">2–3h</span><span class="attr-tag warn">⚠️ 線上預約</span></div>
+  <div class="attr-header"><img class="attr-img" src="Seceda 刀鋒稜線.png" alt="Seceda"><div style="flex:1"><div class="attr-title">Seceda 刀鋒稜線</div><div class="attr-day">✅ 10/4（日）</div></div><div class="attr-emoji">⚡</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">纜車€74/人</span><span class="attr-tag">2–3h</span><span class="attr-tag warn">⚠️ 線上預約</span></div>
   <div class="attr-section"><h4>📌 特色</h4><ul><li>最誇張的「鋸齒狀稜線」</li><li>Dolomites 經典攝影點</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線（常見方式）👉 纜車上山＋小健行</h4><div class="route-grid"><b>距離</b><span>約 4–6 km（視路線）</span><b>時間</b><span>約 2–3 小時</span><b>爬升</b><span>約 200–400 m（純徒步約 1500 m）</span><b>難度</b><span>容易～中</span></div><div style="margin-top:6px;font-size:12px;color:#444;line-height:1.6">👉 若<b>全程徒步上山</b>：距離 10–12 km，時間 5–6 小時</div></div>
+  <div class="attr-route"><h4>🚶 路線（纜車上山＋健行）</h4><div class="route-grid"><b>距離</b><span>約 4–6 km</span><b>時間</b><span>約 2–3 小時</span><b>爬升</b><span>約 200–400 m</span><b>難度</b><span>容易～中</span></div></div>
   <div class="attr-highlight">✅ 建議：搭纜車最 CP</div>
-  <div class="attr-trip"><b>本團安排：</b>兩段纜車直達 2500m。⚠️ 2026 年強制線上預約時段票（www.seceda.it），8 人共 €562，不可退款！午餐：Rifugio Sofie。</div>
+  <div class="attr-trip"><b>本團安排：</b>兩段纜車直達 2500m。⚠️ 2026 年強制線上預約時段票（www.seceda.it），8 人共約 €562，不可退款！午餐：Rifugio Sofie。</div>
 </div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="休斯高原.png" alt="Alpe di Siusi 休斯高原"><div style="flex:1"><div class="attr-title">Alpe di Siusi 休斯高原</div><div class="attr-day">✅ 10/5（一）</div></div><div class="attr-emoji" style="font-size:18px">🍂</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag ">纜車€39/人</span><span class="attr-tag ">2–4h</span><span class="attr-tag warn">⚠️ 09:00–17:00 禁私車</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>歐洲最大高山草原</li><li>風景療癒、適合輕鬆走或騎腳踏車</li></ul></div>
+  <div class="attr-header"><img class="attr-img" src="休斯高原.png" alt="Alpe di Siusi"><div style="flex:1"><div class="attr-title">Alpe di Siusi 休斯高原</div><div class="attr-day">✅ 10/5（一）</div></div><div class="attr-emoji">🍂</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">纜車€39/人</span><span class="attr-tag">2–4h</span><span class="attr-tag warn">⚠️ 09:00–17:00 禁私車</span></div>
+  <div class="attr-section"><h4>📌 特色</h4><ul><li>歐洲最大高山草原</li><li>秋色落葉松景致，風景療癒</li></ul></div>
   <div class="attr-route"><h4>🚶 路線（彈性很多）</h4><div class="route-grid"><b>距離</b><span>約 5–10 km（自選）</span><b>時間</b><span>約 2–4 小時</span><b>爬升</b><span>約 100–250 m（緩坡）</span><b>難度</b><span>簡單</span></div></div>
-  <div class="attr-highlight">✅ 重點：屬「風景散步型」，不是硬登山</div>
+  <div class="attr-highlight">✅ 重點：「風景散步型」，不是硬登山</div>
   <div class="attr-trip"><b>本團安排：</b>秋色落葉松黃金期最美！Mont Sëuc 纜車 08:30 開始，或 09:00 前開車上山。午餐：Baita Sanon（Speck／鹿肉／蘋果捲）。</div>
 </div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="富內斯孤獨教堂.png" alt="Val di Funes ＆ 富內斯教堂（Santa Maddalena）"><div style="flex:1"><div class="attr-title">Val di Funes ＆ 富內斯教堂（Santa Maddalena）</div><div class="attr-day">✅ 10/6（二）</div></div><div class="attr-emoji" style="font-size:18px">⛪</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag ">2–5km</span><span class="attr-tag ">1–2h</span><span class="attr-tag warn">不可開車進村</span></div>
+  <div class="attr-header"><img class="attr-img" src="富內斯孤獨教堂.png" alt="Val di Funes"><div style="flex:1"><div class="attr-title">Val di Funes ＆ 富內斯教堂（Santa Maddalena）</div><div class="attr-day">✅ 10/6（二）</div></div><div class="attr-emoji">⛪</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">2–5km</span><span class="attr-tag">1–2h</span><span class="attr-tag warn">不可開車進村</span></div>
   <div class="attr-section"><h4>📌 特色</h4><ul><li>小教堂＋鋸齒山景（經典明信片）</li><li>適合拍照、輕鬆散步</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線</h4><div class="route-grid"><b>距離</b><span>約 2–5 km</span><b>時間</b><span>約 1–2 小時</span><b>爬升</b><span>約 50–150 m</span><b>難度</b><span>非常輕鬆</span></div><div style="margin-top:6px;font-size:12px;color:#444;line-height:1.6">✅ 補充：「孤獨教堂（St. Johann）」需付費進入拍攝區</div></div>
+  <div class="attr-route"><h4>🚶 路線</h4><div class="route-grid"><b>距離</b><span>約 2–5 km</span><b>時間</b><span>約 1–2 小時</span><b>爬升</b><span>約 50–150 m</span><b>難度</b><span>非常輕鬆</span></div></div>
   <div class="attr-highlight">✅ 拍照聖地（經典明信片構圖）</div>
   <div class="attr-trip"><b>本團安排：</b>孤獨教堂 St. Johann（€4–5）+ St. Magdalena 觀景台 + Adolf Munkel 步道（#36→#35），Geisler Alm 躺椅面峰。下午光線最美。</div>
 </div>
@@ -373,24 +520,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
   <div class="attr-header"><div class="attr-emoji">🌈</div><div style="flex:1"><div class="attr-title">Lago di Carezza 彩虹湖</div><div class="attr-day">✅ 10/7（三）備案日</div></div></div>
   <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">輕鬆1h</span><span class="attr-tag">停車€3/h</span></div>
   <div class="attr-section"><h4>📌 特色</h4><ul><li>寶石色湖水 + Latemar 山倒影</li><li>輕鬆環湖散步，老少咸宜</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊（環湖步道）</h4><div class="route-grid"><b>距離</b><span>約 1–1.5 km（環湖）</span><b>時間</b><span>約 30–60 分鐘</span><b>爬升</b><span>&lt; 30 m</span><b>難度</b><span>非常輕鬆</span></div></div>
+  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 1–1.5 km（環湖）</span><b>時間</b><span>約 30–60 分鐘</span><b>爬升</b><span>&lt; 30 m</span><b>難度</b><span>非常輕鬆</span></div></div>
   <div class="attr-highlight">✅ 重點：純觀光散步，天氣差時改為補拍備案日</div>
   <div class="attr-trip"><b>本團安排：</b>停車 €3/h，環湖約 1 小時。⚠️ 今晚打包，明日 09:00 前退房！</div>
 </div>
-
-</div><!-- /attractions -->
+</div>
 
 <script>
 const DAYS=[
  {date:'9/24',dow:'四',theme:'✈️ M&J 台北出發',loc:'fly',members:['M&J'],
   activities:[{time:'17:45',title:'SQ879 台北桃園(TPE)→柏林勃蘭登堡(BER) 出發',detail:'SQ879→新加坡樟宜(SIN)（4h30m）轉機1h10m換航廈\nLH769→慕尼黑(MUC)（12h35m）轉機1h\nLH1928→柏林勃蘭登堡(BER T1)（1h5m）',note:'行李：手提1×8kg + 個人物品 + 托運1×23kg'}],
   stay:'✈️ 飛機上'},
- {date:'9/25',dow:'五',theme:'✈️ M&J 抵達柏林 ｜ Y&W 漢堡→柏林',loc:'berlin',members:['M&J','Y&W'],
+ {date:'9/25',dow:'五',theme:'✈️ M&J 抵達柏林 | Y&W 漢堡→柏林',loc:'berlin',members:['M&J','Y&W'],
   activities:[
    {time:'08:05',title:'M&J 抵達 柏林勃蘭登堡機場(BER T1)',detail:'SQ+LH共20h20m，Check-in休息\n出機場 T1→BER火車站搭FEX或RE7→Südkreuz（25分）→步行到Hostel約10分'},
    {time:'⏳',title:'Y&W 漢堡→柏林 火車（ICE）',detail:'ICE高速列車約1.5h',note:'⏳抵達時間待確認'}],
   stay:'🏨 Three Little Pigs Hostel（M&J:混合宿舍6人房）'},
- {date:'9/26',dow:'六',theme:'🏰 柏林觀光日 ｜ Becky 09:15 抵達',loc:'berlin',members:['M&J','Becky','Y&W'],
+ {date:'9/26',dow:'六',theme:'🏰 柏林觀光日 | Becky 09:15 抵達',loc:'berlin',members:['M&J','Becky','Y&W'],
   activities:[
    {time:'09:15',title:'Becky 抵達 柏林勃蘭登堡機場(BER T1)',detail:'TK HKG→IST→BER 到達！\n★ M&J + Becky + Y&W 柏林全員集合',note:'凱祺 9/28 直接抵達威尼斯(VCE)'},
    {time:'全天',title:'🏰 柏林觀光',detail:'勃蘭登堡門｜博物館島｜East Side Gallery\n帝國國會大廈｜Checkpoint Charlie'}],
@@ -398,7 +544,7 @@ const DAYS=[
  {date:'9/27',dow:'日',theme:'🏃 柏林馬拉松 Race Day！',loc:'berlin',members:['M&J','Becky','Y&W'],
   activities:[{time:'全天',title:'🏃 柏林馬拉松',detail:'終點：勃蘭登堡門\n觀賽：Kurfürstendamm / 終點衝刺區\n賽後慶祝晚餐',note:'⏳怎麼拍照待討論'}],
   stay:'🏨 Three Little Pigs Hostel（M&J:4人宿舍 / Becky:混合宿舍6人房）'},
- {date:'9/28',dow:'一',theme:'✈️ M&J+B&K 柏林→威尼斯（同班）｜凱祺抵達威尼斯',loc:'fly',members:['M&J','B&K'],
+ {date:'9/28',dow:'一',theme:'✈️ M&J+B&K 柏林→威尼斯（同班）| 凱祺抵達威尼斯',loc:'fly',members:['M&J','B&K'],
   activities:[
    {time:'15:20',title:'⚠️ Bag Drop 開始（BER T1）',detail:'⚠️ Bag drop 15:20–16:40（準時！）',note:'Check-in opens: 8/29 23:20（起飛前30天）'},
    {time:'17:20',title:'EJU5085 柏林(BER T1)→威尼斯(VCE)',detail:'easyJet，約1h40m\nM&J: Jusing 7A / Mars 7B\nB&K 同班（座位⏳待確認）',note:'⚠️ 已加購托運 · 隨身包45×36×20cm · 訂位:KBWPK1D'},
@@ -410,7 +556,7 @@ const DAYS=[
    {time:'~09:00',title:'🏝️ Burano 彩虹島',detail:'搭Vaporetto，建議9:00前出發避開人潮',note:'Vaporetto 1日票€25/人'},
    {time:'下午',title:'🏛️ 聖馬可廣場 & 里阿爾托橋',detail:'主島漫步，採買多洛米蒂補給品'}],
   stay:'🏠 威尼斯迪樂公寓 Venicedire ✅已訂'},
- {date:'9/30',dow:'三',theme:'🚗 威尼斯→Cortina d\'Ampezzo ｜ VCE取車',loc:'move',members:['M&J','B&K','Y&W⏳'],
+ {date:'9/30',dow:'三',theme:"🚗 威尼斯→Cortina d'Ampezzo | VCE取車",loc:'move',members:['M&J','B&K','Y&W⏳'],
   activities:[
    {time:'上午',title:'🚗 威尼斯馬可波羅機場(VCE) 取車出發',detail:'取Skoda Octavia Estate（Locauto）\nA27→SS51 景觀公路北上\n途中停靠 Pieve di Cadore',note:'車程約2–2.5h'},
    {time:'午後',title:'🏔️ Lago di Misurina 環湖（1.5–2h）+ 抵達Cortina',detail:'入住Airbnb Cortina（Check-in 17:00–00:00）\n海拔1754m環湖適應高地',note:'⏳住宿停車位確認中'}],
@@ -425,7 +571,7 @@ const DAYS=[
   activities:[
    {time:'06:30',title:'出發前往布萊埃斯湖',detail:'06:30出發 → 08:00–10:30 環湖（3.5km，可租划艇€10–15/30分）',note:'✅10月已解禁，直接開車，清晨最美'},
    {time:'中午',title:'🍽️ Prato Piazza 高原午餐',detail:'搭接駁巴士（€5.50/人單程）\n11:30–13:00 Berggasthof Platzwiese午餐（Strudel/Tiramisù）',note:'⏳Ponticello 10:00後有車輛管制'},
-   {time:'下午',title:'🔭 斯佩奇山 Monte Specie（Strudelkopf）輕健行（步道#34，約3h）',detail:'Prato Piazza→Rifugio Vallandro→Monte Specie 2307m\n360°視野含三尖峰，16:30–17:30回Cortina'}],
+   {time:'下午',title:'🔭 斯佩奇山 Monte Specie 輕健行（步道#34，約3h）',detail:'Prato Piazza→Rifugio Vallandro→Monte Specie 2307m\n360°視野含三尖峰，16:30–17:30回Cortina'}],
   stay:'🏠 Airbnb Cortina（6人）· ⏳S&K住宿待確認'},
  {date:'10/3',dow:'六',theme:'🚗 東→西移動 — Cinque Torri + Passo Gardena → Ortisei',loc:'move',members:['全員8人'],
   activities:[
@@ -437,13 +583,13 @@ const DAYS=[
  {date:'10/4',dow:'日',theme:'⛰️ 多洛米蒂西 D1 — Seceda 刀鋒稜線',loc:'dolo-w',members:['全員8人'],
   activities:[
    {time:'08:00',title:'出發前往Seceda纜車站',detail:'⚠️ 線上預約時段票（www.seceda.it），8人約€562，不可退款！'},
-   {time:'08:30',title:'🚠 兩段纜車 → Seceda 2500m',detail:'第1段：Ortisei→Furnes（6人座小纜車）\n第2段：Furnes→Seceda（大型景觀纜車）\n09:30 Seceda山頂 2500m',note:'⏳纜車預約中，最晚9月底決定'},
+   {time:'08:30',title:'🚠 兩段纜車 → Seceda 2500m',detail:'第1段：Ortisei→Furnes（6人座小纜車）\n第2段：Furnes→Seceda（大型景觀纜車）',note:'⏳纜車預約中，最晚9月底決定'},
    {time:'全天',title:'🥾 稜線步道#6 + 午餐Rifugio Sofie + 步道#8下山',detail:'09:30–12:30 稜線步道#6（鋸齒斷崖漫步）\n12:30–14:00 Rifugio Sofie午餐（Canederli/鴨肉）\n14:00–15:30 步道#8下山（或纜車€12–15）',note:'帶防風外套！山頂溫差大'}],
   stay:'🏠 Airbnb Ortisei（6人）· ⏳S&K住宿待確認'},
  {date:'10/5',dow:'一',theme:'⛰️ 多洛米蒂西 D2 — Alpe di Siusi 秋色落葉松高原',loc:'dolo-w',members:['全員8人'],
   activities:[
    {time:'07:30',title:'出發前往Mont Sëuc纜車站',detail:'⚠️ 09:00–17:00禁止私家車進Compaccio\n選A：09:00前開車 · 選B：搭纜車€39/人（08:30開始）'},
-   {time:'08:45',title:'🍂 秋色草原步道#9（3–4h）',detail:'Sassolungo+Sciliar背景，秋色落葉松黃金期最美！\n08:45–12:30 步道#9'},
+   {time:'08:45',title:'🍂 秋色草原步道#9（3–4h）',detail:'Sassolungo+Sciliar背景，秋色落葉松黃金期最美！'},
    {time:'中午',title:'🍽️ Malga/Baita Sanon 午餐',detail:'Speck起司/鹿肉義麵/Canederli/Kaiserschmarrn\n14:30–15:30 步行回纜車站，16:00回Ortisei'}],
   stay:'🏠 Airbnb Ortisei（6人）· ⏳S&K住宿待確認'},
  {date:'10/6',dow:'二',theme:'⛰️ 多洛米蒂西 D3 — Val di Funes 孤獨教堂',loc:'dolo-w',members:['全員8人'],
@@ -453,10 +599,10 @@ const DAYS=[
   stay:'🏠 Airbnb Ortisei（6人）· ⏳S&K住宿待確認'},
  {date:'10/7',dow:'三',theme:'⛰️ 多洛米蒂西 D4 — 彩虹湖（彈性補拍備案日）',loc:'dolo-w',members:['全員8人'],
   activities:[
-   {time:'09:30',title:'🌈 Lago di Carezza 彩虹湖（輕鬆1h）',detail:'停車€3/h\n10:15–11:15 環湖散步（寶石色湖水+Latemar山倒影）',note:'天氣差改補拍備案'},
+   {time:'09:30',title:'🌈 Lago di Carezza 彩虹湖（輕鬆1h）',detail:'停車€3/h\n10:15–11:15 環湖散步',note:'天氣差改補拍備案'},
    {time:'下午',title:'🏘️ Ortisei 最後漫步 + 採買紀念品',detail:'12:30–14:00 午餐（Tiroler Gröstl/Spatzle）\n14:00–16:00 採買（木雕/Speck/登山用品）\n19:00 多洛米蒂最後晚餐🎉（8人，需訂位）',note:'⚠️ 今晚打包！明日09:00前退房'}],
   stay:'🏠 Airbnb Ortisei（6人）· ⏳S&K住宿待確認'},
- {date:'10/8',dow:'四',theme:'🚗 多洛米蒂→Treviso ｜ Y&W & W&F 今日告別回漢堡',loc:'move',members:['M&J','B&K','Y&W告別'],
+ {date:'10/8',dow:'四',theme:'🚗 多洛米蒂→Treviso | Y&W & W&F 今日告別回漢堡',loc:'move',members:['M&J','B&K','Y&W告別'],
   activities:[
    {time:'08:30',title:'⚠️ Ortisei Airbnb 退房（09:00截止！）',detail:'★ Y&W 今日告別，開車回漢堡（A22高速，10–11h）！\n★ W&F 今日告別！\nM&J+B&K 開車前往威尼斯'},
    {time:'09:30',title:'🚗 世界級景觀公路 → 威尼斯VCE',detail:'①Passo Sella 2244m（Sella群峰+Sassolungo全景）\n②Passo Pordoi 2239m（選配Sass Pordoi纜車€28–30/人）\n③Lago di Alleghe午餐（La Grande Guerra ⭐4.5）\n④Belluno→A27高速'},
@@ -472,32 +618,29 @@ const DAYS=[
  {date:'10/10',dow:'六',theme:'✈️ 各組返程出發',loc:'fly',members:['M&J','B&K'],
   activities:[
    {time:'09:00',title:'⚠️ 凱祺 最早出發！Treviso退房→VCE',detail:'Treviso→VCE火車（20分，€4/人）\n10:00 VCE機場 check-in 道別',note:'Condor 11:40 VCE出發→FRA→YYZ，⚠️最早！'},
-   {time:'上午',title:'M&J + Becky 帕多瓦一日遊',detail:'10:30 Padova（Treviso→Padova火車30分，€5）\n11:15 Caffè Pedrocchi（1831年，薄荷咖啡）\n12:00 Basilica di Sant\'Antonio（免費，⭐4.8）\n13:15 Prato della Valle午餐（歐洲最大廣場）\n15:00 搭火車回VCE，15:30機場取行李'},
+   {time:'上午',title:'M&J + Becky 帕多瓦一日遊',detail:"10:30 Padova（Treviso→Padova火車30分，€5）\n11:15 Caffè Pedrocchi（1831年，薄荷咖啡）\n12:00 Basilica di Sant'Antonio（免費，⭐4.8）\n13:15 Prato della Valle午餐\n15:00 搭火車回VCE，15:30機場取行李"},
    {time:'20:00',title:'✈️ TK1870 威尼斯(VCE)→伊斯坦堡(IST)→各自返家',detail:'M&J + Becky 同班 TK1870 20:00出發\nM&J: 轉TK24→台北桃園(TPE T2) 17:55(10/11)\nBecky: 轉IST→香港(HKG T1) 17:20(10/11)',note:'M&J轉機1h55m · Becky轉機2h'}],
   stay:'✈️ 飛機上'},
- {date:'10/11',dow:'日',theme:'🏠 M&J 抵達台北 ｜ Becky 抵達香港',loc:'berlin',members:['M&J','Becky'],
+ {date:'10/11',dow:'日',theme:'🏠 M&J 抵達台北 | Becky 抵達香港',loc:'berlin',members:['M&J','Becky'],
   activities:[
    {time:'17:55',title:'M&J 抵達 台北桃園機場(TPE T2)',detail:''},
    {time:'17:20',title:'Becky 抵達 香港國際機場(HKG T1)',detail:''}],
   stay:'— 旅程結束！'}
 ];
 
-const locTheme={
- fly:'loc-fly',berlin:'loc-berlin',venice:'loc-venice',
- move:'loc-move','dolo-e':'loc-dolo-e','dolo-w':'loc-dolo-w',treviso:'loc-treviso'
-};
+const locTheme={fly:'loc-fly',berlin:'loc-berlin',venice:'loc-venice',move:'loc-move','dolo-e':'loc-dolo-e','dolo-w':'loc-dolo-w',treviso:'loc-treviso'};
 
 function buildDays(){
  const c=document.getElementById('days-container');
- DAYS.forEach((d,i)=>{
+ DAYS.forEach(d=>{
   const card=document.createElement('div');
   card.className='day-card';
-  const membersHtml=d.members.map(m=>`<span class="member-badge">${m}</span>`).join('');
+  const mem=d.members.map(m=>`<span class="member-badge">${m}</span>`).join('');
   card.innerHTML=`
    <div class="day-header ${locTheme[d.loc]||''}" onclick="toggleDay(this)">
     <div class="day-date"><div>${d.date}</div><div class="dow">${d.dow}</div></div>
     <div class="day-title">${d.theme}</div>
-    <div class="day-members">${membersHtml}</div>
+    <div class="day-members">${mem}</div>
     <div class="day-chevron">▾</div>
    </div>
    <div class="day-body">
@@ -516,10 +659,7 @@ function buildDays(){
  });
 }
 
-function toggleDay(header){
- const card=header.parentElement;
- card.classList.toggle('open');
-}
+function toggleDay(h){h.parentElement.classList.toggle('open')}
 
 function showTab(id,el){
  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
