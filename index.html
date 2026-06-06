@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>《柏林馬拉松與多洛米蒂之旅》</title>
+<title>《柏林馬拉松與多洛米蒂之旅》 / Berlin Marathon & Dolomites Tour</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-serif;background:#f5f5f0;color:#1a1a1a;font-size:14px}
@@ -14,8 +14,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .header .pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 10px;font-size:11px}
 .lang-btn{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.5);color:#fff;border-radius:20px;padding:5px 13px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:background .2s}
 .lang-btn:hover{background:rgba(255,255,255,.32)}
+
+/* 語系顯示控制 */
 body.en .zh{display:none!important}
 body.zh .en{display:none!important}
+
 .tabs{background:#fff;border-bottom:1px solid #e0e0e0;display:flex;overflow-x:auto;position:sticky;top:0;z-index:100}
 .tab{flex:0 0 auto;padding:11px 16px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:#666;white-space:nowrap;transition:all .2s}
 .tab.active{color:#1e3a5f;border-bottom-color:#1e3a5f}
@@ -144,11 +147,14 @@ body.zh .en{display:none!important}
 .loc-treviso{background:#e0f2f1;color:#004d40}
 </style>
 </head>
-<body>
+<body class="zh"> <!-- 預設為中文版 -->
 <div class="header">
   <button class="lang-btn" onclick="toggleLang(this)">🌐 English</button>
   <h1>🇩🇪🇮🇹 <span class="zh">柏林馬拉松 &amp; 義大利多洛米蒂</span><span class="en">Berlin Marathon &amp; Italian Dolomites</span></h1>
-  <div class="sub"><span class="zh">2026 / 9/24（四）– 10/11（日） · 18天 · 4組人馬</span><span class="en">2026 / Sep 24 (Thu) – Oct 11 (Sun) · 18 Days · 4 Groups</span></div>
+  <div class="sub">
+    <span class="zh">2026 / 9/24（四）– 10/11（日） · 18天 · 4組人馬</span>
+    <span class="en">2026 / Sep 24 (Thu) – Oct 11 (Sun) · 18 Days · 4 Groups</span>
+  </div>
   <div class="pills">
     <span class="pill">M&amp;J <span class="zh">台北</span><span class="en">Taipei</span></span>
     <span class="pill">B&amp;K <span class="zh">香港/多倫多</span><span class="en">HK/Toronto</span></span>
@@ -182,359 +188,505 @@ body.zh .en{display:none!important}
 <div id="panel-flights" class="panel">
 <div class="section-title">M&amp;J — Mars &amp; Jusing</div>
 <div class="flight-group">
-  <div class="flight-group-header">📤 去程：台北桃園(TPE) → 柏林勃蘭登堡(BER) <span class="flight-badge badge-ok">✅ 已確認</span></div>
-  <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">台北桃園(TPE T2) → 新加坡樟宜(SIN)</div><div class="flight-detail">SQ879 新加坡航空 · Boeing 787 · 17:45→22:15 · 4h30m<br>行李：手提1×8kg(55×40×23cm) + 個人物品 + 托運1×23kg</div></div></div>
-  <div class="flight-seg transfer"><div class="flight-info">⟳ 新加坡樟宜(SIN) 轉機 1h10m（需換航廈 T0→T2）</div></div>
-  <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">新加坡樟宜(SIN T2) → 慕尼黑(MUC T2)</div><div class="flight-detail">LH769 漢莎 · A350-900 · 23:25(9/24)→06:00(9/25) · 12h35m</div></div></div>
-  <div class="flight-seg transfer"><div class="flight-info">⟳ 慕尼黑(MUC) 轉機 1h00m</div></div>
-  <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">慕尼黑(MUC T2) → 柏林勃蘭登堡(BER T1)</div><div class="flight-detail">LH1928 漢莎 · A321neo · 07:00→08:05 · 1h05m</div></div></div>
+  <div class="flight-group-header">
+    <span class="zh">📤 去程：台北桃園(TPE) → 柏林勃蘭登堡(BER)</span>
+    <span class="en">📤 Outbound: Taipei Taoyuan (TPE) → Berlin Brandenburg (BER)</span>
+    <span class="flight-badge badge-ok"><span class="zh">✅ 已確認</span><span class="en">✅ Confirmed</span></span>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↗</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">台北桃園(TPE T2) → 新加坡樟宜(SIN)</span><span class="en">Taipei Taoyuan (TPE T2) → Singapore Changi (SIN)</span></div>
+      <div class="flight-detail">
+        <span class="zh">SQ879 新加坡航空 · Boeing 787 · 17:45→22:15 · 4h30m<br>行李：手提1×8kg(55×40×23cm) + 個人物品 + 托運1×23kg</span>
+        <span class="en">SQ879 Singapore Airlines · Boeing 787 · 17:45→22:15 · 4h30m<br>Baggage: 1×8kg carry-on (55×40×23cm) + personal item + 1×23kg checked</span>
+      </div>
+    </div>
+  </div>
+  <div class="flight-seg transfer">
+    <div class="flight-info">
+      <span class="zh">⟳ 新加坡樟宜(SIN) 轉機 1h10m（需換航廈 T0→T2）</span>
+      <span class="en">⟳ Singapore Changi (SIN) Transit 1h10m (Change Terminal T0→T2)</span>
+    </div>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↗</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">新加坡樟宜(SIN T2) → 慕尼黑(MUC T2)</span><span class="en">Singapore Changi (SIN T2) → Munich (MUC T2)</span></div>
+      <div class="flight-detail">LH769 Lufthansa · A350-900 · 23:25(9/24)→06:00(9/25) · 12h35m</div>
+    </div>
+  </div>
+  <div class="flight-seg transfer">
+    <div class="flight-info">
+      <span class="zh">⟳ 慕尼黑(MUC) 轉機 1h00m</span>
+      <span class="en">⟳ Munich (MUC) Transit 1h00m</span>
+    </div>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↗</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">慕尼黑(MUC T2) → 柏林勃蘭登堡(BER T1)</span><span class="en">Munich (MUC T2) → Berlin Brandenburg (BER T1)</span></div>
+      <div class="flight-detail">LH1928 Lufthansa · A321neo · 07:00→08:05 · 1h05m</div>
+    </div>
+  </div>
 </div>
+
 <div class="flight-group">
-  <div class="flight-group-header">✈️ 中段：柏林(BER) → 威尼斯(VCE) <span class="flight-badge badge-ok">✅ KBWPK1D</span></div>
-  <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">柏林勃蘭登堡(BER T1) → 威尼斯馬可波羅(VCE)</div><div class="flight-detail">EJU5085 easyJet · 17:20→19:00(9/28) · 1h40m<br>⚠️ 已加購托運 · Bag drop: 15:20–16:40<br>Jusing: 座位 7A | Mars: 座位 7B · B&amp;K 同班（座位⏳待確認）</div></div></div>
+  <div class="flight-group-header">
+    <span class="zh">✈️ 中段：柏林(BER) → 威尼斯(VCE)</span>
+    <span class="en">✈️ Internal: Berlin (BER) → Venice (VCE)</span>
+    <span class="flight-badge badge-ok">✅ KBWPK1D</span>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↗</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">柏林勃蘭登堡(BER T1) → 威尼斯馬可波羅(VCE)</span><span class="en">Berlin Brandenburg (BER T1) → Venice Marco Polo (VCE)</span></div>
+      <div class="flight-detail">
+        <span class="zh">EJU5085 easyJet · 17:20→19:00(9/28) · 1h40m<br>⚠️ 已加購托運 · Bag drop: 15:20–16:40<br>Jusing: 座位 7A | Mars: 座位 7B · B&amp;K 同班（座位⏳待確認）</span>
+        <span class="en">EJU5085 easyJet · 17:20→19:00(9/28) · 1h40m<br>⚠️ Checked bag purchased · Bag drop: 15:20–16:40<br>Jusing: Seat 7A | Mars: Seat 7B · B&amp;K on same flight (Seats ⏳ TBD)</span>
+      </div>
+    </div>
+  </div>
 </div>
+
 <div class="flight-group">
-  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 台北桃園(TPE) <span class="flight-badge badge-ok">✅ 已確認</span></div>
-  <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">威尼斯馬可波羅(VCE) → 伊斯坦堡(IST)</div><div class="flight-detail">TK1870 土耳其航空 · A321-200neo · 20:00→23:35(10/10) · 2h35m</div></div></div>
-  <div class="flight-seg transfer"><div class="flight-info">⟳ 伊斯坦堡(IST) 轉機 1h55m</div></div>
-  <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">伊斯坦堡(IST) → 台北桃園(TPE T2)</div><div class="flight-detail">TK24 土耳其航空 · B777-300ER · 01:30→17:55(10/11) · 11h25m · 行李：托運1×30kg</div></div></div>
+  <div class="flight-group-header">
+    <span class="zh">📥 回程：威尼斯(VCE) → 台北桃園(TPE)</span>
+    <span class="en">📥 Return: Venice (VCE) → Taipei Taoyuan (TPE)</span>
+    <span class="flight-badge badge-ok"><span class="zh">✅ 已確認</span><span class="en">✅ Confirmed</span></span>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↙</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">威尼斯馬可波羅(VCE) → 伊斯坦堡(IST)</span><span class="en">Venice Marco Polo (VCE) → Istanbul (IST)</span></div>
+      <div class="flight-detail">TK1870 Turkish Airlines · A321-200neo · 20:00→23:35(10/10) · 2h35m</div>
+    </div>
+  </div>
+  <div class="flight-seg transfer">
+    <div class="flight-info">
+      <span class="zh">⟳ 伊斯坦堡(IST) 轉機 1h55m</span>
+      <span class="en">⟳ Istanbul (IST) Transit 1h55m</span>
+    </div>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↙</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">伊斯坦堡(IST) → 台北桃園(TPE T2)</span><span class="en">Istanbul (IST) → Taipei Taoyuan (TPE T2)</span></div>
+      <div class="flight-detail">
+        <span class="zh">TK24 土耳其航空 · B777-300ER · 01:30→17:55(10/11) · 11h25m · 行李：托運1×30kg</span>
+        <span class="en">TK24 Turkish Airlines · B777-300ER · 01:30→17:55(10/11) · 11h25m · Baggage: 1×30kg checked</span>
+      </div>
+    </div>
+  </div>
 </div>
+
 <div class="section-title">Becky</div>
 <div class="flight-group">
-  <div class="flight-group-header">📤 去程：香港(HKG) → 柏林(BER) <span class="flight-badge badge-ok">✅ 已確認</span></div>
-  <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">香港國際機場(HKG T1) → 伊斯坦堡(IST)</div><div class="flight-detail">TK 土耳其航空 · 22:30(9/25)→05:00(9/26) · 11h30m</div></div></div>
-  <div class="flight-seg transfer"><div class="flight-info">⟳ 伊斯坦堡(IST) 轉機 2h30m（無需領行李）</div></div>
-  <div class="flight-seg"><div class="flight-arrow">↗</div><div class="flight-info"><div class="flight-route">伊斯坦堡(IST) → 柏林勃蘭登堡(BER T1)</div><div class="flight-detail">TK 土耳其航空 · 07:30→09:15(9/26) · 2h45m</div></div></div>
+  <div class="flight-group-header">
+    <span class="zh">📤 去程：香港(HKG) → 柏林(BER)</span>
+    <span class="en">📤 Outbound: Hong Kong (HKG) → Berlin (BER)</span>
+    <span class="flight-badge badge-ok"><span class="zh">✅ 已確認</span><span class="en">✅ Confirmed</span></span>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↗</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">香港國際機場(HKG T1) → 伊斯坦堡(IST)</span><span class="en">Hong Kong International (HKG T1) → Istanbul (IST)</span></div>
+      <div class="flight-detail">TK Turkish Airlines · 22:30(9/25)→05:00(9/26) · 11h30m</div>
+    </div>
+  </div>
+  <div class="flight-seg transfer">
+    <div class="flight-info">
+      <span class="zh">⟳ 伊斯坦堡(IST) 轉機 2h30m（無需領行李）</span>
+      <span class="en">⟳ Istanbul (IST) Transit 2h30m (No luggage re-check)</span>
+    </div>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↗</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">伊斯坦堡(IST) → 柏林勃蘭登堡(BER T1)</span><span class="en">Istanbul (IST) → Berlin Brandenburg (BER T1)</span></div>
+      <div class="flight-detail">TK Turkish Airlines · 07:30→09:15(9/26) · 2h45m</div>
+    </div>
+  </div>
 </div>
 <div class="flight-group">
-  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 香港(HKG) <span class="flight-badge badge-ok">✅ 與M&amp;J同班TK1870</span></div>
-  <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">威尼斯馬可波羅(VCE) → 伊斯坦堡(IST)</div><div class="flight-detail">TK1870 · 20:00→23:35(10/10) · 2h35m · ★ 與M&amp;J同班！</div></div></div>
-  <div class="flight-seg transfer"><div class="flight-info">⟳ 伊斯坦堡(IST) 轉機 2h（無需領行李）</div></div>
-  <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">伊斯坦堡(IST) → 香港國際機場(HKG T1)</div><div class="flight-detail">TK 土耳其航空 · 01:35→17:20(10/11) · 10h45m</div></div></div>
+  <div class="flight-group-header">
+    <span class="zh">📥 回程：威尼斯(VCE) → 香港(HKG)</span>
+    <span class="en">📥 Return: Venice (VCE) → Hong Kong (HKG)</span>
+    <span class="flight-badge badge-ok"><span class="zh">✅ 與M&amp;J同班TK1870</span><span class="en">✅ Same flight as M&amp;J (TK1870)</span></span>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↙</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">威尼斯馬可波羅(VCE) → 伊斯坦堡(IST)</span><span class="en">Venice Marco Polo (VCE) → Istanbul (IST)</span></div>
+      <div class="flight-detail"><span class="zh">TK1870 · 20:00→23:35(10/10) · 2h35m · ★ 與M&amp;J同班！</span><span class="en">TK1870 · 20:00→23:35(10/10) · 2h35m · ★ Same flight as M&amp;J!</span></div>
+    </div>
+  </div>
+  <div class="flight-seg transfer">
+    <div class="flight-info">
+      <span class="zh">⟳ 伊斯坦堡(IST) 轉機 2h（無需領行李）</span>
+      <span class="en">⟳ Istanbul (IST) Transit 2h (No luggage re-check)</span>
+    </div>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↙</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">伊斯坦堡(IST) → 香港國際機場(HKG T1)</span><span class="en">Istanbul (IST) → Hong Kong International (HKG T1)</span></div>
+      <div class="flight-detail">TK Turkish Airlines · 01:35→17:20(10/11) · 10h45m</div>
+    </div>
+  </div>
 </div>
-<div class="section-title">凱祺 (YY)</div>
+
+<div class="section-title"><span class="zh">凱祺 (YY)</span><span class="en">Kaiqi (YY)</span></div>
 <div class="flight-group">
-  <div class="flight-group-header">📤 去程：多倫多(YYZ) → 威尼斯(VCE) <span class="flight-badge badge-wait">⏳ 待確認</span></div>
-  <div class="flight-seg"><div class="flight-info"><div class="flight-route">⏳ 航班待確認</div><div class="flight-detail">預計 9/28 抵達 威尼斯馬可波羅機場(VCE)</div></div></div>
+  <div class="flight-group-header">
+    <span class="zh">📤 去程：多倫多(YYZ) → 威尼斯(VCE)</span>
+    <span class="en">📤 Outbound: Toronto (YYZ) → Venice (VCE)</span>
+    <span class="flight-badge badge-wait"><span class="zh">⏳ 待確認</span><span class="en">⏳ TBD</span></span>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">⏳ 航班待確認</span><span class="en">⏳ Flight Details TBD</span></div>
+      <div class="flight-detail"><span class="zh">預計 9/28 抵達 威尼斯馬可波羅機場(VCE)</span><span class="en">Estimated arrival at Venice Marco Polo Airport (VCE) on Sep 28</span></div>
+    </div>
+  </div>
 </div>
 <div class="flight-group">
-  <div class="flight-group-header">📥 回程：威尼斯(VCE) → 多倫多(YYZ) <span class="flight-badge badge-ok">✅ ⚠️ 最早出發！</span></div>
-  <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">威尼斯馬可波羅(VCE) → 法蘭克福(FRA)</div><div class="flight-detail">Condor 神鷹航空 · 11:40→13:00(10/10) · 1h20m · ⚠️ 最早出發，需早上退房！</div></div></div>
-  <div class="flight-seg transfer"><div class="flight-info">⟳ 法蘭克福(FRA) 轉機 2h15m（無需領行李）</div></div>
-  <div class="flight-seg"><div class="flight-arrow">↙</div><div class="flight-info"><div class="flight-route">法蘭克福(FRA) → 多倫多皮爾遜(YYZ T3)</div><div class="flight-detail">Condor 神鷹航空 · 15:15→17:55(10/10) · 8h40m</div></div></div>
+  <div class="flight-group-header">
+    <span class="zh">📥 回程：威尼斯(VCE) → 多倫多(YYZ)</span>
+    <span class="en">📥 Return: Venice (VCE) → Toronto (YYZ)</span>
+    <span class="flight-badge badge-ok"><span class="zh">✅ ⚠️ 最早出發！</span><span class="en">✅ ⚠️ Earliest Departure!</span></span>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↙</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">威尼斯馬可波羅(VCE) → 法蘭克福(FRA)</span><span class="en">Venice Marco Polo (VCE) → Frankfurt (FRA)</span></div>
+      <div class="flight-detail"><span class="zh">Condor 神鷹航空 · 11:40→13:00(10/10) · 1h20m · ⚠️ 最早出發，需早上退房！</span><span class="en">Condor · 11:40→13:00(10/10) · 1h20m · ⚠️ Earliest departure, early morning check-out required!</span></div>
+    </div>
+  </div>
+  <div class="flight-seg transfer">
+    <div class="flight-info">
+      <span class="zh">⟳ 法蘭克福(FRA) 轉機 2h15m（無需領行李）</span>
+      <span class="en">⟳ Frankfurt (FRA) Transit 2h15m (No luggage re-check)</span>
+    </div>
+  </div>
+  <div class="flight-seg">
+    <div class="flight-arrow">↙</div>
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">法蘭克福(FRA) → 多倫多皮爾遜(YYZ T3)</span><span class="en">Frankfurt (FRA) → Toronto Pearson (YYZ T3)</span></div>
+      <div class="flight-detail">Condor · 15:15→17:55(10/10) · 8h40m</div>
+    </div>
+  </div>
 </div>
-<div class="section-title">Y&amp;W — 馬兒 &amp; Wolfgang大叔</div>
+
+<div class="section-title">Y&amp;W — <span class="zh">馬兒 &amp; Wolfgang大叔</span><span class="en">Maier &amp; Uncle Wolfgang</span></div>
 <div class="flight-group">
-  <div class="flight-group-header">🚂 漢堡→柏林 火車 <span class="flight-badge badge-wait">⏳ 日期待確認</span></div>
-  <div class="flight-seg"><div class="flight-info"><div class="flight-route">漢堡 Hamburg Hbf → 柏林 Berlin Hbf</div><div class="flight-detail">ICE 高速列車 · 約1.5h · 預計9/25（五）下午抵達</div></div></div>
+  <div class="flight-group-header"><span class="zh">🚂 漢堡→柏林 火車</span><span class="en">🚂 Hamburg → Berlin Train</span> <span class="flight-badge badge-wait"><span class="zh">⏳ 日期待確認</span><span class="en">⏳ Date TBD</span></span></div>
+  <div class="flight-seg">
+    <div class="flight-info">
+      <div class="flight-route">Hamburg Hbf → Berlin Hbf</div>
+      <div class="flight-detail"><span class="zh">ICE 高速列車 · 約1.5h · 預計9/25（五）下午抵達</span><span class="en">ICE High-Speed Train · ~1.5h · Expected arrival Friday afternoon Sep 25</span></div>
+    </div>
+  </div>
 </div>
 <div class="flight-group">
-  <div class="flight-group-header">🚗 10/8 開車回漢堡</div>
-  <div class="flight-seg"><div class="flight-info"><div class="flight-route">Ortisei → 漢堡（A22高速）</div><div class="flight-detail">約10–11小時，10/8（四）08:30 出發道別</div></div></div>
+  <div class="flight-group-header"><span class="zh">🚗 10/8 開車回漢堡</span><span class="en">🚗 Oct 8 Drive back to Hamburg</span></div>
+  <div class="flight-seg">
+    <div class="flight-info">
+      <div class="flight-route">Ortisei → Hamburg (A22 Autobahn)</div>
+      <div class="flight-detail"><span class="zh">約10–11小時，10/8（四）08:30 出發道別</span><span class="en">Approx. 10–11 hours, departure &amp; farewell on Thu Oct 8 at 08:30</span></div>
+    </div>
+  </div>
 </div>
+
 <div class="section-title">S&amp;K — Sonia &amp; Kelvin</div>
 <div class="flight-group">
-  <div class="flight-group-header">✈️ 英國 → 多洛米蒂附近機場 <span class="flight-badge badge-wait">⏳ 全部待確認</span></div>
-  <div class="flight-seg"><div class="flight-info"><div class="flight-route">英國出發機場 → 多洛米蒂附近機場</div><div class="flight-detail">⏳ 航班待確認 · 預計10/1前抵達多洛米蒂</div></div></div>
+  <div class="flight-group-header"><span class="zh">✈️ 英國 → 多洛米蒂附近機場</span><span class="en">✈️ UK → Airport near Dolomites</span> <span class="flight-badge badge-wait"><span class="zh">⏳ 全部待確認</span><span class="en">⏳ All TBD</span></span></div>
+  <div class="flight-seg">
+    <div class="flight-info">
+      <div class="flight-route"><span class="zh">英國出發機場 → 多洛米蒂附近機場</span><span class="en">UK Airport → Airport near Dolomites</span></div>
+      <div class="flight-detail"><span class="zh">⏳ 航班待確認 · 預計10/1前抵達多洛米蒂</span><span class="en">⏳ Flights TBD · Estimated arrival in Dolomites before Oct 1</span></div>
+    </div>
+  </div>
 </div>
 </div>
 
 <!-- ══ ACCOMMODATION ══ -->
 <div id="panel-accommodation" class="panel">
-<div class="section-title" style="padding-top:12px">住宿一覽</div>
+<div class="section-title" style="padding-top:12px"><span class="zh">住宿一覽</span><span class="en">Accommodation List</span></div>
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">🏙️</div><div><div class="accom-title">Three Little Pigs Hostel — 柏林</div><div class="accom-sub">9/25（五）– 9/27（日） 3晚</div></div></div>
-  <span class="accom-status badge-ok">✅ 已訂</span>
+  <div class="accom-header"><div class="accom-icon">🏙️</div><div><div class="accom-title">Three Little Pigs Hostel — Berlin</div><div class="accom-sub"><span class="zh">9/25（五）– 9/27（日） 3晚</span><span class="en">Sep 25 (Fri) – Sep 27 (Sun) 3 Nights</span></div></div></div>
+  <span class="accom-status badge-ok"><span class="zh">✅ 已訂</span><span class="en">✅ Booked</span></span>
   <div class="accom-body">
-    <div class="accom-row"><div class="accom-key">地址</div><div class="accom-val">Stresemannstr. 66, 腓特烈斯海因-克羅伊茨貝格, 10963 柏林</div></div>
-    <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">✅ M&amp;J  ✅ Becky  ⏳ Y&amp;W 待確認</div></div>
-    <div class="accom-row"><div class="accom-key">M&amp;J 9/25</div><div class="accom-val">混合宿舍 6人房 單人床位（共用衛浴）· TWD 1,500/人</div></div>
-    <div class="accom-row"><div class="accom-key">M&amp;J 9/26–9/27</div><div class="accom-val">4人宿舍房 單人床位（共用衛浴）· TWD 1,500/人/晚</div></div>
-    <div class="accom-row"><div class="accom-key">Becky 9/26–9/27</div><div class="accom-val">混合宿舍 6人房 單人床位（共用衛浴）</div></div>
-    <div class="accom-row"><div class="accom-key">Check-in</div><div class="accom-val">15:00 起（最晚可延至 03:00）</div></div>
-    <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val">11:00 前</div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">地址</span><span class="en">Address</span></div><div class="accom-val">Stresemannstr. 66, Friedrichshain-Kreuzberg, 10963 Berlin</div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val">✅ M&amp;J  ✅ Becky  <span class="zh">⏳ Y&amp;W 待確認</span><span class="en">⏳ Y&amp;W TBD</span></div></div>
+    <div class="accom-row"><div class="accom-key">M&amp;J 9/25</div><div class="accom-val"><span class="zh">混合宿舍 6人房 單人床位（共用衛浴）· TWD 1,500/人</span><span class="en">6-Bed Mixed Dorm, Single Bed (Shared Bath) · TWD 1,500/person</span></div></div>
+    <div class="accom-row"><div class="accom-key">M&amp;J 9/26–9/27</div><div class="accom-val"><span class="zh">4人宿舍房 單人床位（共用衛浴）· TWD 1,500/人/晚</span><span class="en">4-Bed Dorm, Single Bed (Shared Bath) · TWD 1,500/person/night</span></div></div>
+    <div class="accom-row"><div class="accom-key">Becky 9/26–9/27</div><div class="accom-val"><span class="zh">混合宿舍 6人房 單人床位（共用衛浴）</span><span class="en">6-Bed Mixed Dorm, Single Bed (Shared Bath)</span></div></div>
+    <div class="accom-row"><div class="accom-key">Check-in</div><div class="accom-val"><span class="zh">15:00 起（最晚可延至 03:00）</span><span class="en">From 15:00 (Late check-in allowed until 03:00)</span></div></div>
+    <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val"><span class="zh">11:00 前</span><span class="en">Before 11:00</span></div></div>
   </div>
 </div>
+
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">🛶</div><div><div class="accom-title">威尼斯迪樂公寓 Venicedire</div><div class="accom-sub">9/28（一）– 9/30（三） 2晚</div></div></div>
-  <span class="accom-status badge-ok">✅ 已訂</span>
+  <div class="accom-header"><div class="accom-icon">🛶</div><div><div class="accom-title"><span class="zh">威尼斯迪樂公寓 Venicedire</span><span class="en">Venicedire Apartment Venice</span></div><div class="accom-sub"><span class="zh">9/28（一）– 9/30（三） 2晚</span><span class="en">Sep 28 (Mon) – Sep 30 (Wed) 2 Nights</span></div></div></div>
+  <span class="accom-status badge-ok"><span class="zh">✅ 已訂</span><span class="en">✅ Booked</span></span>
   <div class="accom-body">
-    <div class="accom-row"><div class="accom-key">位置</div><div class="accom-val">Santa Croce 區，靠近 Piazzale Roma</div></div>
-    <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">M&amp;J + Becky + 凱祺（4人）</div></div>
-    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://reurl.cc/lpWqKj" target="_blank">Venicedire 連結</a></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">位置</span><span class="en">Location</span></div><div class="accom-val"><span class="zh">Santa Croce 區，靠近 Piazzale Roma</span><span class="en">Santa Croce District, close to Piazzale Roma</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val"><span class="zh">M&amp;J + Becky + 凱祺（4人）</span><span class="en">M&amp;J + Becky + Kaiqi (4 people)</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">連結</span><span class="en">Link</span></div><div class="accom-val"><a href="https://reurl.cc/lpWqKj" target="_blank">Venicedire Link</a></div></div>
   </div>
 </div>
+
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">⛰️</div><div><div class="accom-title">Airbnb Cortina d'Ampezzo（6人）</div><div class="accom-sub">9/30（三）– 10/3（六） 3晚</div></div></div>
-  <span class="accom-status badge-ok">✅ 已訂（馬兒付款）</span>
+  <div class="accom-header"><div class="accom-icon">⛰️</div><div><div class="accom-title">Airbnb Cortina d'Ampezzo (6 ppl)</div><div class="accom-sub"><span class="zh">9/30（三）– 10/3（六） 3晚</span><span class="en">Sep 30 (Wed) – Oct 3 (Sat) 3 Nights</span></div></div></div>
+  <span class="accom-status badge-ok"><span class="zh">✅ 已訂（馬兒付款）</span><span class="en">✅ Booked (Paid by Maier)</span></span>
   <div class="accom-body">
-    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://www.airbnb.it/rooms/2612583" target="_blank">airbnb.it/rooms/2612583</a></div></div>
-    <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">M&amp;J + B&amp;K + Y&amp;W（6人）· S&amp;K 另行安排</div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">連結</span><span class="en">Link</span></div><div class="accom-val"><a href="https://www.airbnb.it/rooms/2612583" target="_blank">airbnb.it/rooms/2612583</a></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val"><span class="zh">M&amp;J + B&amp;K + Y&amp;W（6人）· S&amp;K 另行安排</span><span class="en">M&amp;J + B&amp;K + Y&amp;W (6 people) · S&amp;K arranged separately</span></div></div>
     <div class="accom-row"><div class="accom-key">Check-in</div><div class="accom-val">17:00 – 00:00</div></div>
-    <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val">⚠️ 10:00 前</div></div>
-    <div class="accom-row"><div class="accom-key">停車</div><div class="accom-val">⏳ 確認中（需聯絡馬兒）</div></div>
+    <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val"><span class="zh">⚠️ 10:00 前</span><span class="en">⚠️ Before 10:00</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">停車</span><span class="en">Parking</span></div><div class="accom-val"><span class="zh">⏳ 確認中（需聯絡馬兒）</span><span class="en">⏳ Confirmation pending (Contact Maier)</span></div></div>
   </div>
 </div>
+
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">⛰️</div><div><div class="accom-title">Airbnb Ortisei（6人）</div><div class="accom-sub">10/3（六）– 10/8（四） 5晚</div></div></div>
-  <span class="accom-status badge-ok">✅ 已訂（馬兒付款）⚠️ 不可取消！</span>
+  <div class="accom-header"><div class="accom-icon">⛰️</div><div><div class="accom-title">Airbnb Ortisei (6 ppl)</div><div class="accom-sub"><span class="zh">10/3（六）– 10/8（四） 5晚</span><span class="en">Oct 3 (Sat) – Oct 8 (Thu) 5 Nights</span></div></div></div>
+  <span class="accom-status badge-ok"><span class="zh">✅ 已訂（馬兒付款）⚠️ 不可取消！</span><span class="en">✅ Booked (Paid by Maier) ⚠️ NON-REFUNDABLE!</span></span>
   <div class="accom-body">
-    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://www.airbnb.com/rooms/618625291973760281" target="_blank">airbnb.com/rooms/618625291973760281</a></div></div>
-    <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">M&amp;J + B&amp;K + Y&amp;W（6人）· S&amp;K 另行安排</div></div>
-    <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val">⚠️ 09:00 前（非常早！前一晚收拾好）</div></div>
-    <div class="accom-row"><div class="accom-key">停車</div><div class="accom-val">✅ 免費停車 · 最多3輛車</div></div>
-    <div class="accom-row"><div class="accom-key">房型</div><div class="accom-val">3臥室 · 2浴室 · 靠近市中心</div></div>
-    <div class="accom-row"><div class="accom-key">費用</div><div class="accom-val">約€1,626（5晚6人）</div></div>
-    <div class="accom-row"><div class="accom-key">取消政策</div><div class="accom-val">⚠️ 不可取消，請勿更改！</div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">連結</span><span class="en">Link</span></div><div class="accom-val"><a href="https://www.airbnb.com/rooms/618625291973760281" target="_blank">airbnb.com/rooms/618625291973760281</a></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val"><span class="zh">M&amp;J + B&amp;K + Y&amp;W（6人）· S&amp;K 另行安排</span><span class="en">M&amp;J + B&amp;K + Y&amp;W (6 people) · S&amp;K arranged separately</span></div></div>
+    <div class="accom-row"><div class="accom-key">Check-out</div><div class="accom-val"><span class="zh">⚠️ 09:00 前（非常早！前一晚收拾好）</span><span class="en">⚠️ Before 09:00 (Very early! Pack the night before)</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">停車</span><span class="en">Parking</span></div><div class="accom-val"><span class="zh">✅ 免費停車 · 最多3輛車</span><span class="en">✅ Free Parking · Up to 3 vehicles</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">房型</span><span class="en">Room Type</span></div><div class="accom-val"><span class="zh">3臥室 · 2浴室 · 靠近市中心</span><span class="en">3 Bedrooms · 2 Bathrooms · Close to town center</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">費用</span><span class="en">Cost</span></div><div class="accom-val"><span class="zh">約€1,626（5晚6人）</span><span class="en">Approx. €1,626 (5 nights / 6 people)</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">取消政策</span><span class="en">Cancellation</span></div><div class="accom-val"><span class="zh">⚠️ 不可取消，請勿更改！</span><span class="en">⚠️ Non-refundable, do not change!</span></div></div>
   </div>
 </div>
+
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">🏙️</div><div><div class="accom-title">Riviera Views Apartment by Welc(H)ome — Treviso</div><div class="accom-sub">10/8（四）– 10/10（六） 2晚</div></div></div>
-  <span class="accom-status badge-ok">✅ 已訂 NT$14,570</span>
+  <div class="accom-header"><div class="accom-icon">🏙️</div><div><div class="accom-title">Riviera Views Apartment by Welc(H)ome — Treviso</div><div class="accom-sub"><span class="zh">10/8（四）– 10/10（六） 2晚</span><span class="en">Oct 8 (Thu) – Oct 10 (Sat) 2 Nights</span></div></div></div>
+  <span class="accom-status badge-ok"><span class="zh">✅ 已訂 NT$14,570</span><span class="en">✅ Booked NT$14,570</span></span>
   <div class="accom-body">
-    <div class="accom-row"><div class="accom-key">入住人員</div><div class="accom-val">M&amp;J + Becky + 凱祺（4人）</div></div>
-    <div class="accom-row"><div class="accom-key">連結</div><div class="accom-val"><a href="https://www.booking.com/hotel/it/riviera-views-apartment-by-welc-h-ome.zh-tw.html" target="_blank">Booking.com 連結</a></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val"><span class="zh">M&amp;J + Becky + 凱祺（4人）</span><span class="en">M&amp;J + Becky + Kaiqi (4 people)</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">連結</span><span class="en">Link</span></div><div class="accom-val"><a href="https://www.booking.com/hotel/it/riviera-views-apartment-by-welc-h-ome.zh-tw.html" target="_blank">Booking.com Link</a></div></div>
   </div>
 </div>
+
 <div class="accom-card">
-  <div class="accom-header"><div class="accom-icon">🏕️</div><div><div class="accom-title">S&amp;K 多洛米蒂住宿</div><div class="accom-sub">約 10/1 – 10/8</div></div></div>
-  <span class="accom-status" style="background:#fff8e1;color:#e65100">⏳ 待確認</span>
+  <div class="accom-header"><div class="accom-icon">🏕️</div><div><div class="accom-title"><span class="zh">S&amp;K 多洛米蒂住宿</span><span class="en">S&amp;K Dolomites Stay</span></div><div class="accom-sub">Approx. 10/1 – 10/8</div></div></div>
+  <span class="accom-status" style="background:#fff8e1;color:#e65100"><span class="zh">⏳ 待確認</span><span class="en">⏳ TBD</span></span>
   <div class="accom-body">
-    <div class="accom-row"><div class="accom-key">說明</div><div class="accom-val">S&amp;K 自行安排，不與6人大組同住</div></div>
-    <div class="accom-row"><div class="accom-key">注意</div><div class="accom-val">請確認後告知大家會合地點！</div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">說明</span><span class="en">Notes</span></div><div class="accom-val"><span class="zh">S&amp;K 自行安排，不與6人大組同住</span><span class="en">S&amp;K arranged by themselves, not staying with the main group of 6</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">注意</span><span class="en">Attention</span></div><div class="accom-val"><span class="zh">請確認後告知大家會合地點！</span><span class="en">Please confirm and inform everyone of the meetup point!</span></div></div>
   </div>
 </div>
 </div>
 
 <!-- ══ CAR RENTAL ══ -->
 <div id="panel-car" class="panel">
-
 <div class="car-summary">
   <div class="car-summary-header">
     <div class="car-icon">🚗</div>
     <div>
-      <h2>Locauto 租車確認 ✅</h2>
-      <p>威尼斯馬可波羅機場(VCE) &nbsp;·&nbsp; 9天 &nbsp;·&nbsp; TWD 26,886</p>
+      <h2>Locauto Car Rental <span class="zh">✅ 已確認</span><span class="en">✅ Confirmed</span></h2>
+      <p><span class="zh">威尼斯馬可波羅機場(VCE) &nbsp;·&nbsp; 9天 &nbsp;·&nbsp; TWD 26,886</span><span class="en">Venice Marco Polo Airport (VCE) &nbsp;·&nbsp; 9 Days &nbsp;·&nbsp; TWD 26,886</span></p>
     </div>
   </div>
   <div class="car-badge-row">
-    <div class="car-badge"><div class="cb-icon">🚙</div><div class="cb-val">Skoda Octavia Estate</div><div class="cb-key">車款</div></div>
-    <div class="car-badge"><div class="cb-icon">👥</div><div class="cb-val">5人座</div><div class="cb-key">座位</div></div>
-    <div class="car-badge"><div class="cb-icon">🧳</div><div class="cb-val">3大+3小</div><div class="cb-key">行李空間</div></div>
-    <div class="car-badge"><div class="cb-icon">⚙️</div><div class="cb-val">自動排檔</div><div class="cb-key">排檔</div></div>
-    <div class="car-badge"><div class="cb-icon">♾️</div><div class="cb-val">無限里程</div><div class="cb-key">里程</div></div>
-    <div class="car-badge"><div class="cb-icon">❄️</div><div class="cb-val">有空調</div><div class="cb-key">冷氣</div></div>
+    <div class="car-badge"><div class="cb-icon">🚙</div><div class="cb-val">Skoda Octavia Estate</div><div class="cb-key"><span class="zh">車款</span><span class="en">Model</span></div></div>
+    <div class="car-badge"><div class="cb-icon">👥</div><div class="cb-val"><span class="zh">5人座</span><span class="en">5 Seats</span></div><div class="cb-key"><span class="zh">座位</span><span class="en">Seats</span></div></div>
+    <div class="car-badge"><div class="cb-icon">🧳</div><div class="cb-val"><span class="zh">3大+3小</span><span class="en">3L + 3S</span></div><div class="cb-key"><span class="zh">行李空間</span><span class="en">Luggage</span></div></div>
+    <div class="car-badge"><div class="cb-icon">⚙️</div><div class="cb-val"><span class="zh">自動排檔</span><span class="en">Automatic</span></div><div class="cb-key"><span class="zh">排檔</span><span class="en">Transmission</span></div></div>
+    <div class="car-badge"><div class="cb-icon">♾️</div><div class="cb-val"><span class="zh">無限里程</span><span class="en">Unlimited</span></div><div class="cb-key"><span class="zh">里程</span><span class="en">Mileage</span></div></div>
+    <div class="car-badge"><div class="cb-icon">❄️</div><div class="cb-val"><span class="zh">有空調</span><span class="en">A/C</span></div><div class="cb-key"><span class="zh">冷氣</span><span class="en">A/C</span></div></div>
   </div>
   <div class="car-info-grid">
-    <div class="car-row"><div class="car-key">租車公司</div><div class="car-val"><strong>Locauto</strong></div></div>
-    <div class="car-row"><div class="car-key">取車地點</div><div class="car-val">威尼斯馬可波羅機場(VCE) — Locauto 取車櫃台</div></div>
-    <div class="car-row"><div class="car-key">還車地點</div><div class="car-val">威尼斯馬可波羅機場(VCE) — Locauto 還車區</div></div>
-    <div class="car-row"><div class="car-key">總費用</div><div class="car-val"><strong>TWD 26,886</strong>（9天）</div></div>
-    <div class="car-row"><div class="car-key">燃油政策</div><div class="car-val">⏳ 請確認 PDF 確認單（Full-to-Full？）</div></div>
-    <div class="car-row"><div class="car-key">保險</div><div class="car-val">⏳ 請確認保險內容（CDW / 超額損失險）</div></div>
+    <div class="car-row"><div class="car-key"><span class="zh">租車公司</span><span class="en">Company</span></div><div class="car-val"><strong>Locauto</strong></div></div>
+    <div class="car-row"><div class="car-key"><span class="zh">取車地點</span><span class="en">Pick-up Location</span></div><div class="car-val"><span class="zh">威尼斯馬可波羅機場(VCE) — Locauto 取車櫃台</span><span class="en">Venice Marco Polo Airport (VCE) — Locauto Counter</span></div></div>
+    <div class="car-row"><div class="car-key"><span class="zh">還車地點</span><span class="en">Drop-off Location</span></div><div class="car-val"><span class="zh">威尼斯馬可波羅機場(VCE) — Locauto 還車區</span><span class="en">Venice Marco Polo Airport (VCE) — Locauto Return Area</span></div></div>
+    <div class="car-row"><div class="car-key"><span class="zh">總費用</span><span class="en">Total Cost</span></div><div class="car-val"><strong>TWD 26,886</strong> (<span class="zh">9天</span><span class="en">9 Days</span>)</div></div>
+    <div class="car-row"><div class="car-key"><span class="zh">燃油政策</span><span class="en">Fuel Policy</span></div><div class="car-val"><span class="zh">⏳ 請確認 PDF 確認單（Full-to-Full？）</span><span class="en">⏳ Please check PDF voucher (Full-to-Full?)</span></div></div>
+    <div class="car-row"><div class="car-key"><span class="zh">保險</span><span class="en">Insurance</span></div><div class="car-val"><span class="zh">⏳ 請確認保險內容（CDW / 超額損失險）</span><span class="en">⏳ Please check coverage (CDW / Excess insurance)</span></div></div>
   </div>
 </div>
 
-<div class="section-title" style="padding-top:14px">📍 取車 &amp; 還車</div>
-
+<div class="section-title">📍 <span class="zh">取車 &amp; 還車</span><span class="en">Pick-up &amp; Drop-off</span></div>
 <div class="car-event">
   <div class="car-event-header">
     <div class="car-event-dot" style="background:#2e7d32"></div>
-    <div class="car-event-title">🟢 取車</div>
+    <div class="car-event-title">🟢 <span class="zh">取車</span><span class="en">Pick-up</span></div>
     <div class="car-event-date">9/30（三）09:00</div>
   </div>
   <div class="car-event-body">
-    <div class="car-event-row"><b>時間</b>09:00（請提前10分鐘到達）</div>
-    <div class="car-event-row"><b>地點</b>威尼斯馬可波羅機場(VCE) — Locauto 取車櫃台</div>
-    <div class="car-event-row"><b>必帶文件</b>護照 + 信用卡（預授權用）+ 駕照 + 國際駕照 + 訂車確認單</div>
-    <div class="car-event-row"><b>取車時</b>仔細拍攝車身四周 360° 照片存檔！確認油表讀數</div>
-    <div class="car-event-row"><b>取車後</b>走 A27→SS51 景觀公路前往 Cortina d'Ampezzo（約 130km / 2h）</div>
+    <div class="car-event-row"><b><span class="zh">時間</span><span class="en">Time</span></b>09:00 (<span class="zh">請提前10分鐘到達</span><span class="en">Please arrive 10 mins early</span>)</div>
+    <div class="car-event-row"><b><span class="zh">地點</span><span class="en">Location</span></b><span class="zh">威尼斯馬可波羅機場(VCE) — Locauto 取車櫃台</span><span class="en">Venice Marco Polo Airport (VCE) — Locauto Counter</span></div>
+    <div class="car-event-row"><b><span class="zh">必帶文件</span><span class="en">Documents Required</span></b><span class="zh">護照 + 信用卡（預授權用）+ 駕照 + 國際駕照 + 訂車確認單</span><span class="en">Passport + Credit Card + Driver's License + IDP + Voucher</span></div>
+    <div class="car-event-row"><b><span class="zh">取車時</span><span class="en">At Pick-up</span></b><span class="zh">仔細拍攝車身四周 360° 照片存檔！確認油表讀數</span><span class="en">Take 360° photos of the vehicle! Check fuel gauge level</span></div>
+    <div class="car-event-row"><b><span class="zh">取車後</span><span class="en">After Pick-up</span></b><span class="zh">走 A27→SS51 景觀公路前往 Cortina d'Ampezzo（約 130km / 2h）</span><span class="en">Drive A27→SS51 scenic route to Cortina d'Ampezzo (~130km / 2h)</span></div>
   </div>
 </div>
 
 <div class="car-event">
   <div class="car-event-header">
     <div class="car-event-dot" style="background:#bf360c"></div>
-    <div class="car-event-title">🔴 還車</div>
+    <div class="car-event-title">🔴 <span class="zh">還車</span><span class="en">Drop-off</span></div>
     <div class="car-event-date">10/8（四）約 17:00</div>
   </div>
   <div class="car-event-body">
-    <div class="car-event-row"><b>時間</b>約 17:00（Ortisei 08:30 出發，下午抵達 VCE）</div>
-    <div class="car-event-row"><b>地點</b>威尼斯馬可波羅機場(VCE) — Locauto 還車區</div>
-    <div class="car-event-row"><b>還車前</b>加滿油（Full-to-Full 的話）· 拍照記錄車況</div>
-    <div class="car-event-row"><b>還車後</b>搭火車 VCE→Treviso（約 20 分，€4/人）→ 18:00 Treviso check-in → 19:30 晚餐</div>
+    <div class="car-event-row"><b><span class="zh">時間</span><span class="en">Time</span></b><span class="zh">約 17:00（Ortisei 08:30 出發，下午抵達 VCE）</span><span class="en">Approx. 17:00 (Depart Ortisei 08:30, arrive VCE in afternoon)</span></div>
+    <div class="car-event-row"><b><span class="zh">地點</span><span class="en">Location</span></b><span class="zh">威尼斯馬可波羅機場(VCE) — Locauto 還車區</span><span class="en">Venice Marco Polo Airport (VCE) — Locauto Return Area</span></div>
+    <div class="car-event-row"><b><span class="zh">還車前</span><span class="en">Before Drop-off</span></b><span class="zh">加滿油（Full-to-Full 的話）· 拍照記錄車況</span><span class="en">Refuel to full (if Full-to-Full policy) · Take photos of condition</span></div>
+    <div class="car-event-row"><b><span class="zh">還車後</span><span class="en">After Drop-off</span></b><span class="zh">搭火車 VCE→Treviso（約 20 分，€4/人）→ 18:00 Treviso check-in → 19:30 晚餐</span><span class="en">Train VCE→Treviso (~20 min, €4/p) → 18:00 Treviso check-in → 19:30 Dinner</span></div>
   </div>
 </div>
 
-<div class="section-title">🗺️ 行車路線概覽（全程 9 天）</div>
-
+<div class="section-title">🗺️ <span class="zh">行車路線概覽（全程 9 天）</span><span class="en">Driving Route Overview (9 Days)</span></div>
 <div class="car-event">
   <div class="car-event-header">
     <div class="car-event-dot" style="background:#7b1fa2"></div>
-    <div class="car-event-title">逐日路線</div>
+    <div class="car-event-title"><span class="zh">逐日路線</span><span class="en">Daily Routes</span></div>
     <div class="car-event-date">9/30 – 10/8</div>
   </div>
   <div class="car-event-body">
-    <div class="car-event-row"><b>9/30</b>VCE取車 → A27 → SS51 → Cortina d'Ampezzo（約130km / 2h）</div>
-    <div class="car-event-row"><b>10/1</b>Cortina → Parcheggio Auronzo 三尖峰（約15km / 30分）</div>
-    <div class="car-event-row"><b>10/2</b>Cortina → 布萊埃斯湖 → Prato Piazza → Cortina（約70km）</div>
-    <div class="car-event-row"><b>10/3</b>Cortina → Cinque Torri → Passo Falzarego → Passo Gardena → Ortisei（約70km）</div>
-    <div class="car-event-row"><b>10/4</b>Ortisei → Seceda纜車站（市區內，約2km）</div>
-    <div class="car-event-row"><b>10/5</b>Ortisei → Alpe di Siusi（09:00前開車，約15km）</div>
-    <div class="car-event-row"><b>10/6</b>Ortisei → Val di Funes（約45km / 50分）</div>
-    <div class="car-event-row"><b>10/7</b>Ortisei → Lago di Carezza（約30km / 30分）</div>
-    <div class="car-event-row"><b>10/8</b>Ortisei → Passo Sella → Passo Pordoi → Lago di Alleghe → Belluno → VCE還車（約200km / 4h）</div>
+    <div class="car-event-row"><b>9/30</b>VCE → A27 → SS51 → Cortina d'Ampezzo (~130km / 2h)</div>
+    <div class="car-event-row"><b>10/1</b>Cortina → Parcheggio Auronzo (Tre Cime) (~15km / 30m)</div>
+    <div class="car-event-row"><b>10/2</b>Cortina → Lago di Braies → Prato Piazza → Cortina (~70km)</div>
+    <div class="car-event-row"><b>10/3</b>Cortina → Cinque Torri → Passo Falzarego → Passo Gardena → Ortisei (~70km)</div>
+    <div class="car-event-row"><b>10/4</b>Ortisei → Seceda Cable Car Station (In town, ~2km)</div>
+    <div class="car-event-row"><b>10/5</b>Ortisei → Alpe di Siusi (Drive before 09:00, ~15km)</div>
+    <div class="car-event-row"><b>10/6</b>Ortisei → Val di Funes (~45km / 50m)</div>
+    <div class="car-event-row"><b>10/7</b>Ortisei → Lago di Carezza (~30km / 30m)</div>
+    <div class="car-event-row"><b>10/8</b>Ortisei → Passo Sella → Passo Pordoi → Lago di Alleghe → Belluno → VCE Return (~200km / 4h)</div>
   </div>
 </div>
 
-<div class="section-title">⚠️ 重要注意事項</div>
-
+<div class="section-title">⚠️ <span class="zh">重要注意事項</span><span class="en">Important Driving Notes</span></div>
 <div class="car-warn">
-  <h4>行前必讀</h4>
+  <h4><span class="zh">行前必讀</span><span class="en">Read Before Trip</span></h4>
   <ul>
-    <li>確認燃油政策：通常 Full-to-Full，取車時確認油表並拍照</li>
-    <li>取車時用信用卡預授權押金（通常 €500–1,000），取車後才扣</li>
-    <li>帶台灣駕照 + 國際駕照（缺一不可！）</li>
-    <li>確認保險內容：CDW 碰撞損失減免是否含括，建議補充超額保險</li>
-    <li>取車時仔細拍攝車身 360° 照片，存入雲端備用</li>
-    <li>義大利有 ZTL 禁行區（限制通行區），進市區前確認，GPS 不一定提示</li>
-    <li>多洛米蒂山區收費停車場多，備妥 € 現金和硬幣</li>
-    <li>三尖峰停車場只收現金！</li>
+    <li><span class="zh">確認燃油政策：通常 Full-to-Full，取車時確認油表並拍照</span><span class="en">Check fuel policy: usually Full-to-Full, check fuel gauge at pick-up</span></li>
+    <li><span class="zh">取車時用信用卡預授權押金（通常 €500–1,000）</span><span class="en">Credit card deposit hold required at pick-up (usually €500–1,000)</span></li>
+    <li><span class="zh">帶台灣/原國籍駕照 + 國際駕照（缺一不可！）</span><span class="en">Bring Original Driver's License + International Driving Permit (Both mandatory!)</span></li>
+    <li><span class="zh">確認保險內容：CDW 碰撞損失減免是否含括，建議補充超額保險</span><span class="en">Verify insurance coverage: CDW inclusions, top-up excess insurance recommended</span></li>
+    <li><span class="zh">取車時仔細拍攝車身 360° 照片，存入雲端備用</span><span class="en">Take comprehensive 360° vehicle photos/videos and save to cloud</span></li>
+    <li><span class="zh">義大利有 ZTL 禁行區（限制通行區），進市區前確認，GPS 不一定提示</span><span class="en">Beware of ZTL (Restricted Traffic Zones) in cities; GPS may not warn you</span></li>
+    <li><span class="zh">多洛米蒂山區收費停車場多，備妥 € 現金和硬幣</span><span class="en">Many paid parking lots in Dolomites, prepare Euro cash & coins</span></li>
+    <li><span class="zh">三尖峰停車場只收現金！</span><span class="en">Tre Cime (Auronzo) parking accepts CASH ONLY!</span></li>
   </ul>
 </div>
 
-<div class="section-title">🅿️ 各天停車規劃</div>
-
+<div class="section-title">🅿️ <span class="zh">各天停車規劃</span><span class="en">Daily Parking Plan</span></div>
 <div class="car-parking">
-  <div class="car-parking-header">🗓️ 逐日停車資訊</div>
+  <div class="car-parking-header">🗓️ <span class="zh">逐日停車資訊</span><span class="en">Daily Parking Info</span></div>
   <div class="car-parking-day">
-    <div class="car-parking-date">9/30（三）</div>
-    <div class="car-parking-info">Cortina d'Ampezzo — Airbnb 住宿停車<br><span style="color:#e65100">⏳ 停車位詳情確認中（聯絡馬兒）</span></div>
+    <div class="car-parking-date">9/30 (Wed)</div>
+    <div class="car-parking-info">Cortina d'Ampezzo — Airbnb Parking<br><span style="color:#e65100"><span class="zh">⏳ 停車位詳情確認中（聯絡馬兒）</span><span class="en">⏳ Details pending (Contact Maier)</span></span></div>
   </div>
   <div class="car-parking-day">
-    <div class="car-parking-date">10/1（四）</div>
-    <div class="car-parking-info"><strong>🔴 三尖峰 Parcheggio Auronzo — 必須提前預約！</strong><br>網址：<a href="https://pass.auronzo.info" target="_blank">pass.auronzo.info</a><br>⚠️ 2台車共 €80 · 建議時段：07:00 · <strong>只收現金！</strong><br>帳號：cocochou79@pwc.com · 取車後需補填車牌號碼</div>
+    <div class="car-parking-date">10/1 (Thu)</div>
+    <div class="car-parking-info"><strong>🔴 <span class="zh">三尖峰 Parcheggio Auronzo — 必須提前預約！</span><span class="en">Tre Cime Parcheggio Auronzo — Pre-booking Required!</span></strong><br>URL: <a href="https://pass.auronzo.info" target="_blank">pass.auronzo.info</a><br>⚠️ <span class="zh">2台車共 €80 · 建議時段：07:00 · <strong>只收現金！</strong></span><span class="en">2 cars total €80 · Recommended time: 07:00 · <strong>CASH ONLY!</strong></span><br><span class="zh">帳號：cocochou79@pwc.com · 取車後需補填車牌號碼</span><span class="en">Account: cocochou79@pwc.com · License plate needed after pick-up</span></div>
   </div>
   <div class="car-parking-day">
-    <div class="car-parking-date">10/2（五）</div>
-    <div class="car-parking-info">布萊埃斯湖 — 直接開車停湖邊停車場（10月已解禁）<br>Prato Piazza — <span style="color:#e65100">⏳ 確認中</span>（10:00後Ponticello有車輛管制）</div>
+    <div class="car-parking-date">10/2 (Fri)</div>
+    <div class="car-parking-info"><span class="zh">布萊埃斯湖 — 直接開車停湖邊停車場（10月已解禁）<br>Prato Piazza — ⏳ 確認中（10:00後Ponticello有車輛管制）</span><span class="en">Lago di Braies — Park at lakeside lot directly (Restrictions lifted in Oct)<br>Prato Piazza — ⏳ TBD (Traffic control at Ponticello after 10:00)</span></div>
   </div>
   <div class="car-parking-day">
-    <div class="car-parking-date">10/3（六）</div>
-    <div class="car-parking-info">Cinque Torri — <strong>Bai de Dones 停車場（免費）</strong><br>Passo Falzarego / Passo Gardena — 路邊免費停車<br>Ortisei Airbnb — ✅ 免費停車（最多3輛）</div>
+    <div class="car-parking-date">10/3 (Sat)</div>
+    <div class="car-parking-info">Cinque Torri — <strong>Bai de Dones Parking (Free)</strong><br>Passo Falzarego / Passo Gardena — Free roadside parking<br>Ortisei Airbnb — ✅ Free Parking (Up to 3 cars)</div>
   </div>
   <div class="car-parking-day">
     <div class="car-parking-date">10/4–10/7</div>
-    <div class="car-parking-info">Ortisei Airbnb 停車場（✅ 免費，最多3輛）</div>
+    <div class="car-parking-info">Ortisei Airbnb Parking (✅ Free, max 3 cars)</div>
   </div>
   <div class="car-parking-day">
-    <div class="car-parking-date">10/5（一）</div>
-    <div class="car-parking-info"><strong>⚠️ Alpe di Siusi — 09:00–17:00 禁止私家車進 Compatsch</strong><br>選A：09:00前開車上山停 Compatsch 停車場<br>選B：搭 Mont Sëuc 纜車上山（€39/人）</div>
+    <div class="car-parking-date">10/5 (Mon)</div>
+    <div class="car-parking-info"><strong>⚠️ Alpe di Siusi — 09:00–17:00 <span class="zh">禁止私家車進 Compatsch</span><span class="en">Private cars banned into Compatsch</span></strong><br><span class="zh">選A：09:00前開車上山停 Compatsch 停車場<br>選B：搭 Mont Sëuc 纜車上山（€39/人）</span><span class="en">Option A: Drive up before 09:00 and park at Compatsch lot<br>Option B: Take Mont Sëuc Cable Car (€39/person)</span></div>
   </div>
   <div class="car-parking-day">
-    <div class="car-parking-date">10/6（二）</div>
-    <div class="car-parking-info">Val di Funes — <strong>Parcheggio Putzen（€4/全天）</strong><br>⚠️ 不可開車進入村道！</div>
+    <div class="car-parking-date">10/6 (Tue)</div>
+    <div class="car-parking-info">Val di Funes — <strong>Parcheggio Putzen (€4/Day)</strong><br>⚠️ <span class="zh">不可開車進入村道！</span><span class="en">No driving into village roads!</span></div>
   </div>
   <div class="car-parking-day">
-    <div class="car-parking-date">10/7（三）</div>
-    <div class="car-parking-info">Lago di Carezza — 湖邊停車場（€3/h）</div>
+    <div class="car-parking-date">10/7 (Wed)</div>
+    <div class="car-parking-info">Lago di Carezza — Lakeside Lot (€3/h)</div>
   </div>
   <div class="car-parking-day">
-    <div class="car-parking-date">10/8（四）</div>
-    <div class="car-parking-info">各景觀點路邊停車（Passo Sella / Pordoi / Alleghe 均有免費停車位）<br>還車地點：威尼斯馬可波羅機場(VCE) Locauto 還車區</div>
+    <div class="car-parking-date">10/8 (Thu)</div>
+    <div class="car-parking-info"><span class="zh">各景觀點路邊停車（Passo Sella / Pordoi / Alleghe 均有免費停車位）<br>還車地點：威尼斯馬可波羅機場(VCE) Locauto 還車區</span><span class="en">Roadside parking at passes (Free spaces at Passo Sella / Pordoi / Alleghe)<br>Drop-off: Venice Marco Polo Airport (VCE) Locauto Return Area</span></div>
   </div>
 </div>
-
-</div><!-- /car -->
+</div>
 
 <!-- ══ ATTRACTIONS ══ -->
 <div id="panel-attractions" class="panel">
-<div class="section-title" style="padding-top:12px">東區景點 — Cortina d'Ampezzo</div>
+<div class="section-title" style="padding-top:12px"><span class="zh">東區景點 — Cortina d'Ampezzo</span><span class="en">East Area — Cortina d'Ampezzo</span></div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="三尖峰.png" alt="三尖峰"><div style="flex:1"><div class="attr-title">三尖峰 Tre Cime di Lavaredo</div><div class="attr-day">✅ 10/1（四）</div></div><div class="attr-emoji">🔴</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★★☆☆</span><span class="attr-tag">環線 9–10km</span><span class="attr-tag">3.5–5h</span><span class="attr-tag warn">⚠️ 07:30前到</span><span class="attr-tag warn">停車€40/車</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>多洛米蒂最具代表性的三座石灰岩山峰（世界遺產）</li><li>可「繞整圈」，360°觀景，是最經典健行路線</li><li>沿途有山屋（rifugio），補給方便</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊（經典環線）</h4><div class="route-grid"><b>距離</b><span>約 9–10 km</span><b>時間</b><span>約 3.5–5 小時</span><b>爬升</b><span>約 350–450 m</span><b>難度</b><span>中（路況良好）</span></div></div>
-  <div class="attr-highlight">✅ 重點：Dolomites 必走 NO.1</div>
-  <div class="attr-trip"><b>本團安排：</b>逆時針環線 Rifugio Auronzo → Lavaredo → Forcella → Locatelli 山屋（午餐，⚠️只收現金！）。10月可能初雪結冰，需備冰爪。</div>
+  <div class="attr-header"><div style="width:64px;height:64px;background:#ddd;border-radius:8px;text-align:center;line-height:64px;font-size:24px">⛰️</div><div style="flex:1"><div class="attr-title">三尖峰 Tre Cime di Lavaredo</div><div class="attr-day">✅ 10/1 (Thu)</div></div><div class="attr-emoji">🔴</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★★★☆☆</span><span class="attr-tag">Loop 9–10km</span><span class="attr-tag">3.5–5h</span><span class="attr-tag warn">⚠️ Arrive before 07:30</span><span class="attr-tag warn">€40/Car</span></div>
+  <div class="attr-section">
+    <h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4>
+    <ul>
+      <li><span class="zh">多洛米蒂最具代表性的三座石灰岩山峰（世界遺產）</span><span class="en">The most iconic peaks in the Dolomites (UNESCO World Heritage)</span></li>
+      <li><span class="zh">可「繞整圈」，360°觀景，是最經典健行路線</span><span class="en">Classic loop trail with 360° panoramic mountain views</span></li>
+      <li><span class="zh">沿途有山屋（rifugio），補給方便</span><span class="en">Mountain huts (rifugi) along the way for food & rest</span></li>
+    </ul>
+  </div>
+  <div class="attr-highlight"><span class="zh">✅ 重點：Dolomites 必走 NO.1</span><span class="en">✅ Key: Must-do hike NO.1 in Dolomites</span></div>
 </div>
+
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="魔多之塔.png" alt="魔多之塔"><div style="flex:1"><div class="attr-title">魔多之塔 Cadini di Misurina</div><div class="attr-day">✅ 10/1（四）下午</div></div><div class="attr-emoji">🗡</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">來回 3.2km</span><span class="attr-tag">1–2h</span><span class="attr-tag warn">懸崖注意⚠️</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>鋸齒狀尖塔山群（像魔戒場景）</li><li>IG 最紅的「懸崖伸出拍照點」</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 3.2 km（來回）</span><b>時間</b><span>約 1–2 小時</span><b>爬升</b><span>約 150–200 m</span><b>難度</b><span>簡單（最後有懸崖須注意）</span></div></div>
-  <div class="attr-highlight">✅ 建議：可跟 Tre Cime 同一天</div>
-  <div class="attr-trip"><b>本團安排：</b>三尖峰下午接續走，423 步石階，30–45 分鐘近距離仰望刀鋒尖峰。</div>
+  <div class="attr-header"><div style="width:64px;height:64px;background:#ddd;border-radius:8px;text-align:center;line-height:64px;font-size:24px">🗡️</div><div style="flex:1"><div class="attr-title">魔多之塔 Cadini di Misurina</div><div class="attr-day">✅ 10/1 (Thu) Afternoon</div></div><div class="attr-emoji">🗡</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★★☆☆•</span><span class="attr-tag">Out & Back 3.2km</span><span class="attr-tag">1–2h</span><span class="attr-tag warn">⚠️ Cliff hazard</span></div>
+  <div class="attr-section">
+    <h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4>
+    <ul>
+      <li><span class="zh">鋸齒狀尖塔山群（像魔戒場景）</span><span class="en">Jagged, sharp spires reminiscent of Lord of the Rings scenes</span></li>
+      <li><span class="zh">IG 最紅的「懸崖伸出拍照點」</span><span class="en">Famous Instagram viewpoint on a narrow cliff edge</span></li>
+    </ul>
+  </div>
 </div>
+
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="布萊埃斯湖.png" alt="布萊埃斯湖"><div style="flex:1"><div class="attr-title">布萊埃斯湖 Lago di Braies</div><div class="attr-day">✅ 10/2（五）</div></div><div class="attr-emoji">💎</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">環湖 3.5–4km</span><span class="attr-tag">1–1.5h</span><span class="attr-tag ok">10月已解禁✅</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>多洛米蒂最著名湖景（翡翠湖＋木船）</li><li>環湖步道輕鬆平坦</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 3.5–4 km</span><b>時間</b><span>約 1–1.5 小時</span><b>爬升</b><span>幾乎平坦</span><b>難度</b><span>容易</span></div></div>
-  <div class="attr-highlight">✅ 重點：觀光型景點（非登山）</div>
-  <div class="attr-trip"><b>本團安排：</b>10 月無需預約直接開車，清晨最美。可租划艇（€10–15／30 分鐘）。</div>
+  <div class="attr-header"><div style="width:64px;height:64px;background:#ddd;border-radius:8px;text-align:center;line-height:64px;font-size:24px">💎</div><div style="flex:1"><div class="attr-title">布萊埃斯湖 Lago di Braies</div><div class="attr-day">✅ 10/2 (Fri)</div></div><div class="attr-emoji">💎</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">Loop 3.5–4km</span><span class="attr-tag">1–1.5h</span><span class="attr-tag ok">✅ No restrictions in Oct</span></div>
+  <div class="attr-section">
+    <h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4>
+    <ul>
+      <li><span class="zh">多洛米蒂最著名湖景（翡翠湖＋木船）</span><span class="en">Most famous lake view in the Dolomites (emerald waters & wooden boats)</span></li>
+      <li><span class="zh">環湖步道輕鬆平坦</span><span class="en">Flat and easy lakeside walking path</span></li>
+    </ul>
+  </div>
 </div>
+
+<div class="section-title"><span class="zh">西區景點 — Val Gardena / Ortisei</span><span class="en">West Area — Val Gardena / Ortisei</span></div>
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="斯佩奇山.jpg" alt="Monte Specie"><div style="flex:1"><div class="attr-title">斯佩奇山 Monte Specie（Strudelkopf）</div><div class="attr-day">✅ 10/2（五）下午</div></div><div class="attr-emoji">🔭</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">步道#34</span><span class="attr-tag">8.8–9.5km</span><span class="attr-tag">約3h</span><span class="attr-tag ok">遊客較少✅</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>多洛米蒂「最容易登頂的全景山」</li><li>山頂 360° 看到 Tre Cime、Cadini、Cristallo</li><li>高山草原緩坡，視野開闊</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 8.8–9.5 km</span><b>時間</b><span>約 3 小時</span><b>爬升</b><span>約 300–400 m</span><b>難度</b><span>簡單</span></div></div>
-  <div class="attr-highlight">✅ 重點：最輕鬆看到 Dolomites 全景的高 CP 值登山點</div>
-  <div class="attr-trip"><b>本團安排：</b>布萊埃斯湖上午後，下午接續 Prato Piazza 起登。山頂大十字架，360° 全景。</div>
+  <div class="attr-header"><div style="width:64px;height:64px;background:#ddd;border-radius:8px;text-align:center;line-height:64px;font-size:24px">⚡</div><div style="flex:1"><div class="attr-title">Seceda 刀鋒稜線</div><div class="attr-day">✅ 10/4 (Sun)</div></div><div class="attr-emoji">⚡</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">Cable car €74/p</span><span class="attr-tag">2–3h</span><span class="attr-tag warn">⚠️ Online Booking Required</span></div>
+  <div class="attr-section">
+    <h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4>
+    <ul>
+      <li><span class="zh">最誇張的「鋸齒狀稜線」</span><span class="en">Breathtakingly dramatic serrated mountain ridge</span></li>
+      <li><span class="zh">Dolomites 經典攝影點</span><span class="en">Iconic landscape photography location in the Dolomites</span></li>
+    </ul>
+  </div>
 </div>
+
 <div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="五塔山.png" alt="Cinque Torri"><div style="flex:1"><div class="attr-title">Cinque Torri 五塔山</div><div class="attr-day">✅ 10/3（六）上午</div></div><div class="attr-emoji">💎</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">5–6km</span><span class="attr-tag">2–3h</span><span class="attr-tag">椅式纜車€26</span><span class="attr-tag ok">✅ 10/3 開放</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>五座巨大岩塔，景色壯觀</li><li>WWI 戰壕遺跡（免費參觀）</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 5–6 km</span><b>時間</b><span>約 2–3 小時</span><b>爬升</b><span>約 200–300 m</span><b>難度</b><span>簡單～中</span></div></div>
-  <div class="attr-highlight">✅ 建議：可搭纜車縮短行程</div>
-  <div class="attr-trip"><b>本團安排：</b>東→西移動日上午加碼。Bai de Dones 停車場免費。</div>
-</div>
-<div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="索拉皮斯湖.png" alt="Lago di Sorapis"><div style="flex:1"><div class="attr-title">Lago di Sorapis 索拉皮斯湖</div><div class="attr-day">💡 進階備案</div></div><div class="attr-emoji">🦋</div></div>
-  <div class="attr-meta"><span class="attr-tag warn">★★★★☆</span><span class="attr-tag">來回 11–13km</span><span class="attr-tag">4–6h</span><span class="attr-tag warn">⚠️ 鐵鍊路段</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>藍色夢幻牛奶湖（極高人氣）</li><li>必走峭壁步道，非常刺激</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 11–13 km（來回）</span><b>時間</b><span>約 4–6 小時</span><b>爬升</b><span>約 500–700 m</span><b>難度</b><span>中～偏難（部分鐵鍊路段）</span></div></div>
-  <div class="attr-highlight">✅ 重點：Dolomites 最推薦「進階必走」</div>
-  <div class="attr-trip"><b>本團安排：</b>體力與天氣允許時的進階備案。鐵鍊路段建議攜帶手套。</div>
-</div>
-<div class="section-title">西區景點 — Val Gardena / Ortisei</div>
-<div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="Seceda 刀鋒稜線.png" alt="Seceda"><div style="flex:1"><div class="attr-title">Seceda 刀鋒稜線</div><div class="attr-day">✅ 10/4（日）</div></div><div class="attr-emoji">⚡</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★★☆☆☆</span><span class="attr-tag">纜車€74/人</span><span class="attr-tag">2–3h</span><span class="attr-tag warn">⚠️ 線上預約</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>最誇張的「鋸齒狀稜線」</li><li>Dolomites 經典攝影點</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線（纜車上山＋健行）</h4><div class="route-grid"><b>距離</b><span>約 4–6 km</span><b>時間</b><span>約 2–3 小時</span><b>爬升</b><span>約 200–400 m</span><b>難度</b><span>容易～中</span></div></div>
-  <div class="attr-highlight">✅ 建議：搭纜車最 CP</div>
-  <div class="attr-trip"><b>本團安排：</b>兩段纜車直達 2500m。⚠️ 2026 年強制線上預約時段票（www.seceda.it），8 人共約 €562，不可退款！午餐：Rifugio Sofie。</div>
-</div>
-<div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="休斯高原.png" alt="Alpe di Siusi"><div style="flex:1"><div class="attr-title">Alpe di Siusi 休斯高原</div><div class="attr-day">✅ 10/5（一）</div></div><div class="attr-emoji">🍂</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">纜車€39/人</span><span class="attr-tag">2–4h</span><span class="attr-tag warn">⚠️ 09:00–17:00 禁私車</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>歐洲最大高山草原</li><li>秋色落葉松景致，風景療癒</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線（彈性很多）</h4><div class="route-grid"><b>距離</b><span>約 5–10 km（自選）</span><b>時間</b><span>約 2–4 小時</span><b>爬升</b><span>約 100–250 m（緩坡）</span><b>難度</b><span>簡單</span></div></div>
-  <div class="attr-highlight">✅ 重點：「風景散步型」，不是硬登山</div>
-  <div class="attr-trip"><b>本團安排：</b>秋色落葉松黃金期最美！Mont Sëuc 纜車 08:30 開始，或 09:00 前開車上山。午餐：Baita Sanon（Speck／鹿肉／蘋果捲）。</div>
-</div>
-<div class="attr-card">
-  <div class="attr-header"><img class="attr-img" src="富內斯孤獨教堂.png" alt="Val di Funes"><div style="flex:1"><div class="attr-title">Val di Funes ＆ 富內斯教堂（Santa Maddalena）</div><div class="attr-day">✅ 10/6（二）</div></div><div class="attr-emoji">⛪</div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">2–5km</span><span class="attr-tag">1–2h</span><span class="attr-tag warn">不可開車進村</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>小教堂＋鋸齒山景（經典明信片）</li><li>適合拍照、輕鬆散步</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線</h4><div class="route-grid"><b>距離</b><span>約 2–5 km</span><b>時間</b><span>約 1–2 小時</span><b>爬升</b><span>約 50–150 m</span><b>難度</b><span>非常輕鬆</span></div></div>
-  <div class="attr-highlight">✅ 拍照聖地（經典明信片構圖）</div>
-  <div class="attr-trip"><b>本團安排：</b>孤獨教堂 St. Johann（€4–5）+ St. Magdalena 觀景台 + Adolf Munkel 步道（#36→#35），Geisler Alm 躺椅面峰。下午光線最美。</div>
-</div>
-<div class="attr-card">
-  <div class="attr-header"><div class="attr-emoji">🌈</div><div style="flex:1"><div class="attr-title">Lago di Carezza 彩虹湖</div><div class="attr-day">✅ 10/7（三）備案日</div></div></div>
-  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">輕鬆1h</span><span class="attr-tag">停車€3/h</span></div>
-  <div class="attr-section"><h4>📌 特色</h4><ul><li>寶石色湖水 + Latemar 山倒影</li><li>輕鬆環湖散步，老少咸宜</li></ul></div>
-  <div class="attr-route"><h4>🚶 路線資訊</h4><div class="route-grid"><b>距離</b><span>約 1–1.5 km（環湖）</span><b>時間</b><span>約 30–60 分鐘</span><b>爬升</b><span>&lt; 30 m</span><b>難度</b><span>非常輕鬆</span></div></div>
-  <div class="attr-highlight">✅ 重點：純觀光散步，天氣差時改為補拍備案日</div>
-  <div class="attr-trip"><b>本團安排：</b>停車 €3/h，環湖約 1 小時。⚠️ 今晚打包，明日 09:00 前退房！</div>
+  <div class="attr-header"><div style="width:64px;height:64px;background:#ddd;border-radius:8px;text-align:center;line-height:64px;font-size:24px">🍂</div><div style="flex:1"><div class="attr-title">Alpe di Siusi 休斯高原</div><div class="attr-day">✅ 10/5 (Mon)</div></div><div class="attr-emoji">🍂</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">★☆☆☆☆</span><span class="attr-tag">Cable car €39/p</span><span class="attr-tag">2–4h</span><span class="attr-tag warn">⚠️ Car ban 09:00-17:00</span></div>
+  <div class="attr-section">
+    <h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4>
+    <ul>
+      <li><span class="zh">歐洲最大高山草原</span><span class="en">Europe's largest high-altitude alpine meadow</span></li>
+      <li><span class="zh">秋色落葉松景致，風景療癒</span><span class="en">Golden larch trees in autumn offering incredibly soothing views</span></li>
+    </ul>
+  </div>
 </div>
 </div>
 
 <script>
-const DAYS=[
+// 中文日程資料陣列
+const DAYS_ZH=[
  {date:'9/24',dow:'四',theme:'✈️ M&J 台北出發',loc:'fly',members:['M&J'],
   activities:[{time:'17:45',title:'SQ879 台北桃園(TPE)→柏林勃蘭登堡(BER) 出發',detail:'SQ879→新加坡樟宜(SIN)（4h30m）轉機1h10m換航廈\nLH769→慕尼黑(MUC)（12h35m）轉機1h\nLH1928→柏林勃蘭登堡(BER T1)（1h5m）',note:'行李：手提1×8kg + 個人物品 + 托運1×23kg'}],
   stay:'✈️ 飛機上'},
@@ -635,50 +787,7 @@ const DAYS=[
   stay:'— 旅程結束！'}
 ];
 
-const locTheme={fly:'loc-fly',berlin:'loc-berlin',venice:'loc-venice',move:'loc-move','dolo-e':'loc-dolo-e','dolo-w':'loc-dolo-w',treviso:'loc-treviso'};
-
-const memberColor={
- 'M&J':'#1565C0','Becky':'#E65100','B&K':'#E65100','凱祺':'#F57F17',
- 'Y&W':'#2E7D32','Y&W⏳':'#2E7D32','Y&W告別':'#546E7A',
- 'S&K':'#6A1B9A','全員8人':'#B71C1C',
- 'M&J / Becky':'#1565C0','M&J+B&K':'#1565C0'
-};
-
-function badgeHtml(m){
- const c=memberColor[m]||'#444';
- return `<span class="member-badge" style="color:${c};border-color:${c}40">${m}</span>`;
-}
-
-function buildDays(data){
- const c=document.getElementById('days-container');
- (data||DAYS).forEach(d=>{
-  const card=document.createElement('div');
-  card.className='day-card';
-  const mem=d.members.map(m=>badgeHtml(m)).join('');
-  card.innerHTML=`
-   <div class="day-header ${locTheme[d.loc]||''}" onclick="toggleDay(this)">
-    <div class="day-date"><div>${d.date}</div><div class="dow">${d.dow}</div></div>
-    <div class="day-title">${d.theme}</div>
-    <div class="day-members">${mem}</div>
-    <div class="day-chevron">▾</div>
-   </div>
-   <div class="day-body">
-    ${d.activities.map(a=>`
-    <div class="activity">
-     <div class="act-time">${a.time}</div>
-     <div class="act-content">
-      <div class="act-title">${a.title}</div>
-      ${a.detail?`<div class="act-detail">${a.detail}</div>`:''}
-      ${a.note?`<div class="act-note">${a.note}</div>`:''}
-      ${a.map?`<a class="act-map" href="${a.map}" target="_blank">📍 Google Maps 導航</a>`:''}
-     </div>
-    </div>`).join('')}
-    <div class="stay-bar"><strong><span class="zh">住宿：</span><span class="en">Stay: </span></strong>${d.stay}</div>
-   </div>`;
-  c.appendChild(card);
- });
-}
-
+// 英文日程資料陣列 (補完被切斷的後半段)
 const DAYS_EN=[
  {date:'9/24',dow:'Thu',theme:'✈️ M&J Departs Taipei',loc:'fly',members:['M&J'],
   activities:[{time:'17:45',title:'SQ879 Taipei (TPE) → Berlin Brandenburg (BER) Departs',detail:'SQ879 → Singapore Changi (SIN) (4h30m), transfer 1h10m, change terminal\nLH769 → Munich (MUC) (12h35m), transfer 1h\nLH1928 → Berlin Brandenburg (BER T1) (1h5m)',note:'Baggage: 1×8kg carry-on + personal item + 1×23kg checked',map:'https://maps.google.com/?q=Taiwan+Taoyuan+International+Airport'}],
@@ -757,51 +866,116 @@ const DAYS_EN=[
  {date:'10/8',dow:'Thu',theme:'🚗 Dolomites→Treviso | Y&W & W&F Farewell, Drive to Hamburg',loc:'move',members:['M&J','B&K','Y&W Farewell'],
   activities:[
    {time:'08:30',title:'⚠️ Ortisei Airbnb Check-out (by 09:00!)',detail:'★ Y&W farewell — driving back to Hamburg (A22, 10–11h)!\n★ W&F farewell!\nM&J+B&K drive to Venice'},
-   {time:'09:30',title:'🚗 World-Class Mountain Pass Drive → Venice VCE',detail:'① Passo Sella 2244m (Sella massif + Sassolungo panorama)\n② Passo Pordoi 2239m (optional Sass Pordoi cable car €28–30/person)\n③ Lago di Alleghe lunch (La Grande Guerra ⭐4.5)\n④ Belluno → A27 highway',map:'https://maps.google.com/?q=Passo+Sella+Sellajoch+Dolomiti'},
-   {time:'17:00',title:'Return Rental Car at VCE → Train to Treviso',detail:'Return car to Locauto at VCE airport\nTrain VCE→Treviso (20 min, €4/person)\n18:00 Treviso check-in (Riviera Views Apt)',note:'⚠️ Check-out by 09:00!',map:'https://maps.google.com/?q=Aeroporto+di+Venezia+Marco+Polo+VCE'},
-   {time:'19:30',title:'🍽️ Toni del Spin Dinner (Treviso Classic Restaurant)',detail:'📞 +39 0422 543829 (advance reservation required!)',note:'⚠️ Remember to book!',map:'https://maps.google.com/?q=Ristorante+Toni+del+Spin+Treviso+Italy'}],
+   {time:'09:30',title:'🚗 World-Class Mountain Pass Drive → Venice VCE',detail:'① Passo Sella 2244m (Sella massif + Sassolungo panorama)\n② Passo Pordoi 2239m (Optional Sass Pordoi cable car €28–30/p)\n③ Lago di Alleghe Lunch (La Grande Guerra ⭐4.5)\n④ Belluno → A27 Highway',map:'https://maps.google.com/?q=Passo+Sella+Sellajoch+Dolomiti'},
+   {time:'17:00',title:'Drop-off Car at VCE Airport → Train → Treviso',detail:'Locauto VCE Return Area\nTrain VCE → Treviso (20 min, €4/p)\n18:00 Treviso check-in (Riviera Views Apt)',note:'⚠️ Check-out before 09:00',map:'https://maps.google.com/?q=Aeroporto+di+Venezia+Marco+Polo+VCE'},
+   {time:'19:30',title:'🍽️ Toni del Spin Dinner (Famous Treviso Restaurant)',detail:'📞 +39 0422 543829 (Reservation required!)',note:'⚠️ Remember to book in advance',map:'https://maps.google.com/?q=Ristorante+Toni+del+Spin+Treviso+Italy'}],
   stay:'🏠 Riviera Views Apartment, Treviso ✅ Booked NT$14,570'},
- {date:'10/9',dow:'Fri',theme:'🏙️ Treviso — City Walk & Farewell Dinner',loc:'treviso',members:['M&J','B&K'],
+ {date:'10/9',dow:'Fri',theme:'🏙️ Treviso Stroll & Final Dinner',loc:'treviso',members:['M&J','B&K'],
   activities:[
-   {time:'09:00',title:'🏙️ Treviso Historic Center Walk',detail:'Palazzo dei Trecento, Sile River canal, fish market\nShopping for souvenirs (Prosecco / Radicchio / Tiramisu)',map:'https://maps.google.com/?q=Palazzo+dei+Trecento+Treviso+Italy'},
-   {time:'Noon',title:'🍽️ Riverside Café + Lunch',detail:''},
-   {time:'19:30',title:'🎉 Final Dinner of the Trip',detail:'Choose a great restaurant to end the journey perfectly',note:'⚠️ Restaurants in Italy charge for tap water!'}],
+   {time:'09:00',title:'🏙️ Historical Center of Treviso Stroll',detail:'Palazzo dei Trecento, Sile canals, Fish Market\nShopping for souvenirs (Prosecco / Radicchio / Tiramisu)',map:'https://maps.google.com/?q=Palazzo+dei+Trecento+Treviso+Italy'},
+   {time:'Noon',title:'🍽️ Riverside Cafe & Lunch',detail:''},
+   {time:'19:30',title:'🎉 Final Trip Dinner',detail:'Pick a nice restaurant to end the amazing journey',note:'⚠️ Pay for tap water in restaurant!'}],
   stay:'🏠 Riviera Views Apartment, Treviso ✅ Booked'},
- {date:'10/10',dow:'Sat',theme:'✈️ Everyone Departs Home',loc:'fly',members:['M&J','B&K'],
+ {date:'10/10',dow:'Sat',theme:'✈️ Return Flights Departure',loc:'fly',members:['M&J','B&K'],
   activities:[
-   {time:'09:00',title:'⚠️ YY Departs First! Check-out → VCE Airport',detail:'Treviso → VCE train (20 min, €4/person)\n10:00 VCE airport check-in — farewell!',note:'Condor 11:40 VCE → FRA → YYZ, ⚠️ earliest departure!',map:'https://maps.google.com/?q=Treviso+Centrale+Station'},
-   {time:'Morning',title:'M&J + Becky Day Trip to Padova',detail:"10:30 Padova (Treviso→Padova train 30 min, €5)\n11:15 Caffè Pedrocchi (since 1831, mint coffee)\n12:00 Basilica di Sant'Antonio (free, ⭐4.8)\n13:15 Prato della Valle lunch (one of Europe's largest squares)\n15:00 train back to VCE, 15:30 collect luggage at airport",map:'https://maps.google.com/?q=Basilica+di+Sant+Antonio+Padova+Italy'},
-   {time:'20:00',title:'✈️ TK1870 Venice (VCE) → Istanbul (IST) → Home',detail:'M&J + Becky on same flight TK1870, departs 20:00\nM&J: connects TK24 → Taipei Taoyuan (TPE T2) 17:55 (10/11)\nBecky: connects IST → Hong Kong (HKG T1) 17:20 (10/11)',note:"M&J transfer 1h55m · Becky transfer 2h"}],
+   {time:'09:00',title:'⚠️ Kaiqi Earliest Departure! Treviso Check-out → VCE',detail:'Treviso → VCE train (20 min, €4/p)\n10:00 VCE Airport check-in & farewell',note:'Condor 11:40 departure from VCE → FRA → YYZ, ⚠️ Earliest!',map:'https://maps.google.com/?q=Treviso+Centrale+Station'},
+   {time:'Morning',title:'M&J + Becky Padova Day Trip',detail:"10:30 Padova (Treviso → Padova train 30m, €5)\n11:15 Caffè Pedrocchi (Established 1831, Mint Coffee)\n12:00 Basilica di Sant'Antonio (Free, ⭐4.8)\n13:15 Prato della Valle Lunch\n15:00 Train back to VCE, 15:30 Collect luggage at airport",map:'https://maps.google.com/?q=Basilica+di+Sant+Antonio+Padova+Italy'},
+   {time:'20:00',title:'✈️ TK1870 Venice (VCE) → Istanbul (IST) → Homebound',detail:'M&J + Becky same flight TK1870 departing 20:00\nM&J: Connect to TK24 → Taipei Taoyuan (TPE T2) 17:55(10/11)\nBecky: Connect to IST → Hong Kong (HKG T1) 17:20(10/11)',note:'M&J transit 1h55m · Becky transit 2h'}],
   stay:'✈️ On the plane'},
- {date:'10/11',dow:'Sun',theme:'🏠 M&J Arrives Taipei | Becky Arrives Hong Kong',loc:'berlin',members:['M&J','Becky'],
+ {date:'10/11',dow:'Sun',theme:'🏠 M&J Arrives Taipei | Becky Arrives HK',loc:'berlin',members:['M&J','Becky'],
   activities:[
    {time:'17:55',title:'M&J Arrives at Taipei Taoyuan Airport (TPE T2)',detail:''},
    {time:'17:20',title:'Becky Arrives at Hong Kong International Airport (HKG T1)',detail:''}],
-  stay:'— Trip complete! 🎉'}
+  stay:'— Tour Ends!'}
 ];
 
-let currentLang='zh';
+const locTheme={fly:'loc-fly',berlin:'loc-berlin',venice:'loc-venice',move:'loc-move','dolo-e':'loc-dolo-e','dolo-w':'loc-dolo-w',treviso:'loc-treviso'};
 
-function toggleLang(btn){
- currentLang=currentLang==='zh'?'en':'zh';
- document.body.className=currentLang;
- btn.textContent=currentLang==='zh'?'🌐 English':'🌐 中文';
- const c=document.getElementById('days-container');
- c.innerHTML='';
- buildDays(currentLang==='en'?DAYS_EN:DAYS);
+const memberColor={
+ 'M&J':'#1565C0','Becky':'#E65100','B&K':'#E65100','凱祺':'#F57F17','YY':'#F57F17','All 8!':'#B71C1C','All 8':'#B71C1C',
+ 'Y&W':'#2E7D32','Y&W⏳':'#2E7D32','Y&W告別':'#546E7A','Y&W Farewell':'#546E7A',
+ 'S&K':'#6A1B9A','全員8人':'#B71C1C',
+ 'M&J / Becky':'#1565C0','M&J+B&K':'#1565C0'
+};
+
+function badgeHtml(m){
+ const c=memberColor[m]||'#444';
+ return `<span class="member-badge" style="color:${c};border-color:${c}40">${m}</span>`;
 }
 
-function toggleDay(h){h.parentElement.classList.toggle('open')}
-
-function showTab(id,el){
- document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
- document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
- document.getElementById('panel-'+id).classList.add('active');
- el.classList.add('active');
+// 核心渲染邏輯：依據目前 Body 的 class 來載入正確語系資料
+function renderItinerary(){
+ const container=document.getElementById('days-container');
+ container.innerHTML=''; // 清空舊資料
+ 
+ const isEn = document.body.classList.contains('en');
+ const currentData = isEn ? DAYS_EN : DAYS_ZH;
+ 
+ currentData.forEach(d=>{
+  const card=document.createElement('div');
+  card.className='day-card';
+  const mem=d.members.map(m=>badgeHtml(m)).join('');
+  card.innerHTML=`
+   <div class="day-header ${locTheme[d.loc]||''}" onclick="toggleDay(this)">
+    <div class="day-date"><div>${d.date}</div><div class="dow">${d.dow}</div></div>
+    <div class="day-title">${d.theme}</div>
+    <div class="day-members">${mem}</div>
+    <div class="day-chevron">▾</div>
+   </div>
+   <div class="day-body">
+    ${d.activities.map(a=>`
+    <div class="activity">
+     <div class="act-time">${a.time}</div>
+     <div class="act-content">
+      <div class="act-title">${a.title}</div>
+      ${a.detail?`<div class="act-detail">${a.detail}</div>`:''}
+      ${a.note?`<div class="act-note">${a.note}</div>`:''}
+      ${a.map?`<a class="act-map" href="${a.map}" target="_blank">📍 ${isEn?'Google Maps GPS':'Google Maps 導航'}</a>`:''}
+     </div>
+    </div>`).join('')}
+    <div class="stay-bar"><strong><span>${isEn?'Stay: ':'住宿：'}</span></strong>${d.stay}</div>
+   </div>`;
+  container.appendChild(card);
+ });
 }
 
-buildDays(DAYS);
-document.body.className='zh';
+// 點擊展開/收合行程日
+function toggleDay(header) {
+  const card = header.parentElement;
+  card.classList.toggle('open');
+}
+
+// 點擊切換頁籤 (Itinerary, Flights, Stay, Car, Highlights)
+function showTab(panelId, tabEl) {
+  // 移除所有頁籤的 active 狀態
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  // 隱藏所有面板
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  
+  // 啟用目前被點擊的頁籤與面板
+  tabEl.classList.add('active');
+  document.getElementById('panel-' + panelId).classList.add('active');
+}
+
+// 一鍵切換中英文語系
+function toggleLang(btn) {
+  if (document.body.classList.contains('zh')) {
+    document.body.classList.remove('zh');
+    document.body.classList.add('en');
+    btn.textContent = "🌐 中文版";
+  } else {
+    document.body.classList.remove('en');
+    document.body.classList.add('zh');
+    btn.textContent = "🌐 English";
+  }
+  // 重新渲染行程表以套用新語系
+  renderItinerary();
+}
+
+// 初始化網頁載入
+window.onload = function() {
+  renderItinerary();
+};
 </script>
 </body>
 </html>
