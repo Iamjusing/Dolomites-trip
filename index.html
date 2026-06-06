@@ -28,7 +28,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .day-date .dow{font-size:10px;opacity:.7}
 .day-title{flex:1;font-size:13px;font-weight:600;line-height:1.35}
 .day-members{display:flex;gap:3px;flex-shrink:0}
-.member-badge{font-size:9px;font-weight:700;padding:2px 5px;border-radius:8px;background:rgba(255,255,255,.3);color:rgba(255,255,255,.9)}
+.member-badge{font-size:10px;font-weight:700;padding:3px 7px;border-radius:8px;background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.5);white-space:nowrap}
+.act-map{display:inline-flex;align-items:center;gap:3px;margin-top:5px;font-size:11px;font-weight:600;color:#0d5fa8;background:#deeeff;padding:3px 9px;border-radius:6px;text-decoration:none;border:1px solid #b3d4f5;cursor:pointer}
+.act-map:hover{background:#b3d4f5}
 .day-chevron{font-size:16px;opacity:.6;transition:transform .25s;flex-shrink:0}
 .day-card.open .day-chevron{transform:rotate(180deg)}
 .day-body{display:none;background:#fff;border-top:1px solid rgba(0,0,0,.06)}
@@ -539,86 +541,86 @@ const DAYS=[
  {date:'9/26',dow:'六',theme:'🏰 柏林觀光日 | Becky 09:15 抵達',loc:'berlin',members:['M&J','Becky','Y&W'],
   activities:[
    {time:'09:15',title:'Becky 抵達 柏林勃蘭登堡機場(BER T1)',detail:'TK HKG→IST→BER 到達！\n★ M&J + Becky + Y&W 柏林全員集合',note:'凱祺 9/28 直接抵達威尼斯(VCE)'},
-   {time:'全天',title:'🏰 柏林觀光',detail:'勃蘭登堡門｜博物館島｜East Side Gallery\n帝國國會大廈｜Checkpoint Charlie'}],
+   {time:'全天',title:'🏰 柏林觀光',detail:'勃蘭登堡門｜博物館島｜East Side Gallery\n帝國國會大廈｜Checkpoint Charlie',map:'https://maps.google.com/?q=Brandenburger+Tor+Berlin'}],
   stay:'🏨 Three Little Pigs Hostel（M&J:4人宿舍 / Becky:混合宿舍6人房）'},
  {date:'9/27',dow:'日',theme:'🏃 柏林馬拉松 Race Day！',loc:'berlin',members:['M&J','Becky','Y&W'],
-  activities:[{time:'全天',title:'🏃 柏林馬拉松',detail:'終點：勃蘭登堡門\n觀賽：Kurfürstendamm / 終點衝刺區\n賽後慶祝晚餐',note:'⏳怎麼拍照待討論'}],
+  activities:[{time:'全天',title:'🏃 柏林馬拉松',detail:'終點：勃蘭登堡門\n觀賽：Kurfürstendamm / 終點衝刺區\n賽後慶祝晚餐',note:'⏳怎麼拍照待討論',map:'https://maps.google.com/?q=Berlin+Marathon+Finish+Brandenburger+Tor'}],
   stay:'🏨 Three Little Pigs Hostel（M&J:4人宿舍 / Becky:混合宿舍6人房）'},
  {date:'9/28',dow:'一',theme:'✈️ M&J+B&K 柏林→威尼斯（同班）| 凱祺抵達威尼斯',loc:'fly',members:['M&J','B&K'],
   activities:[
    {time:'15:20',title:'⚠️ Bag Drop 開始（BER T1）',detail:'⚠️ Bag drop 15:20–16:40（準時！）',note:'Check-in opens: 8/29 23:20（起飛前30天）'},
    {time:'17:20',title:'EJU5085 柏林(BER T1)→威尼斯(VCE)',detail:'easyJet，約1h40m\nM&J: Jusing 7A / Mars 7B\nB&K 同班（座位⏳待確認）',note:'⚠️ 已加購托運 · 隨身包45×36×20cm · 訂位:KBWPK1D'},
    {time:'⏳',title:'凱祺 抵達 威尼斯馬可波羅機場(VCE)',detail:'⏳去程待確認，另行抵達威尼斯'},
-   {time:'~19:30',title:'VCE機場取租車 + 進威尼斯主島',detail:'Locauto取 Skoda Octavia Estate（自排，5座）\n搭Vaporetto水上巴士進主島（約75分）',note:'Vaporetto €9.5/人'}],
+   {time:'~19:30',title:'VCE機場取租車 + 進威尼斯主島',detail:'Locauto取 Skoda Octavia Estate（自排，5座）\n搭Vaporetto水上巴士進主島（約75分）',note:'Vaporetto €9.5/人',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport+VCE'}],
   stay:'🏠 威尼斯迪樂公寓 Venicedire（Santa Croce區）✅已訂'},
  {date:'9/29',dow:'二',theme:'🛶 威尼斯 D1 — Burano彩虹島 + 主島漫步',loc:'venice',members:['M&J','B&K','Y&W⏳'],
   activities:[
-   {time:'~09:00',title:'🏝️ Burano 彩虹島',detail:'搭Vaporetto，建議9:00前出發避開人潮',note:'Vaporetto 1日票€25/人'},
-   {time:'下午',title:'🏛️ 聖馬可廣場 & 里阿爾托橋',detail:'主島漫步，採買多洛米蒂補給品'}],
+   {time:'~09:00',title:'🏝️ Burano 彩虹島',detail:'搭Vaporetto，建議9:00前出發避開人潮',note:'Vaporetto 1日票€25/人',map:'https://maps.google.com/?q=Burano+Venice+Italy'},
+   {time:'下午',title:'🏛️ 聖馬可廣場 & 里阿爾托橋',detail:'主島漫步，採買多洛米蒂補給品',map:'https://maps.google.com/?q=Piazza+San+Marco+Venice+Italy'}],
   stay:'🏠 威尼斯迪樂公寓 Venicedire ✅已訂'},
  {date:'9/30',dow:'三',theme:"🚗 威尼斯→Cortina d'Ampezzo | VCE取車",loc:'move',members:['M&J','B&K','Y&W⏳'],
   activities:[
-   {time:'上午',title:'🚗 威尼斯馬可波羅機場(VCE) 取車出發',detail:'取Skoda Octavia Estate（Locauto）\nA27→SS51 景觀公路北上\n途中停靠 Pieve di Cadore',note:'車程約2–2.5h'},
-   {time:'午後',title:'🏔️ Lago di Misurina 環湖（1.5–2h）+ 抵達Cortina',detail:'入住Airbnb Cortina（Check-in 17:00–00:00）\n海拔1754m環湖適應高地',note:'⏳住宿停車位確認中'}],
+   {time:'上午',title:'🚗 威尼斯馬可波羅機場(VCE) 取車出發',detail:'取Skoda Octavia Estate（Locauto）\nA27→SS51 景觀公路北上\n途中停靠 Pieve di Cadore',note:'車程約2–2.5h',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport'},
+   {time:'午後',title:'🏔️ Lago di Misurina 環湖（1.5–2h）+ 抵達Cortina',detail:'入住Airbnb Cortina（Check-in 17:00–00:00）\n海拔1754m環湖適應高地',note:'⏳住宿停車位確認中',map:'https://maps.google.com/?q=Lago+di+Misurina+Italy'}],
   stay:'🏠 Airbnb Cortina（6人，馬兒付款）✅已訂'},
  {date:'10/1',dow:'四',theme:'⛰️ 多洛米蒂東 D1 — 三尖峰 + 魔多之塔 🎉全員會合',loc:'dolo-e',members:['全員8人'],
   activities:[
-   {time:'06:00',title:'出發前往三尖峰',detail:'06:00出發 → 07:00–07:30抵達 Parcheggio Auronzo\n⚠️提前在 pass.auronzo.info 預約停車（2台車€80）',note:'⚠️10月可能初雪結冰，備冰爪！'},
-   {time:'07:30',title:'⛰️ 三尖峰 Tre Cime 逆時針環線（3.5–4h）',detail:'Rifugio Auronzo→Lavaredo→Forcella Lavaredo\n→Rifugio Locatelli午餐（⚠️只收現金！）→折返\n⚠️Rifugio Locatelli可能10月初已關，需電話確認！'},
-   {time:'下午',title:'⛰️ Cadini di Misurina 魔多之塔（1.5–2h）',detail:'423步石階，刀鋒稜線近景，近年最網紅\n14:00–16:30 Cadini，17:00–18:00回Cortina',note:'稜線段注意強風'}],
+   {time:'06:00',title:'出發前往三尖峰',detail:'06:00出發 → 07:00–07:30抵達 Parcheggio Auronzo\n⚠️提前在 pass.auronzo.info 預約停車（2台車€80）',note:'⚠️10月可能初雪結冰，備冰爪！',map:'https://maps.google.com/?q=Parcheggio+Rifugio+Auronzo+Tre+Cime+di+Lavaredo'},
+   {time:'07:30',title:'⛰️ 三尖峰 Tre Cime 逆時針環線（3.5–4h）',detail:'Rifugio Auronzo→Lavaredo→Forcella Lavaredo\n→Rifugio Locatelli午餐（⚠️只收現金！）→折返\n⚠️Rifugio Locatelli可能10月初已關，需電話確認！',map:'https://maps.google.com/?q=Tre+Cime+di+Lavaredo+Dolomiti'},
+   {time:'下午',title:'⛰️ Cadini di Misurina 魔多之塔（1.5–2h）',detail:'423步石階，刀鋒稜線近景，近年最網紅\n14:00–16:30 Cadini，17:00–18:00回Cortina',note:'稜線段注意強風',map:'https://maps.google.com/?q=Cadini+di+Misurina+Dolomiti'}],
   stay:'🏠 Airbnb Cortina（6人）· ⏳S&K住宿待確認'},
  {date:'10/2',dow:'五',theme:'⛰️ 多洛米蒂東 D2 — 布萊埃斯湖 + 高原',loc:'dolo-e',members:['全員8人'],
   activities:[
-   {time:'06:30',title:'出發前往布萊埃斯湖',detail:'06:30出發 → 08:00–10:30 環湖（3.5km，可租划艇€10–15/30分）',note:'✅10月已解禁，直接開車，清晨最美'},
-   {time:'中午',title:'🍽️ Prato Piazza 高原午餐',detail:'搭接駁巴士（€5.50/人單程）\n11:30–13:00 Berggasthof Platzwiese午餐（Strudel/Tiramisù）',note:'⏳Ponticello 10:00後有車輛管制'},
-   {time:'下午',title:'🔭 斯佩奇山 Monte Specie 輕健行（步道#34，約3h）',detail:'Prato Piazza→Rifugio Vallandro→Monte Specie 2307m\n360°視野含三尖峰，16:30–17:30回Cortina'}],
+   {time:'06:30',title:'出發前往布萊埃斯湖',detail:'06:30出發 → 08:00–10:30 環湖（3.5km，可租划艇€10–15/30分）',note:'✅10月已解禁，直接開車，清晨最美',map:'https://maps.google.com/?q=Lago+di+Braies+Pragser+Wildsee+Italy'},
+   {time:'中午',title:'🍽️ Prato Piazza 高原午餐',detail:'搭接駁巴士（€5.50/人單程）\n11:30–13:00 Berggasthof Platzwiese午餐（Strudel/Tiramisù）',note:'⏳Ponticello 10:00後有車輛管制',map:'https://maps.google.com/?q=Prato+Piazza+Platzwiese+Dobbiaco+Dolomites'},
+   {time:'下午',title:'🔭 斯佩奇山 Monte Specie 輕健行（步道#34，約3h）',detail:'Prato Piazza→Rifugio Vallandro→Monte Specie 2307m\n360°視野含三尖峰，16:30–17:30回Cortina',map:'https://maps.google.com/?q=Monte+Specie+Strudelkopf+Dolomiti'}],
   stay:'🏠 Airbnb Cortina（6人）· ⏳S&K住宿待確認'},
  {date:'10/3',dow:'六',theme:'🚗 東→西移動 — Cinque Torri + Passo Gardena → Ortisei',loc:'move',members:['全員8人'],
   activities:[
    {time:'09:00前',title:'⚠️ Cortina Airbnb 退房（10:00截止）',detail:''},
-   {time:'09:30',title:'💎 Cinque Torri 五塔山（1.5–2h）',detail:'椅式纜車€26/人（刷卡），一戰壕溝博物館免費\nBai de Dones 停車場免費',note:'✅ 10/3 確認開放'},
-   {time:'12:00',title:'🚗 景觀公路出發',detail:'Passo Falzarego 2105m（停車拍照，選配Lagazuoi纜車€20–25）\nPasso Gardena 2136m（最佳全景，免費）\n13:30–14:30 Passo Gardena午餐+全景拍照'},
-   {time:'15:00',title:'🏘️ 抵達Ortisei + 小鎮採買補給',detail:'Check-in 15:00–19:00\nDespar Via Rezia 230（08:00–19:30）採買健行乾糧\n山屋10月多已關閉，需自備補給'}],
+   {time:'09:30',title:'💎 Cinque Torri 五塔山（1.5–2h）',detail:'椅式纜車€26/人（刷卡），一戰壕溝博物館免費\nBai de Dones 停車場免費',note:'✅ 10/3 確認開放',map:'https://maps.google.com/?q=Cinque+Torri+Cortina+dAmpezzo+Italy'},
+   {time:'12:00',title:'🚗 景觀公路出發',detail:'Passo Falzarego 2105m（停車拍照，選配Lagazuoi纜車€20–25）\nPasso Gardena 2136m（最佳全景，免費）\n13:30–14:30 Passo Gardena午餐+全景拍照',map:'https://maps.google.com/?q=Passo+Gardena+Grodner+Joch+Italy'},
+   {time:'15:00',title:'🏘️ 抵達Ortisei + 小鎮採買補給',detail:'Check-in 15:00–19:00\nDespar Via Rezia 230（08:00–19:30）採買健行乾糧\n山屋10月多已關閉，需自備補給',map:'https://maps.google.com/?q=Ortisei+Val+Gardena+Italy'}],
   stay:'🏠 Airbnb Ortisei（6人，馬兒付款）✅不可取消！· ⏳S&K住宿待確認'},
  {date:'10/4',dow:'日',theme:'⛰️ 多洛米蒂西 D1 — Seceda 刀鋒稜線',loc:'dolo-w',members:['全員8人'],
   activities:[
-   {time:'08:00',title:'出發前往Seceda纜車站',detail:'⚠️ 線上預約時段票（www.seceda.it），8人約€562，不可退款！'},
-   {time:'08:30',title:'🚠 兩段纜車 → Seceda 2500m',detail:'第1段：Ortisei→Furnes（6人座小纜車）\n第2段：Furnes→Seceda（大型景觀纜車）',note:'⏳纜車預約中，最晚9月底決定'},
-   {time:'全天',title:'🥾 稜線步道#6 + 午餐Rifugio Sofie + 步道#8下山',detail:'09:30–12:30 稜線步道#6（鋸齒斷崖漫步）\n12:30–14:00 Rifugio Sofie午餐（Canederli/鴨肉）\n14:00–15:30 步道#8下山（或纜車€12–15）',note:'帶防風外套！山頂溫差大'}],
+   {time:'08:00',title:'出發前往Seceda纜車站',detail:'⚠️ 線上預約時段票（www.seceda.it），8人約€562，不可退款！',map:'https://maps.google.com/?q=Funivie+Seceda+Ortisei+Italy'},
+   {time:'08:30',title:'🚠 兩段纜車 → Seceda 2500m',detail:'第1段：Ortisei→Furnes（6人座小纜車）\n第2段：Furnes→Seceda（大型景觀纜車）',note:'⏳纜車預約中，最晚9月底決定',map:'https://maps.google.com/?q=Seceda+2518m+Val+Gardena'},
+   {time:'全天',title:'🥾 稜線步道#6 + 午餐Rifugio Sofie + 步道#8下山',detail:'09:30–12:30 稜線步道#6（鋸齒斷崖漫步）\n12:30–14:00 Rifugio Sofie午餐（Canederli/鴨肉）\n14:00–15:30 步道#8下山（或纜車€12–15）',note:'帶防風外套！山頂溫差大',map:'https://maps.google.com/?q=Rifugio+Sofie+Seceda+Ortisei'}],
   stay:'🏠 Airbnb Ortisei（6人）· ⏳S&K住宿待確認'},
  {date:'10/5',dow:'一',theme:'⛰️ 多洛米蒂西 D2 — Alpe di Siusi 秋色落葉松高原',loc:'dolo-w',members:['全員8人'],
   activities:[
-   {time:'07:30',title:'出發前往Mont Sëuc纜車站',detail:'⚠️ 09:00–17:00禁止私家車進Compaccio\n選A：09:00前開車 · 選B：搭纜車€39/人（08:30開始）'},
-   {time:'08:45',title:'🍂 秋色草原步道#9（3–4h）',detail:'Sassolungo+Sciliar背景，秋色落葉松黃金期最美！'},
-   {time:'中午',title:'🍽️ Malga/Baita Sanon 午餐',detail:'Speck起司/鹿肉義麵/Canederli/Kaiserschmarrn\n14:30–15:30 步行回纜車站，16:00回Ortisei'}],
+   {time:'07:30',title:'出發前往Mont Sëuc纜車站',detail:'⚠️ 09:00–17:00禁止私家車進Compaccio\n選A：09:00前開車 · 選B：搭纜車€39/人（08:30開始）',map:'https://maps.google.com/?q=Mont+Seuc+Seilbahn+Ortisei+Val+Gardena'},
+   {time:'08:45',title:'🍂 秋色草原步道#9（3–4h）',detail:'Sassolungo+Sciliar背景，秋色落葉松黃金期最美！',map:'https://maps.google.com/?q=Alpe+di+Siusi+Seiser+Alm+Italy'},
+   {time:'中午',title:'🍽️ Malga/Baita Sanon 午餐',detail:'Speck起司/鹿肉義麵/Canederli/Kaiserschmarrn\n14:30–15:30 步行回纜車站，16:00回Ortisei',map:'https://maps.google.com/?q=Malga+Sanon+Alpe+di+Siusi'}],
   stay:'🏠 Airbnb Ortisei（6人）· ⏳S&K住宿待確認'},
  {date:'10/6',dow:'二',theme:'⛰️ 多洛米蒂西 D3 — Val di Funes 孤獨教堂',loc:'dolo-w',members:['全員8人'],
   activities:[
-   {time:'08:30',title:'出發前往 Val di Funes（車程45–50分）',detail:'停 Parcheggio Putzen（€4/全天）\n09:45–10:30 St. Magdalena觀景台（免費）\n10:30–11:00 St. Johann孤獨教堂（€4/人，機器購票）',note:'⚠️不可開車進村道'},
-   {time:'下午',title:'🦅 Adolf Munkel 步道（#36→#35，3–4h）',detail:'11:30–14:30 步道：停車場→森林→牧場→Geisleralm\n13:00–14:30 Geisleralm午餐（Canederli/Goulash/Kaiserschmarrn）\n⚠️ Geisleralm 10:00–17:00，週一公休（10/6週二✅）\n15:00–16:00 步道#35返回，16:30回Ortisei',note:'下午光線最美，秋色最佳'}],
+   {time:'08:30',title:'出發前往 Val di Funes（車程45–50分）',detail:'停 Parcheggio Putzen（€4/全天）\n09:45–10:30 St. Magdalena觀景台（免費）\n10:30–11:00 St. Johann孤獨教堂（€4/人，機器購票）',note:'⚠️不可開車進村道',map:'https://maps.google.com/?q=Parcheggio+Putzen+Santa+Maddalena+Val+di+Funes'},
+   {time:'下午',title:'🦅 Adolf Munkel 步道（#36→#35，3–4h）',detail:'11:30–14:30 步道：停車場→森林→牧場→Geisleralm\n13:00–14:30 Geisleralm午餐（Canederli/Goulash/Kaiserschmarrn）\n⚠️ Geisleralm 10:00–17:00，週一公休（10/6週二✅）\n15:00–16:00 步道#35返回，16:30回Ortisei',note:'下午光線最美，秋色最佳',map:'https://maps.google.com/?q=Geisleralm+Adolf+Munkel+Weg+Val+di+Funes'}],
   stay:'🏠 Airbnb Ortisei（6人）· ⏳S&K住宿待確認'},
  {date:'10/7',dow:'三',theme:'⛰️ 多洛米蒂西 D4 — 彩虹湖（彈性補拍備案日）',loc:'dolo-w',members:['全員8人'],
   activities:[
-   {time:'09:30',title:'🌈 Lago di Carezza 彩虹湖（輕鬆1h）',detail:'停車€3/h\n10:15–11:15 環湖散步',note:'天氣差改補拍備案'},
-   {time:'下午',title:'🏘️ Ortisei 最後漫步 + 採買紀念品',detail:'12:30–14:00 午餐（Tiroler Gröstl/Spatzle）\n14:00–16:00 採買（木雕/Speck/登山用品）\n19:00 多洛米蒂最後晚餐🎉（8人，需訂位）',note:'⚠️ 今晚打包！明日09:00前退房'}],
+   {time:'09:30',title:'🌈 Lago di Carezza 彩虹湖（輕鬆1h）',detail:'停車€3/h\n10:15–11:15 環湖散步',note:'天氣差改補拍備案',map:'https://maps.google.com/?q=Lago+di+Carezza+Karersee+Italy'},
+   {time:'下午',title:'🏘️ Ortisei 最後漫步 + 採買紀念品',detail:'12:30–14:00 午餐（Tiroler Gröstl/Spatzle）\n14:00–16:00 採買（木雕/Speck/登山用品）\n19:00 多洛米蒂最後晚餐🎉（8人，需訂位）',note:'⚠️ 今晚打包！明日09:00前退房',map:'https://maps.google.com/?q=Ortisei+centro+Val+Gardena'}],
   stay:'🏠 Airbnb Ortisei（6人）· ⏳S&K住宿待確認'},
  {date:'10/8',dow:'四',theme:'🚗 多洛米蒂→Treviso | Y&W & W&F 今日告別回漢堡',loc:'move',members:['M&J','B&K','Y&W告別'],
   activities:[
    {time:'08:30',title:'⚠️ Ortisei Airbnb 退房（09:00截止！）',detail:'★ Y&W 今日告別，開車回漢堡（A22高速，10–11h）！\n★ W&F 今日告別！\nM&J+B&K 開車前往威尼斯'},
-   {time:'09:30',title:'🚗 世界級景觀公路 → 威尼斯VCE',detail:'①Passo Sella 2244m（Sella群峰+Sassolungo全景）\n②Passo Pordoi 2239m（選配Sass Pordoi纜車€28–30/人）\n③Lago di Alleghe午餐（La Grande Guerra ⭐4.5）\n④Belluno→A27高速'},
-   {time:'17:00',title:'VCE機場還車 → 搭火車→Treviso',detail:'Locauto VCE 還車\n搭火車VCE→Treviso（20分，€4/人）\n18:00 Treviso check-in（Riviera Views Apt）',note:'⚠️ 09:00前退房'},
-   {time:'19:30',title:'🍽️ Toni del Spin 晚餐（Treviso名店）',detail:'📞 +39 0422 543829（需提前訂位！）',note:'⚠️ 記得提前訂位'}],
+   {time:'09:30',title:'🚗 世界級景觀公路 → 威尼斯VCE',detail:'①Passo Sella 2244m（Sella群峰+Sassolungo全景）\n②Passo Pordoi 2239m（選配Sass Pordoi纜車€28–30/人）\n③Lago di Alleghe午餐（La Grande Guerra ⭐4.5）\n④Belluno→A27高速',map:'https://maps.google.com/?q=Passo+Sella+Sellajoch+Dolomiti'},
+   {time:'17:00',title:'VCE機場還車 → 搭火車→Treviso',detail:'Locauto VCE 還車\n搭火車VCE→Treviso（20分，€4/人）\n18:00 Treviso check-in（Riviera Views Apt）',note:'⚠️ 09:00前退房',map:'https://maps.google.com/?q=Aeroporto+di+Venezia+Marco+Polo+VCE'},
+   {time:'19:30',title:'🍽️ Toni del Spin 晚餐（Treviso名店）',detail:'📞 +39 0422 543829（需提前訂位！）',note:'⚠️ 記得提前訂位',map:'https://maps.google.com/?q=Ristorante+Toni+del+Spin+Treviso+Italy'}],
   stay:'🏠 Riviera Views Apartment, Treviso ✅已訂 NT$14,570'},
  {date:'10/9',dow:'五',theme:'🏙️ Treviso 漫步 & 最後晚餐',loc:'treviso',members:['M&J','B&K'],
   activities:[
-   {time:'09:00',title:'🏙️ Treviso 歷史中心漫步',detail:'Palazzo dei Trecento、Sile河道、魚市場\n逛街採買伴手禮（Prosecco/Radicchio/提拉米蘇）'},
+   {time:'09:00',title:'🏙️ Treviso 歷史中心漫步',detail:'Palazzo dei Trecento、Sile河道、魚市場\n逛街採買伴手禮（Prosecco/Radicchio/提拉米蘇）',map:'https://maps.google.com/?q=Palazzo+dei+Trecento+Treviso+Italy'},
    {time:'中午',title:'🍽️ 河畔咖啡館 + 午餐',detail:''},
    {time:'19:30',title:'🎉 旅程最後晚餐',detail:'選一家好餐廳，為旅程劃下美好句點',note:'⚠️ 餐廳自來水需付費！'}],
   stay:'🏠 Riviera Views Apartment, Treviso ✅已訂'},
  {date:'10/10',dow:'六',theme:'✈️ 各組返程出發',loc:'fly',members:['M&J','B&K'],
   activities:[
-   {time:'09:00',title:'⚠️ 凱祺 最早出發！Treviso退房→VCE',detail:'Treviso→VCE火車（20分，€4/人）\n10:00 VCE機場 check-in 道別',note:'Condor 11:40 VCE出發→FRA→YYZ，⚠️最早！'},
-   {time:'上午',title:'M&J + Becky 帕多瓦一日遊',detail:"10:30 Padova（Treviso→Padova火車30分，€5）\n11:15 Caffè Pedrocchi（1831年，薄荷咖啡）\n12:00 Basilica di Sant'Antonio（免費，⭐4.8）\n13:15 Prato della Valle午餐\n15:00 搭火車回VCE，15:30機場取行李"},
+   {time:'09:00',title:'⚠️ 凱祺 最早出發！Treviso退房→VCE',detail:'Treviso→VCE火車（20分，€4/人）\n10:00 VCE機場 check-in 道別',note:'Condor 11:40 VCE出發→FRA→YYZ，⚠️最早！',map:'https://maps.google.com/?q=Treviso+Centrale+Station'},
+   {time:'上午',title:'M&J + Becky 帕多瓦一日遊',detail:"10:30 Padova（Treviso→Padova火車30分，€5）\n11:15 Caffè Pedrocchi（1831年，薄荷咖啡）\n12:00 Basilica di Sant'Antonio（免費，⭐4.8）\n13:15 Prato della Valle午餐\n15:00 搭火車回VCE，15:30機場取行李",map:'https://maps.google.com/?q=Basilica+di+Sant+Antonio+Padova+Italy'},
    {time:'20:00',title:'✈️ TK1870 威尼斯(VCE)→伊斯坦堡(IST)→各自返家',detail:'M&J + Becky 同班 TK1870 20:00出發\nM&J: 轉TK24→台北桃園(TPE T2) 17:55(10/11)\nBecky: 轉IST→香港(HKG T1) 17:20(10/11)',note:'M&J轉機1h55m · Becky轉機2h'}],
   stay:'✈️ 飛機上'},
  {date:'10/11',dow:'日',theme:'🏠 M&J 抵達台北 | Becky 抵達香港',loc:'berlin',members:['M&J','Becky'],
@@ -630,12 +632,24 @@ const DAYS=[
 
 const locTheme={fly:'loc-fly',berlin:'loc-berlin',venice:'loc-venice',move:'loc-move','dolo-e':'loc-dolo-e','dolo-w':'loc-dolo-w',treviso:'loc-treviso'};
 
+const memberColor={
+ 'M&J':'#1565C0','Becky':'#E65100','B&K':'#E65100','凱祺':'#F57F17',
+ 'Y&W':'#2E7D32','Y&W⏳':'#2E7D32','Y&W告別':'#546E7A',
+ 'S&K':'#6A1B9A','全員8人':'#B71C1C',
+ 'M&J / Becky':'#1565C0','M&J+B&K':'#1565C0'
+};
+
+function badgeHtml(m){
+ const c=memberColor[m]||'#444';
+ return `<span class="member-badge" style="color:${c};border-color:${c}40">${m}</span>`;
+}
+
 function buildDays(){
  const c=document.getElementById('days-container');
  DAYS.forEach(d=>{
   const card=document.createElement('div');
   card.className='day-card';
-  const mem=d.members.map(m=>`<span class="member-badge">${m}</span>`).join('');
+  const mem=d.members.map(m=>badgeHtml(m)).join('');
   card.innerHTML=`
    <div class="day-header ${locTheme[d.loc]||''}" onclick="toggleDay(this)">
     <div class="day-date"><div>${d.date}</div><div class="dow">${d.dow}</div></div>
@@ -651,6 +665,7 @@ function buildDays(){
       <div class="act-title">${a.title}</div>
       ${a.detail?`<div class="act-detail">${a.detail}</div>`:''}
       ${a.note?`<div class="act-note">${a.note}</div>`:''}
+      ${a.map?`<a class="act-map" href="${a.map}" target="_blank">📍 Google Maps 導航</a>`:''}
      </div>
     </div>`).join('')}
     <div class="stay-bar"><strong>住宿：</strong>${d.stay}</div>
