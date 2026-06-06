@@ -7,11 +7,15 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-serif;background:#f5f5f0;color:#1a1a1a;font-size:14px}
-.header{background:linear-gradient(135deg,#1e3a5f 0%,#2d5986 50%,#1e3a5f 100%);color:#fff;padding:24px 20px 16px;text-align:center}
+.header{background:linear-gradient(135deg,#1e3a5f 0%,#2d5986 50%,#1e3a5f 100%);color:#fff;padding:20px 20px 14px;text-align:center;position:relative}
 .header h1{font-size:22px;font-weight:700;letter-spacing:.5px;margin-bottom:4px}
-.header .sub{font-size:13px;opacity:.8;margin-bottom:12px}
+.header .sub{font-size:13px;opacity:.8;margin-bottom:10px}
 .header .pills{display:flex;justify-content:center;flex-wrap:wrap;gap:6px}
 .header .pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 10px;font-size:11px}
+.lang-btn{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.5);color:#fff;border-radius:20px;padding:5px 13px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:background .2s}
+.lang-btn:hover{background:rgba(255,255,255,.32)}
+body.en .zh{display:none!important}
+body.zh .en{display:none!important}
 .tabs{background:#fff;border-bottom:1px solid #e0e0e0;display:flex;overflow-x:auto;position:sticky;top:0;z-index:100}
 .tab{flex:0 0 auto;padding:11px 16px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:#666;white-space:nowrap;transition:all .2s}
 .tab.active{color:#1e3a5f;border-bottom-color:#1e3a5f}
@@ -142,33 +146,34 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 </head>
 <body>
 <div class="header">
-  <h1>🇩🇪🇮🇹 柏林馬拉松 & 義大利多洛米蒂</h1>
-  <div class="sub">2026 / 9/24（四）– 10/11（日） · 18天 · 4組人馬</div>
+  <button class="lang-btn" onclick="toggleLang(this)">🌐 English</button>
+  <h1>🇩🇪🇮🇹 <span class="zh">柏林馬拉松 &amp; 義大利多洛米蒂</span><span class="en">Berlin Marathon &amp; Italian Dolomites</span></h1>
+  <div class="sub"><span class="zh">2026 / 9/24（四）– 10/11（日） · 18天 · 4組人馬</span><span class="en">2026 / Sep 24 (Thu) – Oct 11 (Sun) · 18 Days · 4 Groups</span></div>
   <div class="pills">
-    <span class="pill">M&amp;J 台北</span>
-    <span class="pill">B&amp;K 香港/多倫多</span>
-    <span class="pill">Y&amp;W 漢堡</span>
-    <span class="pill">S&amp;K 英國</span>
+    <span class="pill">M&amp;J <span class="zh">台北</span><span class="en">Taipei</span></span>
+    <span class="pill">B&amp;K <span class="zh">香港/多倫多</span><span class="en">HK/Toronto</span></span>
+    <span class="pill">Y&amp;W <span class="zh">漢堡</span><span class="en">Hamburg</span></span>
+    <span class="pill">S&amp;K <span class="zh">英國</span><span class="en">UK</span></span>
   </div>
 </div>
 
 <div class="tabs">
-  <div class="tab active" onclick="showTab('itinerary',this)">📅 行程</div>
-  <div class="tab" onclick="showTab('flights',this)">✈️ 航班</div>
-  <div class="tab" onclick="showTab('accommodation',this)">🏨 住宿</div>
-  <div class="tab" onclick="showTab('car',this)">🚗 租車</div>
-  <div class="tab" onclick="showTab('attractions',this)">🏔 多洛米蒂經典景點</div>
+  <div class="tab active" onclick="showTab('itinerary',this)">📅 <span class="zh">行程</span><span class="en">Itinerary</span></div>
+  <div class="tab" onclick="showTab('flights',this)">✈️ <span class="zh">航班</span><span class="en">Flights</span></div>
+  <div class="tab" onclick="showTab('accommodation',this)">🏨 <span class="zh">住宿</span><span class="en">Stay</span></div>
+  <div class="tab" onclick="showTab('car',this)">🚗 <span class="zh">租車</span><span class="en">Car Rental</span></div>
+  <div class="tab" onclick="showTab('attractions',this)">🏔 <span class="zh">多洛米蒂經典景點</span><span class="en">Dolomites Highlights</span></div>
 </div>
 
 <!-- ══ ITINERARY ══ -->
 <div id="panel-itinerary" class="panel active">
 <div class="legend">
-  <div class="leg"><div class="leg-dot" style="background:#bf360c"></div>✈️ 航班</div>
-  <div class="leg"><div class="leg-dot" style="background:#2e7d32"></div>🏰 柏林</div>
-  <div class="leg"><div class="leg-dot" style="background:#f57f17"></div>🛶 威尼斯/Treviso</div>
-  <div class="leg"><div class="leg-dot" style="background:#7b1fa2"></div>🚗 移動</div>
-  <div class="leg"><div class="leg-dot" style="background:#0d47a1"></div>⛰️ 多洛米蒂東</div>
-  <div class="leg"><div class="leg-dot" style="background:#4a148c"></div>⛰️ 多洛米蒂西</div>
+  <div class="leg"><div class="leg-dot" style="background:#bf360c"></div>✈️ <span class="zh">航班</span><span class="en">Flight</span></div>
+  <div class="leg"><div class="leg-dot" style="background:#2e7d32"></div>🏰 <span class="zh">柏林</span><span class="en">Berlin</span></div>
+  <div class="leg"><div class="leg-dot" style="background:#f57f17"></div>🛶 <span class="zh">威尼斯/Treviso</span><span class="en">Venice/Treviso</span></div>
+  <div class="leg"><div class="leg-dot" style="background:#7b1fa2"></div>🚗 <span class="zh">移動</span><span class="en">Travel Day</span></div>
+  <div class="leg"><div class="leg-dot" style="background:#0d47a1"></div>⛰️ <span class="zh">多洛米蒂東</span><span class="en">Dolomites East</span></div>
+  <div class="leg"><div class="leg-dot" style="background:#4a148c"></div>⛰️ <span class="zh">多洛米蒂西</span><span class="en">Dolomites West</span></div>
 </div>
 <div id="days-container"></div>
 </div>
@@ -644,9 +649,9 @@ function badgeHtml(m){
  return `<span class="member-badge" style="color:${c};border-color:${c}40">${m}</span>`;
 }
 
-function buildDays(){
+function buildDays(data){
  const c=document.getElementById('days-container');
- DAYS.forEach(d=>{
+ (data||DAYS).forEach(d=>{
   const card=document.createElement('div');
   card.className='day-card';
   const mem=d.members.map(m=>badgeHtml(m)).join('');
@@ -668,10 +673,122 @@ function buildDays(){
       ${a.map?`<a class="act-map" href="${a.map}" target="_blank">📍 Google Maps 導航</a>`:''}
      </div>
     </div>`).join('')}
-    <div class="stay-bar"><strong>住宿：</strong>${d.stay}</div>
+    <div class="stay-bar"><strong><span class="zh">住宿：</span><span class="en">Stay: </span></strong>${d.stay}</div>
    </div>`;
   c.appendChild(card);
  });
+}
+
+const DAYS_EN=[
+ {date:'9/24',dow:'Thu',theme:'✈️ M&J Departs Taipei',loc:'fly',members:['M&J'],
+  activities:[{time:'17:45',title:'SQ879 Taipei (TPE) → Berlin Brandenburg (BER) Departs',detail:'SQ879 → Singapore Changi (SIN) (4h30m), transfer 1h10m, change terminal\nLH769 → Munich (MUC) (12h35m), transfer 1h\nLH1928 → Berlin Brandenburg (BER T1) (1h5m)',note:'Baggage: 1×8kg carry-on + personal item + 1×23kg checked',map:'https://maps.google.com/?q=Taiwan+Taoyuan+International+Airport'}],
+  stay:'✈️ On the plane'},
+ {date:'9/25',dow:'Fri',theme:'✈️ M&J Arrives Berlin | Y&W Hamburg→Berlin',loc:'berlin',members:['M&J','Y&W'],
+  activities:[
+   {time:'08:05',title:'M&J Arrives at Berlin Brandenburg Airport (BER T1)',detail:'SQ+LH total 20h20m. Check in & rest.\nFrom T1 → BER station: take FEX or RE7 → Südkreuz (25 min) → walk ~10 min to hostel'},
+   {time:'⏳',title:'Y&W Hamburg→Berlin by Train (ICE)',detail:'ICE high-speed train, approx. 1.5h',note:'⏳ Arrival time TBD'}],
+  stay:'🏨 Three Little Pigs Hostel (M&J: 6-bed mixed dorm)'},
+ {date:'9/26',dow:'Sat',theme:'🏰 Berlin Sightseeing | Becky Arrives 09:15',loc:'berlin',members:['M&J','Becky','Y&W'],
+  activities:[
+   {time:'09:15',title:'Becky Arrives at Berlin Brandenburg Airport (BER T1)',detail:'TK HKG→IST→BER arrives!\n★ M&J + Becky + Y&W all meet in Berlin!',note:'YY arrives directly in Venice (VCE) on 9/28'},
+   {time:'All day',title:'🏰 Berlin Sightseeing',detail:'Brandenburg Gate | Museum Island | East Side Gallery\nReichstag | Checkpoint Charlie',map:'https://maps.google.com/?q=Brandenburg+Gate+Berlin'}],
+  stay:'🏨 Three Little Pigs Hostel (M&J: 4-bed dorm / Becky: 6-bed mixed)'},
+ {date:'9/27',dow:'Sun',theme:'🏃 Berlin Marathon Race Day!',loc:'berlin',members:['M&J','Becky','Y&W'],
+  activities:[{time:'All day',title:'🏃 Berlin Marathon',detail:'Finish line: Brandenburg Gate\nBest viewing: Kurfürstendamm / finish area\nCelebration dinner after',note:'⏳ Photo plan TBD',map:'https://maps.google.com/?q=Berlin+Marathon+Finish+Brandenburger+Tor'}],
+  stay:'🏨 Three Little Pigs Hostel (M&J: 4-bed dorm / Becky: 6-bed mixed)'},
+ {date:'9/28',dow:'Mon',theme:'✈️ M&J+B&K Berlin→Venice (same flight) | YY Arrives Venice',loc:'fly',members:['M&J','B&K'],
+  activities:[
+   {time:'15:20',title:'⚠️ Bag Drop Opens (BER T1)',detail:'⚠️ Bag drop 15:20–16:40 (be on time!)',note:'Check-in opens: 29 Aug 23:20 (30 days before flight)'},
+   {time:'17:20',title:'EJU5085 Berlin (BER T1) → Venice (VCE)',detail:'easyJet, ~1h40m\nM&J: Jusing seat 7A / Mars seat 7B\nB&K same flight (seats ⏳ TBD)',note:'⚠️ Checked bag already purchased · cabin bag 45×36×20cm · booking ref: KBWPK1D'},
+   {time:'⏳',title:'YY Arrives at Venice Marco Polo Airport (VCE)',detail:'⏳ Outbound flight TBD, arriving separately'},
+   {time:'~19:30',title:'Pick Up Rental Car at VCE + Vaporetto to Venice Island',detail:'Collect Skoda Octavia Estate at Locauto\nTake Vaporetto water bus to main island (~75 min)',note:'Vaporetto €9.5/person',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport+VCE'}],
+  stay:'🏠 Venicedire Apartment, Venice (Santa Croce) ✅ Booked'},
+ {date:'9/29',dow:'Tue',theme:'🛶 Venice D1 — Burano Colorful Island + Main Island',loc:'venice',members:['M&J','B&K','Y&W⏳'],
+  activities:[
+   {time:'~09:00',title:'🏝️ Burano Island',detail:'Take Vaporetto — recommend before 09:00 to avoid crowds',note:'Vaporetto day pass €25/person',map:'https://maps.google.com/?q=Burano+Venice+Italy'},
+   {time:'Afternoon',title:'🏛️ St. Mark\'s Square & Rialto Bridge',detail:'Main island stroll, buy Dolomites supplies',map:'https://maps.google.com/?q=Piazza+San+Marco+Venice+Italy'}],
+  stay:'🏠 Venicedire Apartment, Venice ✅ Booked'},
+ {date:'9/30',dow:'Wed',theme:"🚗 Venice→Cortina d'Ampezzo | Pick Up Car at VCE",loc:'move',members:['M&J','B&K','Y&W⏳'],
+  activities:[
+   {time:'Morning',title:'🚗 Pick Up Rental Car at Venice Marco Polo Airport (VCE)',detail:'Collect Skoda Octavia Estate (Locauto)\nDrive north on A27→SS51 scenic route\nStop at Pieve di Cadore',note:'Drive time approx. 2–2.5h',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport'},
+   {time:'Afternoon',title:'🏔️ Lago di Misurina Walk (1.5–2h) + Arrive Cortina',detail:'Check into Airbnb Cortina (Check-in 17:00–00:00)\n1754m altitude lakewalk to acclimatize',note:'⏳ Parking confirmation pending',map:'https://maps.google.com/?q=Lago+di+Misurina+Italy'}],
+  stay:"🏠 Airbnb Cortina d'Ampezzo (6 people, paid by Maier) ✅ Booked"},
+ {date:'10/1',dow:'Thu',theme:'⛰️ Dolomites East D1 — Tre Cime + Cadini di Misurina 🎉Everyone!',loc:'dolo-e',members:['All 8!'],
+  activities:[
+   {time:'06:00',title:'Head to Tre Cime',detail:'Depart 06:00 → arrive Parcheggio Auronzo 07:00–07:30\n⚠️ Pre-book parking: pass.auronzo.info (2 cars €80)',note:'⚠️ Possible October snow, bring crampons!',map:'https://maps.google.com/?q=Parcheggio+Rifugio+Auronzo+Tre+Cime+di+Lavaredo'},
+   {time:'07:30',title:'⛰️ Tre Cime Counterclockwise Loop (3.5–4h)',detail:'Rifugio Auronzo→Lavaredo→Forcella Lavaredo\n→Rifugio Locatelli lunch (⚠️ cash only!) →return\n⚠️ Locatelli may close early Oct — call ahead!',map:'https://maps.google.com/?q=Tre+Cime+di+Lavaredo+Dolomiti'},
+   {time:'Afternoon',title:"⛰️ Cadini di Misurina 'Mordor Towers' (1.5–2h)",detail:'423 stone steps (30–45 min up), dramatic spire views\n14:00–16:30 Cadini, 17:00–18:00 back to Cortina',note:'Beware of strong winds on ridge',map:'https://maps.google.com/?q=Cadini+di+Misurina+Dolomiti'}],
+  stay:"🏠 Airbnb Cortina d'Ampezzo (6 people) · ⏳ S&K accommodation TBD"},
+ {date:'10/2',dow:'Fri',theme:'⛰️ Dolomites East D2 — Braies Lake + Highland Hike',loc:'dolo-e',members:['All 8'],
+  activities:[
+   {time:'06:30',title:'Head to Lago di Braies',detail:'Depart 06:30 → 08:00–10:30 lakeside walk (3.5km, rowboat €10–15/30min)',note:'✅ Oct restriction lifted, drive directly, best at dawn',map:'https://maps.google.com/?q=Lago+di+Braies+Pragser+Wildsee+Italy'},
+   {time:'Noon',title:'🍽️ Prato Piazza Highland Lunch',detail:'Shuttle bus (€5.50/person one way)\n11:30–13:00 Berggasthof Platzwiese lunch (Strudel / Tiramisù)',note:'⏳ Traffic restrictions at Ponticello after 10:00',map:'https://maps.google.com/?q=Prato+Piazza+Platzwiese+Dobbiaco+Dolomites'},
+   {time:'Afternoon',title:'🔭 Monte Specie Hike (Trail #34, ~3h)',detail:'Prato Piazza → Rifugio Vallandro → Monte Specie 2307m\n360° panorama including Tre Cime, back 16:30–17:30',map:'https://maps.google.com/?q=Monte+Specie+Strudelkopf+Dolomiti'}],
+  stay:"🏠 Airbnb Cortina d'Ampezzo (6 people) · ⏳ S&K accommodation TBD"},
+ {date:'10/3',dow:'Sat',theme:'🚗 East→West Transfer — Cinque Torri + Passo Gardena → Ortisei',loc:'move',members:['All 8'],
+  activities:[
+   {time:'By 09:00',title:'⚠️ Cortina Airbnb Check-out (by 10:00)',detail:''},
+   {time:'09:30',title:'💎 Cinque Torri Five Towers (1.5–2h)',detail:'Chairlift €26/person (card), WWI trenches museum free\nBai de Dones parking free',note:'✅ Confirmed open 10/3',map:'https://maps.google.com/?q=Cinque+Torri+Cortina+dAmpezzo+Italy'},
+   {time:'12:00',title:'🚗 Scenic Mountain Pass Drive',detail:'Passo Falzarego 2105m (photo stop, optional Lagazuoi cable car €20–25)\nPasso Gardena 2136m (best panoramic views, free)\n13:30–14:30 Passo Gardena lunch + panoramic photos',map:'https://maps.google.com/?q=Passo+Gardena+Grodner+Joch+Italy'},
+   {time:'15:00',title:'🏘️ Arrive Ortisei + Buy Hiking Supplies',detail:'Check-in 15:00–19:00\nDespar Via Rezia 230 (08:00–19:30) buy food for hikes\nMost mountain huts closed Oct — bring your own supplies',map:'https://maps.google.com/?q=Ortisei+Val+Gardena+Italy'}],
+  stay:'🏠 Airbnb Ortisei (6 people, paid by Maier) ✅ NON-REFUNDABLE! · ⏳ S&K TBD'},
+ {date:'10/4',dow:'Sun',theme:'⛰️ Dolomites West D1 — Seceda Serrated Ridge',loc:'dolo-w',members:['All 8'],
+  activities:[
+   {time:'08:00',title:'Head to Seceda Cable Car Station',detail:'⚠️ Book timed entry online (www.seceda.it), 8 people ~€562, NON-REFUNDABLE!',map:'https://maps.google.com/?q=Funivie+Seceda+Ortisei+Italy'},
+   {time:'08:30',title:'🚠 Two Cable Cars → Seceda 2500m',detail:'Leg 1: Ortisei→Furnes (6-seat gondola)\nLeg 2: Furnes→Seceda (large scenic gondola)',note:'⏳ Booking in progress — decide by end of September',map:'https://maps.google.com/?q=Seceda+2518m+Val+Gardena'},
+   {time:'All day',title:'🥾 Ridge Trail #6 + Rifugio Sofie Lunch + Trail #8 Down',detail:'09:30–12:30 Trail #6 (serrated cliff ridge walk)\n12:30–14:00 Rifugio Sofie lunch (Canederli / duck dishes)\n14:00–15:30 Trail #8 down (or cable car €12–15)',note:'Bring windproof jacket! Big temperature difference at summit',map:'https://maps.google.com/?q=Rifugio+Sofie+Seceda+Ortisei'}],
+  stay:'🏠 Airbnb Ortisei (6 people) · ⏳ S&K accommodation TBD'},
+ {date:'10/5',dow:'Mon',theme:'⛰️ Dolomites West D2 — Alpe di Siusi Autumn Larch Plateau',loc:'dolo-w',members:['All 8'],
+  activities:[
+   {time:'07:30',title:'Head to Mont Sëuc Cable Car Station',detail:'⚠️ Private cars banned 09:00–17:00 in Compaccio\nOption A: Drive up before 09:00 · Option B: Cable car €39/person (from 08:30)',map:'https://maps.google.com/?q=Mont+Seuc+Seilbahn+Ortisei+Val+Gardena'},
+   {time:'08:45',title:'🍂 Autumn Meadow Trail #9 (3–4h)',detail:'Golden larch trees at peak — most beautiful view of the trip!',map:'https://maps.google.com/?q=Alpe+di+Siusi+Seiser+Alm+Italy'},
+   {time:'Noon',title:'🍽️ Malga / Baita Sanon Lunch',detail:'Speck cheese / venison pasta / Canederli / Kaiserschmarrn\n14:30–15:30 walk back to cable car, 16:00 back to Ortisei',map:'https://maps.google.com/?q=Malga+Sanon+Alpe+di+Siusi'}],
+  stay:'🏠 Airbnb Ortisei (6 people) · ⏳ S&K accommodation TBD'},
+ {date:'10/6',dow:'Tue',theme:'⛰️ Dolomites West D3 — Val di Funes Lonely Chapel',loc:'dolo-w',members:['All 8'],
+  activities:[
+   {time:'08:30',title:'Head to Val di Funes (45–50 min drive)',detail:'Park at Parcheggio Putzen (€4/all day)\n09:45–10:30 St. Magdalena viewpoint (free)\n10:30–11:00 St. Johann Chapel (€4/person, ticket machine)',note:'⚠️ No driving into village roads',map:'https://maps.google.com/?q=Parcheggio+Putzen+Santa+Maddalena+Val+di+Funes'},
+   {time:'Afternoon',title:'🦅 Adolf Munkel Trail (#36→#35, 3–4h)',detail:'11:30–14:30 trail: parking → forest → pasture → Geisleralm\n13:00–14:30 Geisleralm lunch (Canederli / Goulash / Kaiserschmarrn)\n⚠️ Geisleralm 10:00–17:00, closed Monday (10/6 Tuesday ✅)\n15:00–16:00 Trail #35 return, 16:30 back to Ortisei',note:'Best afternoon light for autumn colors',map:'https://maps.google.com/?q=Geisleralm+Adolf+Munkel+Weg+Val+di+Funes'}],
+  stay:'🏠 Airbnb Ortisei (6 people) · ⏳ S&K accommodation TBD'},
+ {date:'10/7',dow:'Wed',theme:'⛰️ Dolomites West D4 — Rainbow Lake (Flexible Day)',loc:'dolo-w',members:['All 8'],
+  activities:[
+   {time:'09:30',title:'🌈 Lago di Carezza / Rainbow Lake (Easy 1h)',detail:'Parking €3/h\n10:15–11:15 lakeside stroll',note:'Bad weather: use as makeup photography day',map:'https://maps.google.com/?q=Lago+di+Carezza+Karersee+Italy'},
+   {time:'Afternoon',title:'🏘️ Ortisei Final Stroll + Souvenir Shopping',detail:'12:30–14:00 lunch (Tiroler Gröstl / Spatzle)\n14:00–16:00 shopping (wood carvings / Speck / hiking gear)\n19:00 Final Dolomites dinner 🎉 (8 people, reservation needed)',note:'⚠️ Pack tonight! Check-out by 09:00 tomorrow',map:'https://maps.google.com/?q=Ortisei+centro+Val+Gardena'}],
+  stay:'🏠 Airbnb Ortisei (6 people) · ⏳ S&K accommodation TBD'},
+ {date:'10/8',dow:'Thu',theme:'🚗 Dolomites→Treviso | Y&W & W&F Farewell, Drive to Hamburg',loc:'move',members:['M&J','B&K','Y&W Farewell'],
+  activities:[
+   {time:'08:30',title:'⚠️ Ortisei Airbnb Check-out (by 09:00!)',detail:'★ Y&W farewell — driving back to Hamburg (A22, 10–11h)!\n★ W&F farewell!\nM&J+B&K drive to Venice'},
+   {time:'09:30',title:'🚗 World-Class Mountain Pass Drive → Venice VCE',detail:'① Passo Sella 2244m (Sella massif + Sassolungo panorama)\n② Passo Pordoi 2239m (optional Sass Pordoi cable car €28–30/person)\n③ Lago di Alleghe lunch (La Grande Guerra ⭐4.5)\n④ Belluno → A27 highway',map:'https://maps.google.com/?q=Passo+Sella+Sellajoch+Dolomiti'},
+   {time:'17:00',title:'Return Rental Car at VCE → Train to Treviso',detail:'Return car to Locauto at VCE airport\nTrain VCE→Treviso (20 min, €4/person)\n18:00 Treviso check-in (Riviera Views Apt)',note:'⚠️ Check-out by 09:00!',map:'https://maps.google.com/?q=Aeroporto+di+Venezia+Marco+Polo+VCE'},
+   {time:'19:30',title:'🍽️ Toni del Spin Dinner (Treviso Classic Restaurant)',detail:'📞 +39 0422 543829 (advance reservation required!)',note:'⚠️ Remember to book!',map:'https://maps.google.com/?q=Ristorante+Toni+del+Spin+Treviso+Italy'}],
+  stay:'🏠 Riviera Views Apartment, Treviso ✅ Booked NT$14,570'},
+ {date:'10/9',dow:'Fri',theme:'🏙️ Treviso — City Walk & Farewell Dinner',loc:'treviso',members:['M&J','B&K'],
+  activities:[
+   {time:'09:00',title:'🏙️ Treviso Historic Center Walk',detail:'Palazzo dei Trecento, Sile River canal, fish market\nShopping for souvenirs (Prosecco / Radicchio / Tiramisu)',map:'https://maps.google.com/?q=Palazzo+dei+Trecento+Treviso+Italy'},
+   {time:'Noon',title:'🍽️ Riverside Café + Lunch',detail:''},
+   {time:'19:30',title:'🎉 Final Dinner of the Trip',detail:'Choose a great restaurant to end the journey perfectly',note:'⚠️ Restaurants in Italy charge for tap water!'}],
+  stay:'🏠 Riviera Views Apartment, Treviso ✅ Booked'},
+ {date:'10/10',dow:'Sat',theme:'✈️ Everyone Departs Home',loc:'fly',members:['M&J','B&K'],
+  activities:[
+   {time:'09:00',title:'⚠️ YY Departs First! Check-out → VCE Airport',detail:'Treviso → VCE train (20 min, €4/person)\n10:00 VCE airport check-in — farewell!',note:'Condor 11:40 VCE → FRA → YYZ, ⚠️ earliest departure!',map:'https://maps.google.com/?q=Treviso+Centrale+Station'},
+   {time:'Morning',title:'M&J + Becky Day Trip to Padova',detail:"10:30 Padova (Treviso→Padova train 30 min, €5)\n11:15 Caffè Pedrocchi (since 1831, mint coffee)\n12:00 Basilica di Sant'Antonio (free, ⭐4.8)\n13:15 Prato della Valle lunch (one of Europe's largest squares)\n15:00 train back to VCE, 15:30 collect luggage at airport",map:'https://maps.google.com/?q=Basilica+di+Sant+Antonio+Padova+Italy'},
+   {time:'20:00',title:'✈️ TK1870 Venice (VCE) → Istanbul (IST) → Home',detail:'M&J + Becky on same flight TK1870, departs 20:00\nM&J: connects TK24 → Taipei Taoyuan (TPE T2) 17:55 (10/11)\nBecky: connects IST → Hong Kong (HKG T1) 17:20 (10/11)',note:"M&J transfer 1h55m · Becky transfer 2h"}],
+  stay:'✈️ On the plane'},
+ {date:'10/11',dow:'Sun',theme:'🏠 M&J Arrives Taipei | Becky Arrives Hong Kong',loc:'berlin',members:['M&J','Becky'],
+  activities:[
+   {time:'17:55',title:'M&J Arrives at Taipei Taoyuan Airport (TPE T2)',detail:''},
+   {time:'17:20',title:'Becky Arrives at Hong Kong International Airport (HKG T1)',detail:''}],
+  stay:'— Trip complete! 🎉'}
+];
+
+let currentLang='zh';
+
+function toggleLang(btn){
+ currentLang=currentLang==='zh'?'en':'zh';
+ document.body.className=currentLang;
+ btn.textContent=currentLang==='zh'?'🌐 English':'🌐 中文';
+ const c=document.getElementById('days-container');
+ c.innerHTML='';
+ buildDays(currentLang==='en'?DAYS_EN:DAYS);
 }
 
 function toggleDay(h){h.parentElement.classList.toggle('open')}
@@ -683,7 +800,8 @@ function showTab(id,el){
  el.classList.add('active');
 }
 
-buildDays();
+buildDays(DAYS);
+document.body.className='zh';
 </script>
 </body>
 </html>
