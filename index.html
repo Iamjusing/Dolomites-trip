@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1e3a5f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="柏林×多洛米蒂">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>《柏林馬拉松與多洛米蒂之旅》</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -14,6 +22,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang TC',sans-
 .header .pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 10px;font-size:11px}
 .lang-btn{flex-shrink:0;align-self:center;background:#f0f4ff;border:1.5px solid #1e3a5f;color:#1e3a5f;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;white-space:nowrap;transition:background .2s;margin-left:auto;margin-right:8px}
 .lang-btn:hover{background:#dce8ff}
+#net-badge{display:none;position:fixed;left:0;right:0;bottom:0;z-index:500;background:#455a64;color:#fff;font-size:11px;text-align:center;padding:6px 10px;letter-spacing:.3px}
 body.en .zh{display:none!important}
 body.zh .en{display:none!important}
 .tabs{background:#fff;border-bottom:1px solid #e0e0e0;display:flex;overflow-x:auto;position:sticky;top:0;z-index:100;align-items:center}
@@ -35,6 +44,7 @@ body.zh .en{display:none!important}
 .member-badge{font-size:10px;font-weight:700;padding:3px 7px;border-radius:8px;background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.5);white-space:nowrap}
 .act-map{display:inline-flex;align-items:center;gap:3px;margin-top:5px;font-size:11px;font-weight:600;color:#0d5fa8;background:#deeeff;padding:3px 9px;border-radius:6px;text-decoration:none;border:1px solid #b3d4f5;cursor:pointer}
 .act-map:hover{background:#b3d4f5}
+.act-detail a.act-map{margin-top:0;padding:0 6px;vertical-align:baseline;font-size:12px}
 .day-chevron{font-size:16px;opacity:.6;transition:transform .25s;flex-shrink:0}
 .day-card.open .day-chevron{transform:rotate(180deg)}
 .day-body{display:none;background:#fff;border-top:1px solid rgba(0,0,0,.06)}
@@ -96,6 +106,25 @@ body.zh .en{display:none!important}
 .attr-highlight{padding:9px 14px;background:#fff8e1;border-top:1px solid #f5f5f5;font-size:12px;color:#5d4037;font-weight:600}
 .attr-trip{padding:10px 14px;background:#e8f5e9;border-top:1px solid #f5f5f5;font-size:12px;color:#1b5e20;line-height:1.6}
 .attr-trip b{color:#1b5e20}
+.bib-hero{margin:12px;border-radius:14px;background:linear-gradient(135deg,#1e3a5f 0%,#2d5986 60%,#1e3a5f 100%);color:#fff;padding:18px 16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.bib-hero .bib-label{font-size:11px;opacity:.75;letter-spacing:1px}
+.bib-hero .bib-num{font-size:44px;font-weight:800;letter-spacing:2px;line-height:1.05;margin:4px 0 6px}
+.bib-hero .bib-name{font-size:15px;font-weight:600}
+.bib-hero .bib-meta{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:11px}
+.bib-hero .bib-chip{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:20px;padding:4px 11px;font-size:11px}
+.chk{padding:8px 14px 12px}
+.chk-item{display:flex;gap:9px;font-size:12px;color:#444;line-height:1.65;padding:5px 0;border-bottom:1px dashed #f0f0f0}
+.chk-item:last-child{border-bottom:none}
+.chk-item .box{flex-shrink:0;width:15px;height:15px;border:1.5px solid #1e3a5f;border-radius:4px;margin-top:3px}
+.expo-day{display:flex;gap:10px;align-items:flex-start;padding:9px 14px;border-top:1px solid #f5f5f5;font-size:12px;color:#444}
+.expo-day .d{min-width:62px;font-weight:700;color:#1e3a5f;flex-shrink:0}
+.expo-day.hi{background:#fff8e1}
+.buy-row{display:flex;justify-content:space-between;gap:10px;padding:8px 14px;border-top:1px solid #f5f5f5;font-size:12px;color:#444;line-height:1.5}
+.buy-row .p{font-weight:600;color:#1e3a5f;white-space:nowrap}
+.buy-total{display:flex;justify-content:space-between;padding:9px 14px;background:#e8f5e9;font-size:12px;font-weight:700;color:#1b5e20;border-top:1px solid #f5f5f5}
+.resv-time{background:#1e3a5f;color:#fff;border-radius:9px;padding:7px 9px;text-align:center;flex-shrink:0;min-width:58px}
+.resv-time .t{font-size:15px;font-weight:800;line-height:1.15;letter-spacing:.3px}
+.resv-time .d{font-size:10px;opacity:.82;margin-top:1px}
 /* ── CAR ── */
 .car-summary{margin:12px 12px 0;background:#fff;border-radius:12px;border:2px solid #1e3a5f;overflow:hidden}
 .car-summary-header{background:#1e3a5f;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
@@ -158,9 +187,11 @@ body.zh .en{display:none!important}
 
 <div class="tabs">
   <div class="tab active" onclick="showTab('itinerary',this)">📅 <span class="zh">行程</span><span class="en">Itinerary</span></div>
+  <div class="tab" onclick="showTab('marathon',this)">🏃 <span class="zh">馬拉松</span><span class="en">Marathon</span></div>
   <div class="tab" onclick="showTab('flights',this)">✈️ <span class="zh">航班</span><span class="en">Flights</span></div>
   <div class="tab" onclick="showTab('accommodation',this)">🏨 <span class="zh">住宿</span><span class="en">Stay</span></div>
   <div class="tab" onclick="showTab('car',this)">🚗 <span class="zh">租車</span><span class="en">Car Rental</span></div>
+  <div class="tab" onclick="showTab('berlin',this)">🏰 <span class="zh">柏林景點</span><span class="en">Berlin</span></div>
   <div class="tab" onclick="showTab('attractions',this)">🏔 <span class="zh">多洛米蒂經典景點</span><span class="en">Dolomites Highlights</span></div>
   <button class="lang-btn" onclick="toggleLang(this)">🌐 English</button>
 </div>
@@ -176,6 +207,92 @@ body.zh .en{display:none!important}
   <div class="leg"><div class="leg-dot" style="background:#4a148c"></div>⛰️ <span class="zh">多洛米蒂西</span><span class="en">Dolomites West</span></div>
 </div>
 <div id="days-container"></div>
+</div>
+
+<!-- ══ MARATHON (MARS) ══ -->
+<div id="panel-marathon" class="panel">
+
+<div class="bib-hero">
+  <div class="bib-label">BMW BERLIN-MARATHON 2026 · 9/27 <span class="zh">（日）</span><span class="en">(Sun)</span></div>
+  <div class="bib-num">#22639</div>
+  <div class="bib-name">YUN-SHU <span class="zh">（許雲旭）</span><span class="en">(Mars Hsu)</span></div>
+  <div class="bib-meta">
+    <span class="bib-chip">Registration ID · SC:NKJP</span>
+    <span class="bib-chip"><span class="zh">選手卡 Start Card</span><span class="en">Start Card</span></span>
+  </div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:32px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0">⏰</div><div style="flex:1"><div class="attr-title"><span class="zh">出發前必做（有期限！）</span><span class="en">Before you fly (deadlines!)</span></div><div class="attr-day"><span class="zh">錯過就沒得補</span><span class="en">No second chances</span></div></div><div class="attr-emoji">🚨</div></div>
+  <div class="chk">
+    <div class="chk-item"><div class="box"></div><div><b><span class="zh">9/21 前</span><span class="en">By 21 Sep</span></b> — <span class="zh">登入 SCC 帳號 <b>預約 EXPO 領物時段</b>（目前已預約 9/25 12:00–12:15）</span><span class="en">Log into your SCC account and <b>book an EXPO pick-up slot</b> (currently booked: 25 Sep 12:00–12:15)</span></div></div>
+    <div class="chk-item"><div class="box"></div><div><span class="zh"><b>下載／列印 Start Card</b>（數位版或紙本皆可）</span><span class="en"><b>Download or print the Start Card</b> (digital or paper both fine)</span></div></div>
+    <div class="chk-item"><div class="box"></div><div><span class="zh"><b>下載 4 日交通票 PDF</b>（報名信件內的連結）</span><span class="en"><b>Download the 4-day transport ticket PDF</b> (link in the registration email)</span></div></div>
+    <div class="chk-item"><div class="box"></div><div><span class="zh"><b>護照</b>放進隨身包 — 領物時必查相片證件</span><span class="en">Pack your <b>passport</b> — photo ID is checked at pick-up</span></div></div>
+    <div class="chk-item"><div class="box"></div><div><span class="zh">賽事當週：<b>卸載舊版 App</b>，改裝新的 BMW BERLIN MARATHON 2026 App（官方上架後會發信）</span><span class="en">Race week: <b>delete the old app</b> and install the new BMW BERLIN MARATHON 2026 app (they'll email when it's live)</span></div></div>
+    <div class="chk-item"><div class="box"></div><div><span class="zh">等大會 Email 通知 <b>起跑分組與進場時間</b>（下週寄發）</span><span class="en">Watch for the email with your <b>start group and entry time</b> (sent next week)</span></div></div>
+  </div>
+  <div class="attr-highlight"><span class="zh">⚠️ 賽事手冊不提供紙本 — 出發前請上官網賽前手冊專區看最新規則變更</span><span class="en">⚠️ No printed race briefing — check the official event-info page for rule changes before you fly</span></div>
+  <div class="attr-route" style="border-top:1px solid #f5f5f5"><a class="act-map" href="https://www.bmw-berlin-marathon.com/en/preparation/event-info" target="_blank">🔗 <span class="zh">大會賽前手冊專區</span><span class="en">Official Race Briefing</span></a></div>
+</div>
+
+<div class="section-title"><span class="zh">領物博覽會 Marathon EXPO by BRITA</span><span class="en">Marathon EXPO by BRITA</span></div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:32px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🎟️</div><div style="flex:1"><div class="attr-title">Flughafen Tempelhof</div><div class="attr-day">✅ <span class="zh">已預約 9/25（五）12:00–12:15</span><span class="en">Booked: Fri 25 Sep 12:00–12:15</span></div></div><div class="attr-emoji">🏟️</div></div>
+  <div class="attr-meta"><span class="attr-tag warn"><span class="zh">⚠️ 須本人領取</span><span class="en">⚠️ In person only</span></span><span class="attr-tag warn"><span class="zh">⚠️ 需預約時段</span><span class="en">⚠️ Slot required</span></span><span class="attr-tag">U6 Platz der Luftbrücke</span><span class="attr-tag">1–2h</span></div>
+  <div class="expo-day"><div class="d">9/24 <span class="zh">四</span><span class="en">Thu</span></div><div>15:00 – 20:00 <span style="color:#999">· <span class="zh">M&amp;J 還在飛機上</span><span class="en">M&amp;J still in the air</span></span></div></div>
+  <div class="expo-day hi"><div class="d">9/25 <span class="zh">五</span><span class="en">Fri</span></div><div>10:00 – 20:00 &nbsp;<b style="color:#e65100"><span class="zh">← 已預約 12:00–12:15</span><span class="en">← booked 12:00–12:15</span></b></div></div>
+  <div class="expo-day"><div class="d">9/26 <span class="zh">六</span><span class="en">Sat</span></div><div>09:00 – 19:00 <span style="color:#999">· <span class="zh">備案日</span><span class="en">backup day</span></span></div></div>
+  <div class="attr-section"><h4>📌 <span class="zh">必帶（缺一不可）</span><span class="en">Must bring (both)</span></h4><ul>
+    <li><span class="zh"><b>Start Card</b> — 數位版或列印版皆可</span><span class="en"><b>Start Card</b> — digital or printed</span></li>
+    <li><span class="zh"><b>護照</b> — 需帶相片的身分證明文件</span><span class="en"><b>Passport</b> — photo ID is required</span></li>
+    <li><span class="zh"><b>必須本人親自領取，不可代領</b></span><span class="en"><b>Must collect in person — no proxies</b></span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Platz der Luftbrücke 5, 12101 Berlin</span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>U6 Platz der Luftbrücke</span><b><span class="zh">預約</span><span class="en">Booking</span></b><span><span class="zh">9/21 前於 SCC 帳號預約時段</span><span class="en">Book the slot in your SCC account by 21 Sep</span></span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Flughafen+Tempelhof+Platz+der+Luftbr%C3%BCcke+5+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">08:05 落地（申根區內線免查驗）→ 08:35 搭 FEX/RE7 到 Südkreuz → 09:15 轉 S-Bahn 到 Anhalter Bahnhof → 10:00 到 Hostel 寄行李、吃早午餐 → 11:30 搭 U6（6 分鐘）→ 12:00–12:15 領物，接著逛 EXPO 紀念品店。下午還有時間去 Modulor。</span><span class="en">08:05 land (Schengen domestic — no passport control) → 08:35 FEX/RE7 to Südkreuz → 09:15 S-Bahn to Anhalter Bahnhof → 10:00 drop bags at the hostel and grab brunch → 11:30 U6 (6 min) → 12:00–12:15 pick-up, then the merch store. Modulor still fits in the afternoon.</span></div>
+</div>
+
+<div class="section-title"><span class="zh">已加購項目 · 領號碼布時一併領取</span><span class="en">Add-ons · collected with the bib</span></div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:32px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🎽</div><div style="flex:1"><div class="attr-title"><span class="zh">Additional Services 清單</span><span class="en">Additional Services</span></div><div class="attr-day"><span class="zh">現場核對，少一樣就當場反映</span><span class="en">Check on the spot — flag anything missing</span></div></div><div class="attr-emoji">🧾</div></div>
+  <div class="buy-row"><div>1× <span class="zh">寄物服務 Bag drop-off</span><span class="en">Bag drop-off</span></div><div class="p"><span class="zh">已含</span><span class="en">incl.</span></div></div>
+  <div class="buy-row"><div>1× BMW BERLIN-MARATHON <span class="zh">紀念 T 恤 EVENT TEE</span><span class="en">EVENT TEE</span> · Men S</div><div class="p">€40</div></div>
+  <div class="buy-row"><div>1× BMW BERLIN-MARATHON <span class="zh">完賽 T 恤 FINISHER TEE</span><span class="en">FINISHER TEE</span> · Men S</div><div class="p">€40</div></div>
+  <div class="buy-row"><div>1× BMW BERLIN-MARATHON <span class="zh">聯名外套 LEGEND JACKET</span><span class="en">LEGEND JACKET</span> · Men S</div><div class="p">€120</div></div>
+  <div class="buy-total"><div><span class="zh">加購合計</span><span class="en">Add-ons total</span></div><div>€200</div></div>
+  <div class="attr-highlight"><span class="zh">💊 若有預購 Maurten Race Pack，需另外憑 Start Card 到 <b>Maurten 攤位</b>領取（不在號碼布櫃台）</span><span class="en">💊 If you pre-ordered the Maurten Race Pack, collect it separately at the <b>Maurten booth</b> with your Start Card — not at the bib counter</span></div>
+</div>
+
+<div class="section-title"><span class="zh">免費 4 日大眾運輸票</span><span class="en">Free 4-Day Transport Ticket</span></div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:32px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🚇</div><div style="flex:1"><div class="attr-title"><span class="zh">柏林 ABC 區 · 4 天無限搭</span><span class="en">Berlin ABC zones · 4 days unlimited</span></div><div class="attr-day">9/24 00:00 → 9/28 03:00</div></div><div class="attr-emoji">🎫</div></div>
+  <div class="attr-meta"><span class="attr-tag ok"><span class="zh">✅ 含 ABC 區（VBB）</span><span class="en">✅ Zones ABC (VBB)</span></span><span class="attr-tag ok"><span class="zh">✅ 含機場 BER</span><span class="en">✅ Covers BER airport</span></span><span class="attr-tag"><span class="zh">4 天</span><span class="en">4 days</span></span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">怎麼用</span><span class="en">How to use it</span></h4><ul>
+    <li><span class="zh"><b>領號碼布前</b>（9/25 12:00 之前）：用報名信件裡的連結下載 PDF 車票，查票時出示電子版或紙本 <b>＋ 帶相片證件</b></span><span class="en"><b>Before bib pick-up</b> (i.e. before 12:00 on 9/25): download the PDF from the registration email; show it digitally or printed <b>plus photo ID</b></span></li>
+    <li><span class="zh"><b>領號碼布後</b>：號碼布本身就是車票，帶著它就能搭</span><span class="en"><b>After pick-up</b>: the bib itself is the ticket — just carry it</span></li>
+    <li><span class="zh">ABC 區含 BER 機場，9/25 從機場進市區、9/28 回機場都能用</span><span class="en">Zone C includes BER airport — good for the ride in on 9/25 and back out on 9/28</span></li>
+  </ul></div>
+  <div class="attr-highlight"><span class="zh">⚠️ 有效到 <b>9/28 03:00</b>；9/28 17:20 飛威尼斯那天已經失效，去機場要另外買票</span><span class="en">⚠️ Expires <b>03:00 on 9/28</b> — it's already dead on the day of the 17:20 flight to Venice, so buy a ticket for the airport run</span></div>
+</div>
+
+<div class="section-title"><span class="zh">賽事日 9/27（日）</span><span class="en">Race Day · Sun 27 Sep</span></div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:32px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🏁</div><div style="flex:1"><div class="attr-title"><span class="zh">起跑 → 勃蘭登堡門終點</span><span class="en">Start → Brandenburg Gate finish</span></div><div class="attr-day"><span class="zh">⏳ 分組與進場時間待大會 Email</span><span class="en">⏳ Start group &amp; entry time TBC by email</span></div></div><div class="attr-emoji">🏃</div></div>
+  <div class="attr-section"><h4>📌 <span class="zh">當天帶什麼</span><span class="en">On the day</span></h4><ul>
+    <li><span class="zh">號碼布 <b>#22639</b>（別忘了它同時是交通票，賽後回程也靠它）</span><span class="en">Bib <b>#22639</b> — remember it doubles as your transport ticket for the ride back</span></li>
+    <li><span class="zh">寄物袋（已加購 Bag drop-off，領物時一併拿到）</span><span class="en">Bag-drop bag (included in your add-ons, handed over at pick-up)</span></li>
+    <li><span class="zh">起跑區 Straße des 17. Juni；終點在勃蘭登堡門 — 全隊觀賽點：Kurfürstendamm 或終點衝刺區</span><span class="en">Start on Straße des 17. Juni, finish at the Brandenburg Gate — the group can watch from Kurfürstendamm or the finish straight</span></li>
+    <li><span class="zh">賽後犒賞：Zollpackhof 啤酒花園慶功 → <b>18:00 YOSOY TAPAS（已訂位）</b></span><span class="en">Post-race reward: celebrate at the Zollpackhof beer garden → <b>18:00 YOSOY TAPAS (booked)</b></span></li>
+    <li><span class="zh">沒有跑步的人（週日限定）：Mauerpark 跳蚤市集 10:00–18:00＋15:00 露天 KTV｜Arkonaplatz 市集 10:00–17:00 → 柏林圍牆紀念園區 → Mauerpark 一路串連（見「柏林景點」分頁）</span><span class="en">For the non-runners (Sundays only): Mauerpark flea market 10:00–18:00 + karaoke at 15:00 ｜ Arkonaplatz market 10:00–17:00 → Berlin Wall Memorial → Mauerpark, all in one line (see the Berlin tab)</span></li>
+  </ul></div>
+  <div class="attr-trip"><b><span class="zh">提醒：</span><span class="en">Note: </span></b><span class="zh">9/27 全城封路，Straße des 17. Juni 一整條都是賽道，那天不要排 Berliner Trödelmarkt（改 9/26）。</span><span class="en">Wide road closures on 9/27 — Straße des 17. Juni is the course, so keep the Berliner Trödelmarkt for 9/26.</span></div>
+</div>
+
 </div>
 
 <!-- ══ FLIGHTS ══ -->
@@ -227,8 +344,8 @@ body.zh .en{display:none!important}
 </div>
 <div class="section-title">Y&amp;W — <span class="zh">馬兒 &amp; Wolfgang大叔</span><span class="en">Maier &amp; Wolfgang</span></div>
 <div class="flight-group">
-  <div class="flight-group-header">🚂 <span class="zh">漢堡→柏林 火車</span><span class="en">Hamburg→Berlin by Train</span> <span class="flight-badge badge-wait">⏳ <span class="zh">日期待確認</span><span class="en">Date TBD</span></span></div>
-  <div class="flight-seg"><div class="flight-info"><div class="flight-route">Hamburg Hbf → Berlin Hbf</div><div class="flight-detail"><span class="zh">ICE 高速列車 · 約1.5h · 預計9/25（五）下午抵達</span><span class="en">ICE high-speed train · ~1.5h · Expected arrival afternoon 9/25 (Fri)</span></div></div></div>
+  <div class="flight-group-header">🚂 <span class="zh">漢堡→柏林 火車</span><span class="en">Hamburg→Berlin by Train</span> <span class="flight-badge badge-ok">✅ 9/25 16:22</span></div>
+  <div class="flight-seg"><div class="flight-info"><div class="flight-route">Hamburg Hbf → Berlin Hbf</div><div class="flight-detail"><span class="zh">ICE 高速列車 · 約1.5h · <b>9/25（五） 16:22 抵達 Berlin Hbf</b><br>抵達後入住 martas Hotel Berlin Mitte</span><span class="en">ICE high-speed train · ~1.5h · <b>arrives Berlin Hbf 16:22 on 9/25 (Fri)</b><br>Check in at martas Hotel Berlin Mitte</span></div></div></div>
 </div>
 <div class="flight-group">
   <div class="flight-group-header">🚗 10/8 <span class="zh">開車回漢堡</span><span class="en">Drive Back to Hamburg</span></div>
@@ -259,7 +376,7 @@ body.zh .en{display:none!important}
   <span class="accom-status badge-ok">✅ <span class="zh">已訂（Jusing 付）</span><span class="en">Booked (paid by Jusing)</span></span>
   <div class="accom-body">
     <div class="accom-row"><div class="accom-key"><span class="zh">地址</span><span class="en">Address</span></div><div class="accom-val">Stresemannstraße 66, 10963 Berlin-Kreuzberg <a href="https://www.google.com/maps/search/?api=1&query=Stresemannstra%C3%9Fe+66+10963+Berlin" target="_blank" class="act-map">📍 Map</a></div></div>
-    <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val">M&amp;J · Becky · <span class="zh">⏳ Y&amp;W 待確認</span><span class="en">⏳ Y&amp;W TBD</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val">M&amp;J · Becky<span class="zh">（Y&amp;W 另住 martas Hotel Berlin Mitte）</span><span class="en"> (Y&amp;W stay at martas Hotel Berlin Mitte)</span></div></div>
     <div class="accom-row"><div class="accom-key">M&amp;J 9/25</div><div class="accom-val"><span class="zh">混合宿舍 6人房（共用衛浴）· TWD 3,229 / €88.54</span><span class="en">6-bed mixed dorm (shared bath) · TWD 3,229 / €88.54</span></div></div>
     <div class="accom-row"><div class="accom-key">M&amp;J 9/26–27</div><div class="accom-val"><span class="zh">4人宿舍房（共用衛浴）· TWD 6,826 / €187.16（2晚）</span><span class="en">4-bed dorm (shared bath) · TWD 6,826 / €187.16 (2 nights)</span></div></div>
     <div class="accom-row"><div class="accom-key">Becky 9/26–27</div><div class="accom-val"><span class="zh">混合宿舍 6人房（共用衛浴）</span><span class="en">6-bed mixed dorm (shared bath)</span></div></div>
@@ -311,6 +428,19 @@ body.zh .en{display:none!important}
   </div>
 </div>
 
+<div class="section-title" style="padding-top:8px;font-size:11px;color:#888;text-transform:none;letter-spacing:0">Y&amp;W — <span class="zh">馬兒 &amp; Wolfgang大叔</span><span class="en">Maier &amp; Wolfgang</span></div>
+<div class="accom-card">
+  <div class="accom-header"><div class="accom-icon">🏨</div><div><div class="accom-title">martas Hotel Berlin Mitte</div><div class="accom-sub"><span class="zh">9/25（五）起 · 柏林 Mitte</span><span class="en">From 9/25 (Fri) · Berlin Mitte</span></div></div></div>
+  <span class="accom-status badge-ok">✅ <span class="zh">已訂（Y&amp;W）</span><span class="en">Booked (Y&amp;W)</span></span>
+  <div class="accom-body">
+    <div class="accom-row"><div class="accom-key"><span class="zh">地址</span><span class="en">Address</span></div><div class="accom-val">Augustraße 82, 10117 Berlin <a href="https://maps.app.goo.gl/etUeKFknDSXnAJtBA" target="_blank" class="act-map">📍 Map</a></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val">Y&amp;W — <span class="zh">馬兒 &amp; Wolfgang大叔</span><span class="en">Maier &amp; Wolfgang</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">抵達</span><span class="en">Arrival</span></div><div class="accom-val"><span class="zh">9/25（五）16:22 抵達 Berlin Hbf，搭 S-Bahn 約 10 分鐘到 Mitte</span><span class="en">Arrive Berlin Hbf 16:22 on 9/25 (Fri); ~10 min by S-Bahn to Mitte</span></div></div>
+    <div class="accom-row"><div class="accom-key">Check-in</div><div class="accom-val"><span class="zh">15:00 起</span><span class="en">From 15:00</span></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">聯絡</span><span class="en">Contact</span></div><div class="accom-val">+49 30 308860 · <a href="https://www.martas.org" target="_blank">martas.org</a></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">距離</span><span class="en">Distance</span></div><div class="accom-val"><span class="zh">步行至博物館島約 12 分鐘；與 M&amp;J 的 Three Little Pigs（Kreuzberg）搭 U-Bahn 約 20 分鐘</span><span class="en">~12 min walk to Museum Island; ~20 min by U-Bahn to M&amp;J at Three Little Pigs (Kreuzberg)</span></div></div>
+  </div>
+</div>
 <div class="section-title" style="padding-top:8px;font-size:11px;color:#888;text-transform:none;letter-spacing:0">S&amp;K — Sonia &amp; Kelvin</div>
 <div class="accom-card">
   <div class="accom-header"><div class="accom-icon">🏨</div><div><div class="accom-title">Scandic Berlin Potsdamer Platz</div><div class="accom-sub"><span class="zh">9/25（五）– 9/28（一） 3晚 · 柏林</span><span class="en">9/25 (Fri) – 9/28 (Mon) · 3 nights · Berlin</span></div></div></div>
@@ -504,6 +634,222 @@ body.zh .en{display:none!important}
 
 </div><!-- /car -->
 
+<!-- ══ BERLIN ATTRACTIONS ══ -->
+<div id="panel-berlin" class="panel">
+<div class="section-title" style="padding-top:12px"><span class="zh">柏林三天怎麼排</span><span class="en">Berlin — Planning the 3 Days</span> · 9/25–9/28</div>
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🗓️</div><div style="flex:1"><div class="attr-title"><span class="zh">依「營業日」排的速查表</span><span class="en">Cheat sheet by opening days</span></div><div class="attr-day"><span class="zh">先卡死公休／限定，再填其他</span><span class="en">Lock the closures first, fill in the rest</span></div></div><div class="attr-emoji">⚡</div></div>
+  <div class="attr-section"><h4>📌 <span class="zh">建議分配</span><span class="en">Suggested split</span></h4><ul>
+    <li><span class="zh"><b>9/25（五）</b>M&amp;J 08:05 落地、Y&amp;W 16:22 到 → 12:00 EXPO 領物 → 傍晚 Modulor（開到 20:00）→ <b>19:00 Antonello's 秘魯菜（已訂位）</b></span><span class="en"><b>9/25 (Fri)</b> M&amp;J land 08:05, Y&amp;W arrive 16:22 → 12:00 EXPO pick-up → evening Modulor (until 20:00) → <b>19:00 Antonello's (booked)</b></span></li>
+    <li><span class="zh"><b>9/26（六）</b>East Side Gallery → Berliner Trödelmarkt（09:00–17:00）→ 勃蘭登堡門＋猶太人紀念碑 → Modulor（六日只剩今天）→ Hackesche Höfe 買 Aseli 棉花糖老鼠 → <b>17:00 Night Kitchen（已訂 8 位）</b></span><span class="en"><b>9/26 (Sat)</b> East Side Gallery → Berliner Trödelmarkt (09:00–17:00) → Brandenburg Gate + Holocaust Memorial → Modulor (last weekend chance) → Aseli marshmallow mice at Hackesche Höfe → <b>17:00 Night Kitchen (8 booked)</b></span></li>
+    <li><span class="zh"><b>9/27（日）</b>馬拉松日。Modulor 公休；賽後 Zollpackhof 啤酒花園慶祝 → <b>18:00 YOSOY 西班牙菜（已訂位）</b>。沒跑步的人：Arkonaplatz 市集 → 圍牆紀念園區 → Mauerpark 15:00 露天 KTV</span><span class="en"><b>9/27 (Sun)</b> Race day. Modulor closed; celebrate at the Zollpackhof beer garden → <b>18:00 YOSOY tapas (booked)</b>. For the non-runners: Arkonaplatz market → Wall Memorial → Mauerpark karaoke at 15:00</span></li>
+    <li><span class="zh">DDR 博物館每天 09:00–21:00，是任何一天「傍晚補課」的萬用選項</span><span class="en">DDR Museum is open daily 09:00–21:00 — the universal evening filler</span></li>
+  </ul></div>
+  <div class="attr-highlight"><span class="zh">⚠️ 週日不營業：Modulor、Aseli（德國商店週日休市）　｜　週日限定：Mauerpark、Arkonaplatz　｜　週六＋週日：Berliner Trödelmarkt</span><span class="en">⚠️ Shut on Sun: Modulor, Aseli (German shops close Sundays) ｜ Sun only: Mauerpark, Arkonaplatz ｜ Sat + Sun: Berliner Trödelmarkt</span></div>
+</div>
+
+<div class="section-title"><span class="zh">🍽 柏林餐廳訂位</span><span class="en">🍽 Berlin Dinner Reservations</span></div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="resv-time"><div class="t">19:00</div><div class="d">9/25 <span class="zh">五</span><span class="en">Fri</span></div></div><div style="flex:1"><div class="attr-title">Antonello's Cevicheria &amp; StreetFood</div><div class="attr-day"><span class="zh">秘魯 Ceviche × 西西里 · M&amp;J ＋ Y&amp;W（4 位）</span><span class="en">Peruvian ceviche × Sicilian · M&amp;J + Y&amp;W (4)</span></div></div><div class="attr-emoji">🐟</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">✅ <span class="zh">已訂位 19:00</span><span class="en">Booked 19:00</span></span><span class="attr-tag">★ 4.5 (713)</span><span class="attr-tag">€20–30 <span class="zh">/人</span><span class="en">pp</span></span><span class="attr-tag warn"><span class="zh">⚠️ 週一公休</span><span class="en">⚠️ Closed Mon</span></span><span class="attr-tag">Kreuzberg</span></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Nostitzstraße 22, 10961 Berlin-Kreuzberg</span><b><span class="zh">電話</span><span class="en">Phone</span></b><span>+49 30 81492544</span><b><span class="zh">網站</span><span class="en">Web</span></b><span><a href="https://cevicheriastreetfood.de" target="_blank">cevicheriastreetfood.de</a></span><b><span class="zh">招牌</span><span class="en">Signature</span></b><span><span class="zh">劍魚 Ceviche、西西里炸飯糰、Caponata、Pisco Sour</span><span class="en">Swordfish ceviche, arancini, caponata, pisco sour</span></span></div>
+  <a class="act-map" href="https://maps.app.goo.gl/ZYzgw8XbsGzQg9Xf8" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">動線：</span><span class="en">Getting there: </span></b><span class="zh">從 Three Little Pigs（Stresemannstr. 66）搭 U1/U6 或走路約 20 分鐘，同在 Kreuzberg。Y&amp;W 16:22 到 Berlin Hbf，訂 19:00 就是留給火車延誤的緩衝。</span><span class="en">Same Kreuzberg neighbourhood as Three Little Pigs — ~20 min on foot or by U1/U6. Y&amp;W land at Berlin Hbf 16:22, so 19:00 leaves a buffer for train delays.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="resv-time"><div class="t">17:00</div><div class="d">9/26 <span class="zh">六</span><span class="en">Sat</span></div></div><div style="flex:1"><div class="attr-title">Night Kitchen</div><div class="attr-day"><span class="zh">以色列 / 地中海 · 全員（不含凱祺）＋ 小副 = 8 位</span><span class="en">Israeli / Mediterranean · everyone except YY, + Xiaofu = 8</span></div></div><div class="attr-emoji">🕯️</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">✅ <span class="zh">已訂 17:00 · 8 位</span><span class="en">Booked 17:00 · 8 pax</span></span><span class="attr-tag">★ 4.7 (2,914)</span><span class="attr-tag warn">€40–80 <span class="zh">/人</span><span class="en">pp</span></span><span class="attr-tag warn"><span class="zh">⚠️ 週一公休</span><span class="en">⚠️ Closed Mon</span></span><span class="attr-tag">Mitte</span></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Heckmann Höfe, Oranienburger Str. 32, 10117 Berlin</span><b><span class="zh">電話</span><span class="en">Phone</span></b><span>+49 30 23575075</span><b><span class="zh">網站</span><span class="en">Web</span></b><span><a href="https://nightkitchenberlin.com" target="_blank">nightkitchenberlin.com</a></span><b><span class="zh">形式</span><span class="en">Format</span></b><span><span class="zh">主打 Family Style 分享套餐；招牌 Bread Pudding、哈拉麵包</span><span class="en">Family-style sharing menu; famous bread pudding and challah</span></span></div>
+  <a class="act-map" href="https://maps.app.goo.gl/wDrjA7EthV4Ud4P6A" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-highlight"><span class="zh">👥 同日另一組：香港朋友 Amy &amp; Bonnie 訂 6 位 17:30</span><span class="en">👥 Same evening: HK friends Amy &amp; Bonnie have a separate booking for 6 at 17:30</span></div>
+  <div class="attr-trip"><b><span class="zh">動線：</span><span class="en">Getting there: </span></b><span class="zh">藏在 Heckmann Höfe 中庭裡，別走過頭。距 Y&amp;W 的 martas Hotel（Auguststraße 82）走路只要 4 分鐘；M&amp;J 從 Kreuzberg 搭 U6 到 Oranienburger Tor 約 20 分鐘。⚠️ 17:00 一開門就到，才不會擠到 17:30 那組。</span><span class="en">Tucked inside the Heckmann Höfe courtyard — easy to walk past. Four minutes from Y&amp;W's martas Hotel; ~20 min for M&amp;J via U6 to Oranienburger Tor. ⚠️ Arrive right at 17:00 so the two bookings don't collide.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="resv-time" style="background:#2e7d32"><div class="t">🍺</div><div class="d">9/27 <span class="zh">日</span><span class="en">Sun</span></div></div><div style="flex:1"><div class="attr-title">Zollpackhof <span class="zh">啤酒花園</span><span class="en">Beer Garden</span></div><div class="attr-day"><span class="zh">賽後慶祝！全員（不含凱祺）</span><span class="en">Post-race celebration! Everyone except YY</span></div></div><div class="attr-emoji">🏁</div></div>
+  <div class="attr-meta"><span class="attr-tag">★ 4.3 (10,967)</span><span class="attr-tag">€20–30 <span class="zh">/人</span><span class="en">pp</span></span><span class="attr-tag ok"><span class="zh">✅ 離終點超近</span><span class="en">✅ Steps from the finish</span></span><span class="attr-tag"><span class="zh">開到 23:00</span><span class="en">Open to 23:00</span></span><span class="attr-tag warn"><span class="zh">⚠️ 啤酒花園不收訂位</span><span class="en">⚠️ Beer garden: no bookings</span></span></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Elisabeth-Abegg-Straße 1, 10557 Berlin</span><b><span class="zh">電話</span><span class="en">Phone</span></b><span>+49 30 33099720</span><b><span class="zh">網站</span><span class="en">Web</span></b><span><a href="https://zollpackhof.de" target="_blank">zollpackhof.de</a></span><b><span class="zh">點餐</span><span class="en">How it works</span></b><span><span class="zh">戶外區為自助式，先買啤酒代幣（Bier-Token）再取餐；德式烤腸、炸豬排、火焰薄餅、Brezel</span><span class="en">Self-service outdoors — buy beer tokens first; sausages, schnitzel, Flammkuchen, pretzels</span></span></div>
+  <a class="act-map" href="https://maps.app.goo.gl/p9SA4tpUstQnLiwEA" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">動線：</span><span class="en">Getting there: </span></b><span class="zh">就在 Hauptbahnhof 北側河畔、Tiergarten 邊上 —— 從勃蘭登堡門終點走過去約 20–25 分鐘（或搭一站 S-Bahn），是全柏林最適合當賽後集合點的啤酒花園。⚠️ 賽後全城人潮＋週日好天氣＝一位難求，建議先派人去佔戶外長桌。</span><span class="en">On the river just north of Hauptbahnhof, on the edge of Tiergarten — 20–25 min walk from the Brandenburg Gate finish (or one S-Bahn stop). ⚠️ Race day + Sunday sunshine = packed; send someone ahead to grab an outdoor table.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="resv-time"><div class="t">18:00</div><div class="d">9/27 <span class="zh">日</span><span class="en">Sun</span></div></div><div style="flex:1"><div class="attr-title">YOSOY TAPAS BERLIN</div><div class="attr-day"><span class="zh">西班牙 Tapas · 全員（不含凱祺）</span><span class="en">Spanish tapas · everyone except YY</span></div></div><div class="attr-emoji">🥘</div></div>
+  <div class="attr-meta"><span class="attr-tag ok">✅ <span class="zh">已訂位 18:00</span><span class="en">Booked 18:00</span></span><span class="attr-tag">★ 4.7 (4,505)</span><span class="attr-tag"><span class="zh">開到 00:00</span><span class="en">Open to 00:00</span></span><span class="attr-tag">Mitte · Hackescher Markt</span></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Rosenthaler Str. 37, 10178 Berlin</span><b><span class="zh">電話</span><span class="en">Phone</span></b><span>+49 30 28391213</span><b><span class="zh">網站</span><span class="en">Web</span></b><span><a href="https://yosoy.de" target="_blank">yosoy.de</a></span><b><span class="zh">招牌</span><span class="en">Signature</span></b><span><span class="zh">Paella de la Casa、炸魷魚、辣味土豆、Sangria</span><span class="en">Paella de la casa, calamari, patatas bravas, sangria</span></span></div>
+  <a class="act-map" href="https://maps.app.goo.gl/MaerLLrPs8z3xnjX6" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">動線：</span><span class="en">Getting there: </span></b><span class="zh">從 Zollpackhof 搭 S-Bahn 到 Hackescher Markt 約 10 分鐘，走 3 分鐘就到。⚠️ 啤酒花園要抓 17:20 左右離開才趕得上 18:00。菜單只有西文／德文，可先看官網菜單。</span><span class="en">S-Bahn from Zollpackhof to Hackescher Markt (~10 min), then a 3-min walk. ⚠️ Leave the beer garden by ~17:20 to make 18:00. Menu is Spanish/German only — worth previewing online.</span></div>
+</div>
+
+<div class="section-title"><span class="zh">店家 &amp; 景點</span><span class="en">Shops &amp; Sights</span></div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">✏️</div><div style="flex:1"><div class="attr-title">Modulor Material Total</div><div class="attr-day">✅ <span class="zh">9/25（五）或 9/26（六）— 週日公休！</span><span class="en">9/25 (Fri) or 9/26 (Sat) — closed Sundays!</span></div></div><div class="attr-emoji">🎨</div></div>
+  <div class="attr-meta"><span class="attr-tag warn"><span class="zh">⚠️ 週日公休</span><span class="en">⚠️ Closed Sun</span></span><span class="attr-tag"><span class="zh">一～六 10:00–20:00</span><span class="en">Mon–Sat 10:00–20:00</span></span><span class="attr-tag ok"><span class="zh">免費入場</span><span class="en">Free entry</span></span><span class="attr-tag">U8 Moritzplatz</span><span class="attr-tag">1.5–2h</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">文具、模型材料與設計用品專賣，位於 Moritzplatz 的 Aufbau Haus，柏林設計人的補給站</span><span class="en">Stationery, model-making materials and design supplies inside the Aufbau Haus at Moritzplatz — Berlin's designer supply hub</span></li>
+    <li><span class="zh">壓克力、木材、紙材、金屬全備；現場有裁切服務（一～六 10:00–16:30）</span><span class="en">Acrylic, wood, paper, metal — with an in-house cutting service (Mon–Sat 10:00–16:30)</span></li>
+    <li><span class="zh">同棟樓還有 Planet Modulor、書店與咖啡，一次逛完</span><span class="en">Same building has Planet Modulor, a bookshop and a café</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Prinzenstr. 85, 10969 Berlin</span><b><span class="zh">營業</span><span class="en">Hours</span></b><span><span class="zh">週一–週六 10:00–20:00 · 週日公休</span><span class="en">Mon–Sat 10:00–20:00 · closed Sun</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>U8 Moritzplatz / Bus M29, 140</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Modulor+Prinzenstr+85+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">週日公休，所以排在 9/25（五）傍晚或 9/26（六）。距離 Three Little Pigs（Stresemannstr. 66）約 U-Bahn 15 分鐘，逛完可直接接 BRLO 晚餐。</span><span class="en">Closed Sunday, so go Fri 9/25 evening or Sat 9/26. ~15 min by U-Bahn from Three Little Pigs — pairs well with BRLO for dinner after.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🐭</div><div style="flex:1"><div class="attr-title"><span class="zh">Aseli 棉花糖老鼠（柏林白老鼠）</span><span class="en">Aseli — Berlin's Marshmallow Mice</span></div><div class="attr-day">✅ <span class="zh">9/25（五）或 9/26（六）— 週日買不到！</span><span class="en">Fri 9/25 or Sat 9/26 — impossible on Sunday!</span></div></div><div class="attr-emoji">🍬</div></div>
+  <div class="attr-meta"><span class="attr-tag warn"><span class="zh">⚠️ 週一公休</span><span class="en">⚠️ Closed Mon</span></span><span class="attr-tag warn"><span class="zh">⚠️ 週日德國商店不營業</span><span class="en">⚠️ German shops shut on Sundays</span></span><span class="attr-tag">★ 4.6 (60)</span><span class="attr-tag"><span class="zh">1921 年至今</span><span class="en">Since 1921</span></span><span class="attr-tag">Hackesche Höfe</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">柏林百年家族糖果廠，1921 年就開始做手工 Schaumzucker（棉花糖），招牌就是那隻「白老鼠 weiße Maus」與巨無霸老鼠</span><span class="en">A family marshmallow works making hand-poured Schaumzucker since 1921 — the white mouse (weiße Maus) and its giant version are the icons</span></li>
+    <li><span class="zh">口味推薦：車葉草 Waldmeister（螢光綠、柏林人的童年味）、蛋奶酒 Eierlikör；還有鱷魚造型</span><span class="en">Try Waldmeister (neon-green woodruff — a Berlin childhood taste) and Eierlikör; there are crocodiles too</span></li>
+    <li><span class="zh">體積輕、盒裝好看，是這趟最好帶的伴手禮之一；⚠️ 但質地軟，別壓在行李底層</span><span class="en">Light and prettily boxed — one of the easiest souvenirs to carry home; ⚠️ soft, so don't bury it under heavy luggage</span></li>
+    <li><span class="zh">Hackesche Höfe 庭院本身也值得逛（Ampelmann 小綠人專賣店也在同一區）</span><span class="en">The Hackesche Höfe courtyards are worth a wander in themselves (the Ampelmann shop is nearby too)</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Rosenthaler Str. 40–41, 10178 Berlin（Hackesche Höfe · <span class="zh">第 4 中庭</span><span class="en">Courtyard 4</span>）</span><b><span class="zh">營業</span><span class="en">Hours</span></b><span><span class="zh">週二起營業（週一公休）· 週日德國商店休市 → 只能 9/25 或 9/26 買</span><span class="en">Open from Tue (closed Mon); German shops close Sundays → only 9/25 or 9/26 works</span></span><b><span class="zh">網站</span><span class="en">Web</span></b><span><a href="https://aseli.de" target="_blank">aseli.de</a></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>S Hackescher Markt · U8 Weinmeisterstraße</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Aseli+Rosenthaler+Str+40+Hackesche+H%C3%B6fe+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-highlight"><span class="zh">🍭 順路加碼：Bonbonmacherei（★4.7）手工糖果工坊就在 Heckmann Höfe，和 9/26 晚餐的 Night Kitchen 同一個中庭</span><span class="en">🍭 Bonus: Bonbonmacherei (★4.7), a traditional candy workshop, sits in the same Heckmann Höfe courtyard as your 9/26 dinner at Night Kitchen</span></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">Aseli 離 9/27 晚餐的 YOSOY（Rosenthaler Str. 37）走路只要 3 分鐘 —— 但那天是<b>週日、店沒開</b>。所以要買一定得排 9/26（六）：Trödelmarkt → 勃蘭登堡門＋紀念碑 → Hackesche Höfe 買老鼠 → 17:00 Night Kitchen 晚餐，剛好順成一條線。</span><span class="en">Aseli is a 3-minute walk from YOSOY (your 9/27 dinner) — but that's a <b>Sunday, and it will be shut</b>. So buy on Sat 9/26: flea market → Brandenburg Gate + Memorial → Hackesche Höfe for the mice → 17:00 dinner at Night Kitchen. It chains perfectly.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🎨</div><div style="flex:1"><div class="attr-title"><span class="zh">East Side Gallery 東邊畫廊</span><span class="en">East Side Gallery</span></div><div class="attr-day">✅ <span class="zh">9/26（六）建議上午</span><span class="en">9/26 (Sat), morning suggested</span></div></div><div class="attr-emoji">🧱</div></div>
+  <div class="attr-meta"><span class="attr-tag ok"><span class="zh">✅ 24小時開放</span><span class="en">✅ Open 24h</span></span><span class="attr-tag ok"><span class="zh">免費</span><span class="en">Free</span></span><span class="attr-tag">1.3 km</span><span class="attr-tag">1–1.5h</span><span class="attr-tag">S/U Warschauer Str.</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">全世界最長的露天畫廊 — 1.3 公里的柏林圍牆遺跡，118 位藝術家的塗鴉</span><span class="en">The world's longest open-air gallery — 1.3 km of surviving Berlin Wall painted by 118 artists</span></li>
+    <li><span class="zh">經典作品：兄弟之吻（Brotherly Kiss）、衝破圍牆的 Trabant</span><span class="en">Icons: the Brotherly Kiss, and the Trabant bursting through the wall</span></li>
+    <li><span class="zh">沿施普雷河，接 Oberbaumbrücke 拍照最美；早上人少</span><span class="en">Follow the Spree to Oberbaumbrücke for the best shots; quietest in the morning</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Mühlenstraße 3–100, 10243 Berlin</span><b><span class="zh">開放</span><span class="en">Hours</span></b><span><span class="zh">全天候戶外，免票</span><span class="en">Outdoors, always open, free</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>S/U Warschauer Straße · S Ostbahnhof</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=East+Side+Gallery+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">9/26（六）上午從 Ostbahnhof 端走到 Oberbaumbrücke，約 1 小時。走完就在同一區吃午餐，下午接 Trödelmarkt 或博物館島。</span><span class="en">Sat 9/26 morning: walk from the Ostbahnhof end to Oberbaumbrücke (~1h), lunch nearby, then the flea market or Museum Island.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🧱</div><div style="flex:1"><div class="attr-title"><span class="zh">柏林圍牆紀念園區 Gedenkstätte Berliner Mauer</span><span class="en">Berlin Wall Memorial</span></div><div class="attr-day">✅ <span class="zh">9/27（日）· 就在 Mauerpark 旁</span><span class="en">Sun 9/27 · right by Mauerpark</span></div></div><div class="attr-emoji">🕊️</div></div>
+  <div class="attr-meta"><span class="attr-tag ok"><span class="zh">✅ 全部免費</span><span class="en">✅ Free</span></span><span class="attr-tag"><span class="zh">戶外 08:00–22:00</span><span class="en">Grounds 08:00–22:00</span></span><span class="attr-tag warn"><span class="zh">⚠️ 展館週一休 · 二–日 10:00–18:00</span><span class="en">⚠️ Centres closed Mon · Tue–Sun 10:00–18:00</span></span><span class="attr-tag">1.4 km</span><span class="attr-tag">1.5–2h</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">全柏林唯一保留「完整圍牆結構」的地方 —— 死亡地帶、了望塔、逃亡地道遺跡都在原地</span><span class="en">The only place where the full Wall system survives in situ — death strip, watchtower and escape-tunnel traces</span></li>
+    <li><span class="zh">沿 Bernauer Straße 1.4 公里的戶外展覽，路面用鋼柱標出圍牆原線，走一趟就懂它怎麼把街道剖成兩半</span><span class="en">A 1.4 km open-air exhibition along Bernauer Straße; steel rods trace the original line straight through the street</span></li>
+    <li><span class="zh">文獻中心的瞭望台可俯瞰完整死亡地帶（最後登塔 17:45）；和 East Side Gallery 的塗鴉牆完全不同的一面</span><span class="en">The Documentation Centre tower overlooks the intact death strip (last ascent 17:45) — the sober counterpart to the East Side Gallery's murals</span></li>
+    <li><span class="zh">和解教堂、「逃亡者之窗」與 Bernauer 街跳窗逃亡的歷史照片對照現址，衝擊很大</span><span class="en">The Chapel of Reconciliation and the famous window-jump escape photographs, right where they happened</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Bernauer Straße 119, 13355 Berlin</span><b><span class="zh">戶外展</span><span class="en">Outdoor</span></b><span><span class="zh">每日 08:00–22:00 · 免費</span><span class="en">Daily 08:00–22:00 · free</span></span><b><span class="zh">文獻中心</span><span class="en">Doc. Centre</span></b><span><span class="zh">週二–週日 10:00–18:00（週一休）· 免費</span><span class="en">Tue–Sun 10:00–18:00 (closed Mon) · free</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>U8 Bernauer Straße · S1/S2/S25 Nordbahnhof</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Gedenkst%C3%A4tte+Berliner+Mauer+Bernauer+Stra%C3%9Fe+119+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">和 Mauerpark 是同一條 Bernauer Straße、步行 10 分鐘，9/27 賽後那趟可以「Arkonaplatz 市集 → 圍牆紀念園區 → Mauerpark 15:00 露天 KTV」一路串下來。想看文獻中心記得 18:00 前到。</span><span class="en">Same street as Mauerpark, 10 minutes apart — on 9/27 chain it as Arkonaplatz market → Wall Memorial → Mauerpark karaoke at 15:00. Get to the Documentation Centre before 18:00.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🍺</div><div style="flex:1"><div class="attr-title">BRLO Brwhouse <span class="zh">＋ 露天啤酒花園</span><span class="en">+ Beer Garden</span></div><div class="attr-day">✅ <span class="zh">9/25（五）或 9/26（六）晚餐</span><span class="en">Dinner 9/25 (Fri) or 9/26 (Sat)</span></div></div><div class="attr-emoji">🌭</div></div>
+  <div class="attr-meta"><span class="attr-tag warn"><span class="zh">⚠️ 週一公休</span><span class="en">⚠️ Closed Mon</span></span><span class="attr-tag"><span class="zh">二–五 17:00–24:00</span><span class="en">Tue–Fri 17:00–24:00</span></span><span class="attr-tag"><span class="zh">六 12:00–24:00</span><span class="en">Sat 12:00–24:00</span></span><span class="attr-tag"><span class="zh">日 12:00–22:00</span><span class="en">Sun 12:00–22:00</span></span><span class="attr-tag warn"><span class="zh">廚房 22:00 收</span><span class="en">Kitchen closes 22:00</span></span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">貨櫃改裝的精釀啤酒廠＋餐廳，就在 Gleisdreieck 公園旁，露天啤酒花園氣氛極好</span><span class="en">A craft brewery and restaurant built from shipping containers beside Gleisdreieck park — a superb beer garden</span></li>
+    <li><span class="zh">主打「蔬菜為主、肉為配」的煙燻料理，配自家釀 IPA／Helles</span><span class="en">Vegetable-forward smoked cooking with their own IPA / Helles on tap</span></li>
+    <li><span class="zh">週日有 Chicken &amp; Beer 快閃（煙燻烤雞），適合馬拉松賽後犒賞</span><span class="en">Sunday "Chicken &amp; Beer" pop-up — a great post-marathon reward</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Schöneberger Str. 16, 10963 Berlin</span><b><span class="zh">營業</span><span class="en">Hours</span></b><span><span class="zh">週一公休 · 二–五 17:00–24:00 · 六 12:00–24:00 · 日 12:00–22:00</span><span class="en">Closed Mon · Tue–Fri 17:00–24:00 · Sat 12:00–24:00 · Sun 12:00–22:00</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>U1/U2/U3 Gleisdreieck</span><b><span class="zh">訂位</span><span class="en">Booking</span></b><span><span class="zh">19 人以下線上可訂 · 20 人以上需活動洽詢</span><span class="en">Online for ≤19 people; 20+ via event enquiry</span></span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=BRLO+Brwhouse+Sch%C3%B6neberger+Str+16+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">離 Three Little Pigs（Stresemannstr. 66）走路約 12 分鐘，是最順的一頓晚餐。⚠️ 週末人多，建議先線上訂位；露天花園是季節性營運，9 月底通常還開，天冷就進室內。</span><span class="en">~12 min walk from Three Little Pigs — the most convenient dinner of the Berlin leg. ⚠️ Book ahead on weekends; the beer garden is seasonal and usually still open in late September.</span></div>
+</div>
+
+<div class="section-title"><span class="zh">週末限定 · 跳蚤市集</span><span class="en">Weekend Only · Flea Markets</span></div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🎤</div><div style="flex:1"><div class="attr-title"><span class="zh">Mauerpark 跳蚤市集 ＋ 露天 KTV</span><span class="en">Mauerpark Flea Market + Bearpit Karaoke</span></div><div class="attr-day">☑️ <span class="zh">僅 9/27（日）· 馬拉松賽後</span><span class="en">Sun 9/27 only · after the marathon</span></div></div><div class="attr-emoji">🎡</div></div>
+  <div class="attr-meta"><span class="attr-tag warn"><span class="zh">⚠️ 只有週日</span><span class="en">⚠️ Sundays only</span></span><span class="attr-tag">10:00–18:00</span><span class="attr-tag ok"><span class="zh">免費入場</span><span class="en">Free entry</span></span><span class="attr-tag"><span class="zh">露天KTV 15:00</span><span class="en">Karaoke 15:00</span></span><span class="attr-tag">U8 Bernauer Str.</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">柏林規模最大、最受歡迎的跳蚤市集：手作、二手服飾、黑膠、美食攤與街頭藝人</span><span class="en">Berlin's biggest and best-loved flea market: crafts, vintage clothing, vinyl, food stalls and buskers</span></li>
+    <li><span class="zh">Bearpit Karaoke 露天 KTV：5–10 月每週日約 15:00 開唱，圓形階梯坐滿上千人（下雨取消）</span><span class="en">Bearpit Karaoke: Sundays ~15:00, May–Oct, a thousand people in the amphitheatre (cancelled if it rains)</span></li>
+    <li><span class="zh">市集就蓋在柏林圍牆原址的公園上，逛完可續走圍牆紀念園區</span><span class="en">The park sits on the former Wall strip — combine it with the Wall Memorial</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Bernauer Str. 63–64, 10435 Berlin</span><b><span class="zh">營業</span><span class="en">Hours</span></b><span><span class="zh">每週日 10:00–18:00</span><span class="en">Sundays 10:00–18:00</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>U8 Bernauer Straße · U2 Eberswalder Str.</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Flohmarkt+im+Mauerpark+Bernauer+Stra%C3%9Fe+63+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">9/27 是馬拉松日，建議賽後 13:00–14:00 過去，剛好趕上 15:00 的露天 KTV。跑者腿痠的話這裡有大量草地可躺。</span><span class="en">9/27 is race day — head over 13:00–14:00 after the finish to catch the 15:00 karaoke. Plenty of grass for tired legs.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🪑</div><div style="flex:1"><div class="attr-title"><span class="zh">Arkonaplatz 跳蚤市集</span><span class="en">Arkonaplatz Flea Market</span></div><div class="attr-day">☑️ <span class="zh">僅 9/27（日）營業</span><span class="en">Sun 9/27 only</span></div></div><div class="attr-emoji">📻</div></div>
+  <div class="attr-meta"><span class="attr-tag warn"><span class="zh">⚠️ 只有週日</span><span class="en">⚠️ Sundays only</span></span><span class="attr-tag">10:00–17:00</span><span class="attr-tag ok"><span class="zh">免費入場</span><span class="en">Free entry</span></span><span class="attr-tag">1–1.5h</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">規模比 Mauerpark 小、質感更好：中古家具、黑膠、書籍、東德時期舊物</span><span class="en">Smaller and more curated than Mauerpark: mid-century furniture, vinyl, books and GDR-era objects</span></li>
+    <li><span class="zh">距 Mauerpark 步行約 12 分鐘，同一個週日可以串起來逛</span><span class="en">A 12-minute walk from Mauerpark — do both on the same Sunday</span></li>
+    <li><span class="zh">周邊 Prenzlauer Berg 咖啡館密度高，適合中場休息</span><span class="en">Surrounded by Prenzlauer Berg cafés for a mid-market break</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Arkonaplatz 1, 10435 Berlin</span><b><span class="zh">營業</span><span class="en">Hours</span></b><span><span class="zh">每週日 10:00–17:00（夏季）</span><span class="en">Sundays 10:00–17:00 (summer)</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>U8 Bernauer Straße</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Flohmarkt+am+Arkonaplatz+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">和 Mauerpark 同一天（9/27）串成一條線：Arkonaplatz → 步行 12 分 → Mauerpark → 15:00 露天 KTV。</span><span class="en">Chain it with Mauerpark on 9/27: Arkonaplatz → 12 min walk → Mauerpark → 15:00 karaoke.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🕰️</div><div style="flex:1"><div class="attr-title"><span class="zh">Berliner Trödelmarkt 古董跳蚤市集</span><span class="en">Berliner Trödelmarkt (17. Juni)</span></div><div class="attr-day">✅ <span class="zh">9/26（六）＋ 9/27（日）</span><span class="en">Sat 9/26 + Sun 9/27</span></div></div><div class="attr-emoji">🏺</div></div>
+  <div class="attr-meta"><span class="attr-tag ok"><span class="zh">六日 09:00–17:00</span><span class="en">Sat/Sun 09:00–17:00</span></span><span class="attr-tag ok"><span class="zh">免費入場</span><span class="en">Free entry</span></span><span class="attr-tag">S Tiergarten</span><span class="attr-tag warn"><span class="zh">⚠️ 9/27 馬拉松管制</span><span class="en">⚠️ 9/27 race closures</span></span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">1978 年開市，柏林最老、最中心的跳蚤市集，就在 Tiergarten 站旁</span><span class="en">Running since 1978 — Berlin's oldest and most central flea market, right by Tiergarten station</span></li>
+    <li><span class="zh">主打真古董：老盤子餐具、銀器、藝術品、老地圖與明信片</span><span class="en">Real antiques: old china and cutlery, silverware, art, maps and postcards</span></li>
+    <li><span class="zh">馬路對面接著手作市集（Kunstmarkt），一次逛兩攤</span><span class="en">An arts &amp; crafts market runs on the opposite side of the road</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Straße des 17. Juni 110, 10623 Berlin</span><b><span class="zh">營業</span><span class="en">Hours</span></b><span><span class="zh">週六、週日 09:00–17:00（夏季）</span><span class="en">Sat &amp; Sun 09:00–17:00 (summer)</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>S3/S5/S7/S9 Tiergarten</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Berliner+Tr%C3%B6delmarkt+Stra%C3%9Fe+des+17.+Juni+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">排在 9/26（六）最保險 —— 9/27 馬拉松終點就在同一條 Straße des 17. Juni 上，當天封路與人潮會讓這裡很難進出。</span><span class="en">Go Sat 9/26 — the marathon finishes on this very street on 9/27, so closures and crowds make Sunday awkward.</span></div>
+</div>
+
+<div class="section-title"><span class="zh">經典市中心</span><span class="en">Classic City Centre</span></div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🏛️</div><div style="flex:1"><div class="attr-title"><span class="zh">勃蘭登堡門 Brandenburger Tor</span><span class="en">Brandenburg Gate</span></div><div class="attr-day">✅ <span class="zh">9/26（六）· 9/27 是馬拉松終點！</span><span class="en">9/26 (Sat) · marathon finish on 9/27!</span></div></div><div class="attr-emoji">🏁</div></div>
+  <div class="attr-meta"><span class="attr-tag ok"><span class="zh">✅ 24小時</span><span class="en">✅ Open 24h</span></span><span class="attr-tag ok"><span class="zh">免費</span><span class="en">Free</span></span><span class="attr-tag">30–45 min</span><span class="attr-tag">S/U Brandenburger Tor</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">柏林最具代表性的地標，也是 9/27 柏林馬拉松的終點線</span><span class="en">Berlin's defining landmark — and the finish line of the 9/27 marathon</span></li>
+    <li><span class="zh">步行 5 分鐘可到國會大廈、猶太人紀念碑、菩提樹下大街</span><span class="en">Five minutes from the Reichstag, the Holocaust Memorial and Unter den Linden</span></li>
+    <li><span class="zh">夜間打燈後拍照最美，人也比白天少</span><span class="en">Best photographed at night, when it's floodlit and far quieter</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Pariser Platz, 10117 Berlin</span><b><span class="zh">開放</span><span class="en">Hours</span></b><span><span class="zh">戶外地標，全天候免費</span><span class="en">Outdoor landmark, always open, free</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>S1/S2/S25 · U5 Brandenburger Tor</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Brandenburger+Tor+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">9/26（六）先來一次拍照，9/27 再以「終點線」的身分回來 —— 觀賽建議站 Kurfürstendamm 或終點衝刺區。</span><span class="en">Photos on Sat 9/26, then back on 9/27 as the finish line — watch from Kurfürstendamm or the finish straight.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🕯️</div><div style="flex:1"><div class="attr-title"><span class="zh">歐洲被害猶太人紀念碑 Holocaust-Mahnmal</span><span class="en">Memorial to the Murdered Jews of Europe</span></div><div class="attr-day">✅ <span class="zh">9/26（六）· 勃蘭登堡門旁 2 分鐘</span><span class="en">Sat 9/26 · 2 min from the Brandenburg Gate</span></div></div><div class="attr-emoji">⬛</div></div>
+  <div class="attr-meta"><span class="attr-tag ok"><span class="zh">✅ 石碑區 24 小時免費</span><span class="en">✅ Stelae field 24h, free</span></span><span class="attr-tag warn"><span class="zh">⚠️ 地下資訊中心週一休 · 二–日 10:00–18:00</span><span class="en">⚠️ Info Centre closed Mon · Tue–Sun 10:00–18:00</span></span><span class="attr-tag">2,711 <span class="zh">座石碑</span><span class="en">stelae</span></span><span class="attr-tag">30–60 min</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">2,711 座高低不一的灰色石碑鋪滿一整個街廓，走進去地面下沉、石碑升高，聲音被吃掉 —— 是用身體感受，不是用眼睛看</span><span class="en">2,711 grey stelae over a whole city block; the ground dips as the slabs rise and sound falls away — it's experienced with the body, not the eyes</span></li>
+    <li><span class="zh">建築師 Peter Eisenman 刻意不給任何說明牌，讓迷失與不安本身成為紀念</span><span class="en">Peter Eisenman deliberately left it unlabelled — the disorientation is the memorial</span></li>
+    <li><span class="zh">地下「資訊之地」（Ort der Information）以受害者姓名、家書與遺物呈現個人故事，免費，約 1 小時</span><span class="en">The underground Information Centre tells individual stories through names, letters and belongings — free, about an hour</span></li>
+    <li><span class="zh">⚠️ 這裡是墓碑性質的紀念場域，請勿在石碑上跳躍、嬉鬧或拍網美照</span><span class="en">⚠️ This is a place of mourning — no climbing, playing or posing for photos on the stelae</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Cora-Berliner-Straße 1, 10117 Berlin</span><b><span class="zh">石碑區</span><span class="en">Stelae field</span></b><span><span class="zh">全天開放 · 免費</span><span class="en">Always open · free</span></span><b><span class="zh">資訊中心</span><span class="en">Info Centre</span></b><span><span class="zh">週二–週日 10:00–18:00（週一休）· 免費</span><span class="en">Tue–Sun 10:00–18:00 (closed Mon) · free</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>S/U Brandenburger Tor · U2 Potsdamer Platz</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Denkmal+f%C3%BCr+die+ermordeten+Juden+Europas+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">就在勃蘭登堡門南邊走路 2 分鐘，9/26 拍完門之後直接接過來。要進地下資訊中心的話 17:00 前到（最後入場前一小時較從容）。</span><span class="en">A two-minute walk south of the Brandenburg Gate — do it straight after on 9/26. For the Information Centre, arrive by 17:00 to have time.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🚗</div><div style="flex:1"><div class="attr-title"><span class="zh">DDR 東德博物館 DDR Museum</span><span class="en">DDR Museum</span></div><div class="attr-day">✅ <span class="zh">任何一天傍晚（每日 09:00–21:00）</span><span class="en">Any evening (daily 09:00–21:00)</span></div></div><div class="attr-emoji">🧳</div></div>
+  <div class="attr-meta"><span class="attr-tag ok"><span class="zh">每日 09:00–21:00</span><span class="en">Daily 09:00–21:00</span></span><span class="attr-tag"><span class="zh">成人 €13.90</span><span class="en">Adult €13.90</span></span><span class="attr-tag"><span class="zh">優待 €8.50</span><span class="en">Concession €8.50</span></span><span class="attr-tag">1.5–2h</span><span class="attr-tag warn"><span class="zh">⚠️ 建議線上購票</span><span class="en">⚠️ Buy online</span></span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">位於博物館島對岸、柏林大教堂正對面，互動式展覽重現冷戰時期東德生活</span><span class="en">Opposite Museum Island and the Cathedral — hands-on exhibits recreating everyday life in Cold War East Germany</span></li>
+    <li><span class="zh">可以坐進 Trabant 模擬駕駛、打開東德家庭的每個抽屜、走進真實復原的公寓</span><span class="en">Sit in a Trabant simulator, open every drawer in a GDR flat, walk through a fully reconstructed apartment</span></li>
+    <li><span class="zh">開到晚上 9 點，是柏林少數「晚餐前後都能排」的博物館</span><span class="en">Open until 21:00 — one of the few Berlin museums that fits around dinner</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Karl-Liebknecht-Str. 1, 10178 Berlin</span><b><span class="zh">營業</span><span class="en">Hours</span></b><span><span class="zh">每日 09:00–21:00（含假日）</span><span class="en">Daily 09:00–21:00, holidays included</span></span><b><span class="zh">票價</span><span class="en">Tickets</span></b><span><span class="zh">成人 €13.90 · 優待 €8.50 · 6 歲以下免費 · 10 人以上團體 €9/人</span><span class="en">Adult €13.90 · concession €8.50 · under 6 free · groups of 10+ €9 pp</span></span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=DDR+Museum+Karl-Liebknecht-Stra%C3%9Fe+1+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">和博物館島安排在同一天最順：先看 DDR（室內、1.5–2h），出來剛好接大教堂與夕陽。8 人以上可考慮團體票。</span><span class="en">Pair it with Museum Island: DDR first (indoors, 1.5–2h), then straight out to the Cathedral for sunset. Group tickets from 10 people.</span></div>
+</div>
+
+<div class="attr-card">
+  <div class="attr-header"><div class="attr-emoji" style="font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0">⛪</div><div style="flex:1"><div class="attr-title"><span class="zh">博物館島 Museumsinsel 漫步</span><span class="en">Museumsinsel Walk</span></div><div class="attr-day">✅ <span class="zh">9/26（六）傍晚 · 拍夕陽</span><span class="en">Sat 9/26, sunset</span></div></div><div class="attr-emoji">🌇</div></div>
+  <div class="attr-meta"><span class="attr-tag ok"><span class="zh">✅ 戶外免費</span><span class="en">✅ Outdoors, free</span></span><span class="attr-tag">1–1.5h</span><span class="attr-tag"><span class="zh">世界遺產</span><span class="en">UNESCO</span></span><span class="attr-tag">S Hackescher Markt</span></div>
+  <div class="attr-section"><h4>📌 <span class="zh">特色</span><span class="en">Highlights</span></h4><ul>
+    <li><span class="zh">五座博物館組成的世界遺產建築群 —— 這次只走外觀與河岸，不進館</span><span class="en">A UNESCO ensemble of five museums — we're doing the exteriors and the riverside, not the interiors</span></li>
+    <li><span class="zh">柏林大教堂（Berliner Dom）圓頂＋Lustgarten 草坪，是傍晚最好的拍照組合</span><span class="en">The Berliner Dom's dome over the Lustgarten lawn is the best late-afternoon composition</span></li>
+    <li><span class="zh">河岸有 Bode 博物館尖端、Monbijou 橋，散步串起來剛好一小時</span><span class="en">The Bode Museum's prow and Monbijou bridge make a neat one-hour riverside loop</span></li>
+  </ul></div>
+  <div class="attr-route"><h4>📍 <span class="zh">實用資訊</span><span class="en">Practical info</span></h4><div class="route-grid"><b><span class="zh">地址</span><span class="en">Address</span></b><span>Bodestraße 1–3, 10178 Berlin</span><b><span class="zh">開放</span><span class="en">Hours</span></b><span><span class="zh">戶外漫步免費（進館需另購票）</span><span class="en">Free to walk; museum entry ticketed separately</span></span><b><span class="zh">交通</span><span class="en">Transit</span></b><span>S Hackescher Markt · U5 Museumsinsel</span></div>
+  <a class="act-map" href="https://www.google.com/maps/search/?api=1&query=Museumsinsel+Berlin" target="_blank">📍 Google Maps</a></div>
+  <div class="attr-trip"><b><span class="zh">本團安排：</span><span class="en">Our plan: </span></b><span class="zh">9/26（六）傍晚壓軸：DDR 博物館出來過橋就是大教堂，Lustgarten 拍夕陽後沿河走到 Hackescher Markt 吃晚餐。</span><span class="en">Sat 9/26 finale: cross the bridge from the DDR Museum to the Cathedral, shoot sunset on the Lustgarten, then walk the river to Hackescher Markt for dinner.</span></div>
+</div>
+</div>
+
 <!-- ══ ATTRACTIONS ══ -->
 <div id="panel-attractions" class="panel">
 <div class="section-title" style="padding-top:12px"><span class="zh">東區景點</span><span class="en">East Dolomites</span> — Cortina d'Ampezzo</div>
@@ -603,20 +949,28 @@ const DAYS=[
  {date:'9/24',dow:'四',theme:'✈️ M&J 台北出發',loc:'fly',members:['M&J'],
   activities:[{time:'17:45',title:'SQ879 台北桃園(TPE)→柏林勃蘭登堡(BER) 出發',detail:'SQ879→新加坡樟宜(SIN)（4h30m）轉機1h10m換航廈\nLH769→慕尼黑(MUC)（12h35m）轉機1h\nLH1928→柏林勃蘭登堡(BER T1)（1h5m）',note:'行李：手提1×8kg + 個人物品 + 托運1×23kg'}],
   stay:'✈️ 飛機上'},
- {date:'9/25',dow:'五',theme:'✈️ M&J 抵達柏林 | Y&W 漢堡→柏林 | S&K 倫敦出發',loc:'berlin',members:['M&J','Y&W','S&K'],
+ {date:'9/25',dow:'五',theme:'✈️ M&J 抵達柏林 🏃 EXPO領物 | Y&W 漢堡→柏林 | S&K 倫敦出發',loc:'berlin',members:['M&J','Y&W','S&K'],
   activities:[
-   {time:'08:05',title:'M&J 抵達 柏林勃蘭登堡機場(BER T1)',detail:'SQ+LH共20h20m，Check-in休息\n出機場 T1→BER火車站搭FEX或RE7→Südkreuz（25分）→步行到Hostel約10分'},
-   {time:'⏳',title:'Y&W 漢堡→柏林 火車（ICE）',detail:'ICE高速列車約1.5h',note:'⏳抵達時間待確認'},
-   {time:'18:20',title:'S&K EZY2603 倫敦盧頓(LTN)→柏林勃蘭登堡(BER)',detail:'easyJet · 18:20→21:05 · 2h45m\n抵達後入住 Scandic Berlin Potsdamer Platz'}],
-  stay:'🏨 Three Little Pigs Hostel（M&J:混合宿舍6人房）| 🏨 Scandic Berlin Potsdamer Platz（S&K）'},
+   {time:'08:05',title:'M&J 抵達 柏林勃蘭登堡機場（BER T1）',detail:'SQ+LH 共 20h20m，終於落地！\n08:05–08:35 下機→領行李（約 30 分鐘）',note:'✅ 慕尼黑→柏林屬申根區內國內線，免護照查驗，下機直接去行李轉盤',map:'https://maps.google.com/?q=Berlin+Brandenburg+Airport+BER+Terminal+1'},
+   {time:'08:35',title:'🚆 BER 機場 → Hostel（約 1 小時）',detail:'08:35–09:15 步行至機場地下火車站，搭 FEX 或 RE7 到 Südkreuz（車程 13–15 分，含步行候車抓 30–40 分）\n09:15–09:35 Südkreuz 轉 S1 / S2 / S25 到 Anhalter Bahnhof（約 5 分），出站步行 3 分鐘到 Hostel',note:'✅ 4 日交通票含 ABC 區，機場進市區不用另外買票',map:'https://maps.google.com/?q=Anhalter+Bahnhof+Berlin'},
+   {time:'10:00',title:'🎒 抵達 Hostel 寄放行李 + 早午餐',detail:'10:00–10:30 寄放行李、稍微整頓\nStresemannstraße 66, 10963 Berlin-Kreuzberg\n附近吃早午餐補點能量',note:'⚠️ 正式 check-in 15:00 起，上午先寄放行李即可',map:'https://www.google.com/maps/search/?api=1&query=Stresemannstra%C3%9Fe+66+10963+Berlin'},
+   {time:'12:00',title:'🏃 Mars EXPO 領物（已預約 12:00–12:15）',detail:'11:30 從 Hallesches Tor 或 Kochstraße 搭 U6 南下，車程僅約 6 分鐘，Platz der Luftbrücke 站出來即達\nFlughafen Tempelhof（Platz der Luftbrücke 5, 12101 Berlin）\n12:00–12:15 領號碼布 #22639 + 紀念T、完賽T、聯名外套、寄物袋\n領完逛 EXPO 紀念品店與贊助商攤位（約 1–1.5h）',note:'⚠️ 必須本人領取：Start Card + 護照，缺一不可',map:'https://www.google.com/maps/search/?api=1&query=Flughafen+Tempelhof+Platz+der+Luftbr%C3%BCcke+5+Berlin'},
+   {time:'14:00',title:'🛍️ M&J 自由活動（14:00–16:00）',detail:'四個選項都在 Hostel 步行或一站車程內，看當天狀態挑：\n<b>① Modulor</b> 美術用品／文具／材料 ★4.7 — Prinzenstr. 85，EXPO 出來 U6→U8 約 10 分鐘直接接，開到 20:00、<b>週日公休</b> <a class="act-map" href="https://maps.app.goo.gl/oS1EZ1RrVqTbgKau5" target="_blank">📍</a>\n<b>② Mall of Berlin</b> 大型購物中心 ★4.4 — Leipziger Pl. 12，Hostel 走路 12 分，開到 20:00 <a class="act-map" href="https://maps.app.goo.gl/MU9HqVe6A8vNtez47" target="_blank">📍</a>\n<b>③ The Playce</b>（Potsdamer Platz）★4.1 — Alte Potsdamer Str. 7，Hostel 走路 10 分，開到 22:00 <a class="act-map" href="https://maps.app.goo.gl/gTxCgxSJMuKYRp8v6" target="_blank">📍</a>\n<b>④ Lidl 超市</b> — Stresemannstr. 72–78，<b>就在 Hostel 隔壁</b>，補水、零食、早餐，開到 22:00 <a class="act-map" href="https://maps.app.goo.gl/CPPoNQ8PLMx5Vvwv9" target="_blank">📍</a>',note:'⚠️ 19:00 有訂位（Antonello\'s），16:30 前回 Hostel 換裝比較從容'},
+   {time:'16:22',title:'Y&W 抵達 柏林中央車站（Berlin Hbf）',detail:'漢堡→柏林 ICE 高速列車，約1.5h\n入住 martas Hotel Berlin Mitte（Augustraße 82, 10117 Berlin）\nBerlin Hbf → 旅館搭 S-Bahn 約 10 分鐘',map:'https://maps.app.goo.gl/etUeKFknDSXnAJtBA'},
+   {time:'18:20',title:'S&K EZY2603 倫敦盧頓(LTN)→柏林勃蘭登堡(BER)',detail:'easyJet · 18:20→21:05 · 2h45m\n抵達後入住 Scandic Berlin Potsdamer Platz'},
+   {time:'19:00',title:'🍽️ 晚餐 Antonello\'s Cevicheria（M&J ＋ Y&W，4 位）',detail:'秘魯 Ceviche × 西西里料理，★4.5、€20–30/人\nNostitzstraße 22, 10961 Berlin-Kreuzberg\n📞 +49 30 81492544',note:'✅ 已訂位 19:00 — 刻意留給 Y&W 火車延誤的緩衝',map:'https://maps.app.goo.gl/ZYzgw8XbsGzQg9Xf8'}],
+  stay:'🏨 Three Little Pigs Hostel（M&J:混合宿舍6人房）| 🏨 martas Hotel Berlin Mitte（Y&W）| 🏨 Scandic Berlin Potsdamer Platz（S&K）'},
  {date:'9/26',dow:'六',theme:'🏰 柏林觀光日 | Becky 09:15 抵達',loc:'berlin',members:['M&J','Becky','Y&W','S&K'],
   activities:[
    {time:'09:15',title:'Becky 抵達 柏林勃蘭登堡機場(BER T1)',detail:'TK HKG→IST→BER 到達！\n★ M&J + Becky + Y&W 柏林全員集合',note:'凱祺 9/28 直接抵達威尼斯(VCE)'},
-   {time:'全天',title:'🏰 柏林觀光',detail:'勃蘭登堡門｜博物館島｜East Side Gallery\n帝國國會大廈｜Checkpoint Charlie',map:'https://maps.google.com/?q=Brandenburger+Tor+Berlin'}],
-  stay:'🏨 Three Little Pigs Hostel（M&J:4人宿舍 / Becky:混合宿舍6人房）| 🏨 Scandic Berlin Potsdamer Platz（S&K）'},
+   {time:'全天',title:'🏰 柏林觀光',detail:'上午 East Side Gallery（1.3km 圍牆塗鴉）\nBerliner Trödelmarkt 古董市集（09:00–17:00，僅六日）\n勃蘭登堡門＋歐洲被害猶太人紀念碑（走路 2 分鐘）\nHackesche Höfe：Aseli 棉花糖老鼠伴手禮（週日買不到！）\nDDR 東德博物館（至21:00）｜博物館島夕陽\nModulor 週日公休，六日只剩今天可去（至20:00）',note:'詳見「🏰 柏林景點」分頁',map:'https://maps.google.com/?q=Brandenburger+Tor+Berlin'},
+   {time:'17:00',title:'🍽️ 晚餐 Night Kitchen 以色列菜（8 位）',detail:'全員（不含凱祺）＋ 社會系小副 = 8 位\nHeckmann Höfe, Oranienburger Str. 32, 10117 Berlin\n★4.7、€40–80/人，Family Style 分享套餐\n📞 +49 30 23575075',note:'✅ 已訂 17:00 · 同晚香港朋友 Amy & Bonnie 另訂 6 位 17:30',map:'https://maps.app.goo.gl/wDrjA7EthV4Ud4P6A'}],
+  stay:'🏨 Three Little Pigs Hostel（M&J:4人宿舍 / Becky:混合宿舍6人房）| 🏨 martas Hotel Berlin Mitte（Y&W）| 🏨 Scandic Berlin Potsdamer Platz（S&K）'},
  {date:'9/27',dow:'日',theme:'🏃 柏林馬拉松 Race Day！',loc:'berlin',members:['M&J','Becky','Y&W','S&K'],
-  activities:[{time:'全天',title:'🏃 柏林馬拉松',detail:'終點：勃蘭登堡門\n觀賽：Kurfürstendamm / 終點衝刺區\n賽後慶祝晚餐',note:'⏳怎麼拍照待討論',map:'https://maps.google.com/?q=Berlin+Marathon+Finish+Brandenburger+Tor'}],
-  stay:'🏨 Three Little Pigs Hostel（M&J:4人宿舍 / Becky:混合宿舍6人房）| 🏨 Scandic Berlin Potsdamer Platz（S&K）'},
+  activities:[{time:'全天',title:'🏃 柏林馬拉松（Mars 號碼布 #22639）',detail:'⚠️ 號碼布即車票，來回都靠它\n終點：勃蘭登堡門\n觀賽：Kurfürstendamm / 終點衝刺區\n\n★ 沒有跑步的人選項行程（週日限定）\nMauerpark 跳蚤市集 10:00–18:00 + 15:00 露天 KTV\nArkonaplatz 市集 10:00–17:00 → 柏林圍牆紀念園區（同一條 Bernauer Str.）→ Mauerpark，一路串連',note:'⏳怎麼拍照待討論',map:'https://maps.google.com/?q=Berlin+Marathon+Finish+Brandenburger+Tor'},
+   {time:'賽後',title:'🍺 Zollpackhof 啤酒花園慶功',detail:'Elisabeth-Abegg-Straße 1, 10557 Berlin（Hauptbahnhof 河畔）\n離勃蘭登堡門終點走路 20–25 分鐘，或搭一站 S-Bahn\n戶外自助式：先買啤酒代幣再取餐，開到 23:00',note:'⚠️ 啤酒花園不收訂位，賽後人潮爆滿，先派人去佔長桌',map:'https://maps.app.goo.gl/p9SA4tpUstQnLiwEA'},
+   {time:'18:00',title:'🍽️ 晚餐 YOSOY TAPAS 西班牙菜',detail:'全員（不含凱祺）\nRosenthaler Str. 37, 10178 Berlin（Hackescher Markt）\n★4.7、Paella de la Casa／炸魷魚／Sangria\n📞 +49 30 28391213',note:'✅ 已訂位 18:00 · 啤酒花園約 17:20 前要出發才趕得上',map:'https://maps.app.goo.gl/MaerLLrPs8z3xnjX6'}],
+  stay:'🏨 Three Little Pigs Hostel（M&J:4人宿舍 / Becky:混合宿舍6人房）| 🏨 martas Hotel Berlin Mitte（Y&W）| 🏨 Scandic Berlin Potsdamer Platz（S&K）'},
  {date:'9/28',dow:'一',theme:'✈️ M&J+B&K 柏林→威尼斯（同班）| 凱祺抵達威尼斯 | S&K 搬入 Hilton',loc:'fly',members:['M&J','B&K','S&K'],
   activities:[
    {time:'15:20',title:'⚠️ Bag Drop 開始（BER T1）',detail:'⚠️ Bag drop 15:20–16:40（準時！）',note:'Check-in opens: 8/29 23:20（起飛前30天）'},
@@ -751,20 +1105,28 @@ const DAYS_EN=[
  {date:'9/24',dow:'Thu',theme:'✈️ M&J Departs Taipei',loc:'fly',members:['M&J'],
   activities:[{time:'17:45',title:'SQ879 Taipei (TPE) → Berlin Brandenburg (BER) Departs',detail:'SQ879 → Singapore Changi (SIN) (4h30m), transfer 1h10m, change terminal\nLH769 → Munich (MUC) (12h35m), transfer 1h\nLH1928 → Berlin Brandenburg (BER T1) (1h5m)',note:'Baggage: 1×8kg carry-on + personal item + 1×23kg checked',map:'https://maps.google.com/?q=Taiwan+Taoyuan+International+Airport'}],
   stay:'✈️ On the plane'},
- {date:'9/25',dow:'Fri',theme:'✈️ M&J Arrives Berlin | Y&W Hamburg→Berlin | S&K Departs London',loc:'berlin',members:['M&J','Y&W','S&K'],
+ {date:'9/25',dow:'Fri',theme:'✈️ M&J Arrives Berlin 🏃 EXPO pick-up | Y&W Hamburg→Berlin | S&K Departs London',loc:'berlin',members:['M&J','Y&W','S&K'],
   activities:[
-   {time:'08:05',title:'M&J Arrives at Berlin Brandenburg Airport (BER T1)',detail:'SQ+LH total 20h20m. Check in & rest.\nFrom T1 → BER station: take FEX or RE7 → Südkreuz (25 min) → walk ~10 min to hostel'},
-   {time:'⏳',title:'Y&W Hamburg→Berlin by Train (ICE)',detail:'ICE high-speed train, approx. 1.5h',note:'⏳ Arrival time TBD'},
-   {time:'18:20',title:'S&K EZY2603 London Luton (LTN) → Berlin Brandenburg (BER)',detail:'easyJet · 18:20→21:05 · 2h45m\nCheck into Scandic Berlin Potsdamer Platz on arrival'}],
-  stay:'🏨 Three Little Pigs Hostel (M&J: 6-bed mixed dorm) | 🏨 Scandic Berlin Potsdamer Platz (S&K)'},
+   {time:'08:05',title:'M&J Arrive at Berlin Brandenburg Airport (BER T1)',detail:'SQ+LH, 20h20m door to door — finally down!\n08:05–08:35 deplane and collect bags (~30 min)',note:'✅ Munich→Berlin is a domestic Schengen flight — no passport control, head straight to baggage claim',map:'https://maps.google.com/?q=Berlin+Brandenburg+Airport+BER+Terminal+1'},
+   {time:'08:35',title:'🚆 BER Airport → Hostel (about an hour)',detail:'08:35–09:15 walk to the airport rail station, take FEX or RE7 to Südkreuz (13–15 min ride; allow 30–40 min with the walk and wait)\n09:15–09:35 change at Südkreuz to S1 / S2 / S25 for Anhalter Bahnhof (~5 min), then a 3 min walk to the hostel',note:'✅ The 4-day marathon ticket covers zones ABC — no extra fare from the airport',map:'https://maps.google.com/?q=Anhalter+Bahnhof+Berlin'},
+   {time:'10:00',title:'🎒 Arrive at the hostel — drop bags + brunch',detail:'10:00–10:30 store luggage and freshen up\nStresemannstraße 66, 10963 Berlin-Kreuzberg\nBrunch nearby to refuel',note:'⚠️ Official check-in is from 15:00 — just leave the bags in the morning',map:'https://www.google.com/maps/search/?api=1&query=Stresemannstra%C3%9Fe+66+10963+Berlin'},
+   {time:'12:00',title:'🏃 Mars EXPO bib pick-up (slot 12:00–12:15)',detail:'11:30 take U6 south from Hallesches Tor or Kochstraße — only ~6 min, the EXPO is right outside Platz der Luftbrücke station\nFlughafen Tempelhof (Platz der Luftbrücke 5, 12101 Berlin)\n12:00–12:15 collect bib #22639 + event tee, finisher tee, legend jacket, bag-drop bag\nThen browse the EXPO merch store and sponsor booths (~1–1.5h)',note:'⚠️ In person only: Start Card + passport, both required'},
+   {time:'14:00',title:'🛍️ M&J free time (14:00–16:00)',detail:'All four are within walking distance or one stop of the hostel — pick by energy level:\n<b>① Modulor</b> art supplies / stationery / materials ★4.7 — Prinzenstr. 85, ~10 min from the EXPO via U6→U8, open to 20:00, <b>closed Sundays</b> <a class="act-map" href="https://maps.app.goo.gl/oS1EZ1RrVqTbgKau5" target="_blank">📍</a>\n<b>② Mall of Berlin</b> large mall ★4.4 — Leipziger Pl. 12, 12 min walk, open to 20:00 <a class="act-map" href="https://maps.app.goo.gl/MU9HqVe6A8vNtez47" target="_blank">📍</a>\n<b>③ The Playce</b> (Potsdamer Platz) ★4.1 — Alte Potsdamer Str. 7, 10 min walk, open to 22:00 <a class="act-map" href="https://maps.app.goo.gl/gTxCgxSJMuKYRp8v6" target="_blank">📍</a>\n<b>④ Lidl supermarket</b> — Stresemannstr. 72–78, <b>right next door to the hostel</b>, water, snacks, breakfast, open to 22:00 <a class="act-map" href="https://maps.app.goo.gl/CPPoNQ8PLMx5Vvwv9" target="_blank">📍</a>',note:'⚠️ 19:00 dinner reservation (Antonello\'s) — back at the hostel by 16:30 to change without rushing'},
+   {time:'16:22',title:'Y&W Arrive at Berlin Hbf',detail:'Hamburg→Berlin ICE high-speed train, approx. 1.5h\nCheck in at martas Hotel Berlin Mitte (Augustraße 82, 10117 Berlin)\nBerlin Hbf → hotel: ~10 min by S-Bahn',map:'https://maps.app.goo.gl/etUeKFknDSXnAJtBA'},
+   {time:'18:20',title:'S&K EZY2603 London Luton (LTN) → Berlin Brandenburg (BER)',detail:'easyJet · 18:20→21:05 · 2h45m\nCheck into Scandic Berlin Potsdamer Platz on arrival'},
+   {time:'19:00',title:'🍽️ Dinner at Antonello\'s Cevicheria (M&J + Y&W, 4)',detail:'Peruvian ceviche meets Sicilian cooking · ★4.5 · €20–30 pp\nNostitzstraße 22, 10961 Berlin-Kreuzberg\n📞 +49 30 81492544',note:'✅ Booked 19:00 — deliberately late as a buffer for Y&W\'s train',map:'https://maps.app.goo.gl/ZYzgw8XbsGzQg9Xf8'}],
+  stay:'🏨 Three Little Pigs Hostel (M&J: 6-bed mixed dorm) | 🏨 martas Hotel Berlin Mitte (Y&W) | 🏨 Scandic Berlin Potsdamer Platz (S&K)'},
  {date:'9/26',dow:'Sat',theme:'🏰 Berlin Sightseeing | Becky Arrives 09:15',loc:'berlin',members:['M&J','Becky','Y&W','S&K'],
   activities:[
    {time:'09:15',title:'Becky Arrives at Berlin Brandenburg Airport (BER T1)',detail:'TK HKG→IST→BER arrives!\n★ M&J + Becky + Y&W all meet in Berlin!',note:'YY arrives directly in Venice (VCE) on 9/28'},
-   {time:'All day',title:'🏰 Berlin Sightseeing',detail:'Brandenburg Gate | Museum Island | East Side Gallery\nReichstag | Checkpoint Charlie',map:'https://maps.google.com/?q=Brandenburg+Gate+Berlin'}],
-  stay:'🏨 Three Little Pigs Hostel (M&J: 4-bed dorm / Becky: 6-bed mixed) | 🏨 Scandic Berlin Potsdamer Platz (S&K)'},
+   {time:'All day',title:'🏰 Berlin Sightseeing',detail:'Morning: East Side Gallery (1.3km of painted Wall)\nBerliner Trödelmarkt antiques market (09:00–17:00, Sat/Sun only)\nBrandenburg Gate + Memorial to the Murdered Jews of Europe (2 min apart)\nHackesche Höfe: Aseli marshmallow mice — the souvenir (shut on Sundays!)\nDDR Museum (open to 21:00) | Museum Island at sunset\nModulor is closed Sunday — today is the only weekend chance (to 20:00)',note:'See the 🏰 Berlin tab for details',map:'https://maps.google.com/?q=Brandenburg+Gate+Berlin'},
+   {time:'17:00',title:'🍽️ Dinner at Night Kitchen (Israeli, 8 pax)',detail:'Everyone except YY, plus Xiaofu = 8\nHeckmann Höfe, Oranienburger Str. 32, 10117 Berlin\n★4.7 · €40–80 pp · family-style sharing menu\n📞 +49 30 23575075',note:'✅ Booked 17:00 · HK friends Amy & Bonnie have a separate table for 6 at 17:30',map:'https://maps.app.goo.gl/wDrjA7EthV4Ud4P6A'}],
+  stay:'🏨 Three Little Pigs Hostel (M&J: 4-bed dorm / Becky: 6-bed mixed) | 🏨 martas Hotel Berlin Mitte (Y&W) | 🏨 Scandic Berlin Potsdamer Platz (S&K)'},
  {date:'9/27',dow:'Sun',theme:'🏃 Berlin Marathon Race Day!',loc:'berlin',members:['M&J','Becky','Y&W','S&K'],
-  activities:[{time:'All day',title:'🏃 Berlin Marathon',detail:'Finish line: Brandenburg Gate\nBest viewing: Kurfürstendamm / finish area\nCelebration dinner after',note:'⏳ Photo plan TBD',map:'https://maps.google.com/?q=Berlin+Marathon+Finish+Brandenburger+Tor'}],
-  stay:'🏨 Three Little Pigs Hostel (M&J: 4-bed dorm / Becky: 6-bed mixed) | 🏨 Scandic Berlin Potsdamer Platz (S&K)'},
+  activities:[{time:'All day',title:'🏃 Berlin Marathon (Mars bib #22639)',detail:'⚠️ The bib is also the transport ticket — carry it both ways\nFinish line: Brandenburg Gate\nBest viewing: Kurfürstendamm / finish area\n\n★ Options for the non-runners (Sundays only)\nMauerpark flea market 10:00–18:00 + karaoke at 15:00\nArkonaplatz market 10:00–17:00 → Berlin Wall Memorial (same Bernauer Str.) → Mauerpark, all in one line',note:'⏳ Photo plan TBD',map:'https://maps.google.com/?q=Berlin+Marathon+Finish+Brandenburger+Tor'},
+   {time:'Post-race',title:'🍺 Zollpackhof beer garden celebration',detail:'Elisabeth-Abegg-Straße 1, 10557 Berlin (riverside by Hauptbahnhof)\n20–25 min walk from the Brandenburg Gate finish, or one S-Bahn stop\nSelf-service outdoors: buy beer tokens first · open to 23:00',note:'⚠️ No reservations in the beer garden and it will be packed — send someone ahead for a table',map:'https://maps.app.goo.gl/p9SA4tpUstQnLiwEA'},
+   {time:'18:00',title:'🍽️ Dinner at YOSOY TAPAS (Spanish)',detail:'Everyone except YY\nRosenthaler Str. 37, 10178 Berlin (Hackescher Markt)\n★4.7 · paella de la casa, calamari, sangria\n📞 +49 30 28391213',note:'✅ Booked 18:00 · leave the beer garden by ~17:20 to make it',map:'https://maps.app.goo.gl/MaerLLrPs8z3xnjX6'}],
+  stay:'🏨 Three Little Pigs Hostel (M&J: 4-bed dorm / Becky: 6-bed mixed) | 🏨 martas Hotel Berlin Mitte (Y&W) | 🏨 Scandic Berlin Potsdamer Platz (S&K)'},
  {date:'9/28',dow:'Mon',theme:'✈️ M&J+B&K Berlin→Venice (same flight) | YY Arrives Venice | S&K check into Hilton',loc:'fly',members:['M&J','B&K','S&K'],
   activities:[
    {time:'15:20',title:'⚠️ Bag Drop Opens (BER T1)',detail:'⚠️ Bag drop 15:20–16:40 (be on time!)',note:'Check-in opens: 29 Aug 23:20 (30 days before flight)'},
@@ -873,6 +1235,22 @@ function showTab(id,el){
 
 buildDays(DAYS);
 document.body.className='zh';
+
+/* ── 離線支援（Service Worker）── */
+if('serviceWorker' in navigator){
+ window.addEventListener('load',function(){
+  navigator.serviceWorker.register('sw.js').catch(function(e){console.log('SW fail',e)});
+ });
+}
+function updateNetStatus(){
+ var b=document.getElementById('net-badge'); if(!b)return;
+ if(navigator.onLine){b.style.display='none';}
+ else{b.style.display='block';}
+}
+window.addEventListener('online',updateNetStatus);
+window.addEventListener('offline',updateNetStatus);
+updateNetStatus();
 </script>
+<div id="net-badge"><span class="zh">📴 目前離線 — 正在使用已儲存的離線版本</span><span class="en">📴 You are offline — showing the saved offline copy</span></div>
 </body>
 </html>
