@@ -392,6 +392,7 @@ body.zh .en{display:none!important}
     <div class="accom-row"><div class="accom-key"><span class="zh">入住人員</span><span class="en">Guests</span></div><div class="accom-val">M&amp;J + Becky + <span class="zh">凱祺（4人）</span><span class="en">YY (4 people)</span></div></div>
     <div class="accom-row"><div class="accom-key"><span class="zh">費用</span><span class="en">Cost</span></div><div class="accom-val">TWD 14,342 / €393.22 <span class="zh">（Jusing 付）</span><span class="en">(paid by Jusing)</span></div></div>
     <div class="accom-row"><div class="accom-key"><span class="zh">連結</span><span class="en">Link</span></div><div class="accom-val"><a href="https://reurl.cc/lpWqKj" target="_blank">Venicedire</a></div></div>
+    <div class="accom-row"><div class="accom-key"><span class="zh">機場往返</span><span class="en">To/from VCE</span></div><div class="accom-val"><span class="zh">🚌 <b>ATVO Venezia Express</b>：VCE「Fermata C」→ Piazzale Roma，20 分鐘，€12 單程／€20 來回<br>🚶 Piazzale Roma 下車後<b>步行 2 分鐘（130m）</b>即達 —— 全威尼斯最好到的位置之一<br>備案：ACTV 5 號 Aerobus €12／25 分（無行李架）· 水上計程車 €120–140<br>⚠️ 不建議 Alilaguna 水上巴士（€18、45–90 分，還要走去碼頭）</span><span class="en">🚌 <b>ATVO Venezia Express</b>: VCE "Fermata C" → Piazzale Roma, 20 min, €12 one way / €20 return<br>🚶 Then a <b>2-minute walk (130 m)</b> from Piazzale Roma — one of the easiest addresses in Venice to reach<br>Alternatives: ACTV line 5 Aerobus €12 / 25 min (no luggage racks) · water taxi €120–140<br>⚠️ Skip the Alilaguna water bus (€18, 45–90 min, plus the walk to the dock)</span></div></div>
   </div>
 </div>
 <div class="accom-card">
@@ -975,8 +976,8 @@ const DAYS=[
   activities:[
    {time:'15:20',title:'⚠️ Bag Drop 開始（BER T1）',detail:'⚠️ Bag drop 15:20–16:40（準時！）',note:'Check-in opens: 8/29 23:20（起飛前30天）'},
    {time:'17:20',title:'EJU5085 柏林(BER T1)→威尼斯(VCE)',detail:'easyJet，約1h40m\nM&J: Jusing 7A / Mars 7B\nB&K 同班（座位⏳待確認）',note:'⚠️ 已加購托運 · 隨身包45×36×20cm · 訂位:KBWPK1D'},
-   {time:'15:45',title:'凱祺 抵達 威尼斯馬可波羅機場(VCE)',detail:'DE4235 Condor FRA→VCE 14:30→15:45\n訂位：BG8O2E'},
-   {time:'~19:30',title:'VCE機場取租車 + 進威尼斯主島',detail:'Locauto取 Skoda Octavia Estate（自排，5座）\n搭Vaporetto水上巴士進主島（約75分）',note:'Vaporetto €9.5/人',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport+VCE'}],
+   {time:'15:45',title:'凱祺 抵達 威尼斯馬可波羅機場(VCE)',detail:'DE4235 Condor FRA→VCE 14:30→15:45\n訂位：BG8O2E\n同樣搭 ATVO 巴士到 Piazzale Roma（20 分），可先進公寓休息',note:'比 M&J+B&K 早約 3.5 小時抵達'},
+   {time:'~19:30',title:'🚌 VCE 機場 → 住宿（ATVO 巴士，約 30 分鐘全程）',detail:'① 領完行李往航廈外走到「Fermata C」巴士站（約 5 分鐘）\n② ATVO Venezia Express → Piazzale Roma，車程約 20 分鐘\n③ Piazzale Roma 下車步行 2 分鐘（130m）到 Venicedire 公寓\n\n💶 €12 單程／€20 來回（9/30 還要回機場取車，買來回較划算）\n🎫 購票：行李提領區 ATVO 櫃檯、航廈內外自動售票機，或線上先買\n\n備案：ACTV 5 號 Aerobus 同樣 €12、25 分鐘，但停站多且無行李架｜水上計程車 €120–140（4–5 人直達）',note:'⚠️ 紙本票上車前要打卡（線上票免）· 不建議 Alilaguna 水上巴士（€18、45–90 分）—— 住宿就在 Piazzale Roma 旁，巴士完勝 · ⚠️ 今天不取車！租車是 9/30 09:00 才在 VCE Locauto 櫃檯取',map:'https://www.google.com/maps/dir/Venice+Marco+Polo+Airport/Piazzale+Roma+Venezia'}],
   stay:'🏠 威尼斯迪樂公寓 Venicedire（Santa Croce區）✅已訂 | 🏨 Hilton Berlin（S&K）'},
  {date:'9/29',dow:'二',theme:'🛶 威尼斯 D1 — Burano彩虹島 + 主島漫步 | ✈️ S&K 柏林→米蘭',loc:'venice',members:['M&J','B&K','Y&W⏳','S&K'],
   activities:[
@@ -986,7 +987,7 @@ const DAYS=[
   stay:'🏠 威尼斯迪樂公寓 Venicedire ✅已訂 | 🏙️ 米蘭待訂（S&K）'},
  {date:'9/30',dow:'三',theme:"🚗 威尼斯→Cortina d'Ampezzo | VCE取車",loc:'move',members:['M&J','B&K','Y&W⏳'],
   activities:[
-   {time:'上午',title:'🚗 威尼斯馬可波羅機場(VCE) 取車出發',detail:'取Skoda Octavia Estate（Locauto）\nA27→SS51 景觀公路北上\n途中停靠 Pieve di Cadore',note:'車程約2–2.5h',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport'},
+   {time:'09:00',title:'🚗 VCE 機場 Locauto 取車出發',detail:'08:00 從公寓步行 2 分鐘到 Piazzale Roma，搭 ATVO 巴士回 VCE（20 分，用 9/28 買的回程票）\n09:00 Locauto 櫃檯取 Skoda Octavia Estate（自排 5 座）\n⚠️ 必帶：護照＋信用卡＋台灣駕照＋國際駕照＋訂車確認單\n取車先拍車身 360° 存證、確認油表\nA27→SS51 景觀公路北上，途中停靠 Pieve di Cadore',note:'車程約2–2.5h · 請提前 10 分鐘到櫃檯',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport'},
    {time:'午後',title:'🏔️ Lago di Misurina 環湖（1.5–2h）+ 抵達Cortina',detail:'入住Airbnb Cortina（Check-in 17:00–00:00）\n海拔1754m環湖適應高地',note:'🅿️ 第1台車私人停車位€35/晚；第2台車免費停車步行10–15分',map:'https://maps.google.com/?q=Lago+di+Misurina+Italy'}],
   stay:'🏠 Airbnb Cortina（6人，馬兒付款）✅已訂 | ⛰️ Hotel Olimpia（S&K）✅已訂'},
  {date:'10/1',dow:'四',theme:'⛰️ 多洛米蒂東 D1 — 三尖峰 + 魔多之塔 🎉全員會合',loc:'dolo-e',members:['全員8人'],
@@ -1131,8 +1132,8 @@ const DAYS_EN=[
   activities:[
    {time:'15:20',title:'⚠️ Bag Drop Opens (BER T1)',detail:'⚠️ Bag drop 15:20–16:40 (be on time!)',note:'Check-in opens: 29 Aug 23:20 (30 days before flight)'},
    {time:'17:20',title:'EJU5085 Berlin (BER T1) → Venice (VCE)',detail:'easyJet, ~1h40m\nM&J: Jusing seat 7A / Mars seat 7B\nB&K same flight (seats ⏳ TBD)',note:'⚠️ Checked bag already purchased · cabin bag 45×36×20cm · booking ref: KBWPK1D'},
-   {time:'15:45',title:'YY Arrives at Venice Marco Polo Airport (VCE)',detail:'DE4235 Condor FRA→VCE 14:30→15:45 · Booking ref: BG8O2E'},
-   {time:'~19:30',title:'Pick Up Rental Car at VCE + Vaporetto to Venice Island',detail:'Collect Skoda Octavia Estate at Locauto\nTake Vaporetto water bus to main island (~75 min)',note:'Vaporetto €9.5/person',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport+VCE'}],
+   {time:'15:45',title:'YY Arrives at Venice Marco Polo Airport (VCE)',detail:'DE4235 Condor FRA→VCE 14:30→15:45 · Booking ref: BG8O2E\nSame ATVO bus to Piazzale Roma (20 min) — can settle into the apartment first',note:'Arrives ~3.5 hours ahead of M&J + B&K'},
+   {time:'~19:30',title:'🚌 VCE Airport → Apartment (ATVO bus, ~30 min door to door)',detail:'① After baggage claim, walk out to bus stop "Fermata C" (~5 min)\n② ATVO Venezia Express → Piazzale Roma, ~20 min\n③ From Piazzale Roma it is a 2-minute walk (130 m) to the Venicedire apartment\n\n💶 €12 one way / €20 return (worth the return — you come back to VCE on 9/30 for the car)\n🎫 Tickets: ATVO desk in baggage claim, machines inside and outside, or online in advance\n\nAlternatives: ACTV line 5 Aerobus, also €12, 25 min, but more stops and no luggage racks | water taxi €120–140 (4–5 people, direct)',note:'⚠️ Validate paper tickets before boarding (not needed for online tickets) · Skip the Alilaguna water bus (€18, 45–90 min) — you are staying right at Piazzale Roma, the bus wins easily · ⚠️ No car today — the rental is collected at the VCE Locauto counter on 9/30 at 09:00',map:'https://www.google.com/maps/dir/Venice+Marco+Polo+Airport/Piazzale+Roma+Venezia'}],
   stay:'🏠 Venicedire Apartment, Venice (Santa Croce) ✅ Booked | 🏨 Hilton Berlin (S&K)'},
  {date:'9/29',dow:'Tue',theme:'🛶 Venice D1 — Burano Island | ✈️ S&K Berlin→Milan',loc:'venice',members:['M&J','B&K','Y&W⏳','S&K'],
   activities:[
@@ -1142,7 +1143,7 @@ const DAYS_EN=[
   stay:'🏠 Venicedire Apartment, Venice ✅ Booked | 🏙️ Milan, not booked (S&K)'},
  {date:'9/30',dow:'Wed',theme:"🚗 Venice→Cortina d'Ampezzo | Pick Up Car at VCE",loc:'move',members:['M&J','B&K','Y&W⏳'],
   activities:[
-   {time:'Morning',title:'🚗 Pick Up Rental Car at Venice Marco Polo Airport (VCE)',detail:'Collect Skoda Octavia Estate (Locauto)\nDrive north on A27→SS51 scenic route\nStop at Pieve di Cadore',note:'Drive time approx. 2–2.5h',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport'},
+   {time:'09:00',title:'🚗 Collect the car at VCE (Locauto)',detail:'08:00 walk 2 min to Piazzale Roma and take the ATVO bus back to VCE (20 min — use the return ticket bought on 9/28)\n09:00 collect the Skoda Octavia Estate (automatic, 5 seats) at the Locauto counter\n⚠️ Bring: passport + credit card + home licence + IDP + booking confirmation\nPhotograph the car 360° and check the fuel gauge before leaving\nDrive north on the A27→SS51 scenic route, stopping at Pieve di Cadore',note:'Drive time approx. 2–2.5h · arrive at the counter 10 min early',map:'https://maps.google.com/?q=Venice+Marco+Polo+Airport'},
    {time:'Afternoon',title:'🏔️ Lago di Misurina Walk (1.5–2h) + Arrive Cortina',detail:'Check into Airbnb Cortina (Check-in 17:00–00:00)\n1754m altitude lakewalk to acclimatize',note:'🅿️ Car 1 private spot €35/night; Car 2 free public parking 10–15 min walk',map:'https://maps.google.com/?q=Lago+di+Misurina+Italy'}],
   stay:"🏠 Airbnb Cortina d'Ampezzo (6 people, paid by Maier) ✅ Booked | ⛰️ Hotel Olimpia (S&K) ✅ Booked"},
  {date:'10/1',dow:'Thu',theme:'⛰️ Dolomites East D1 — Tre Cime + Cadini di Misurina 🎉Everyone!',loc:'dolo-e',members:['All 8!'],
