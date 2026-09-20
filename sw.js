@@ -1,6 +1,6 @@
 /* 柏林馬拉松與多洛米蒂之旅 — 離線快取 Service Worker
    改版時把 CACHE 的版本號 +1，使用者下次連網開啟就會自動更新。 */
-const CACHE = 'dolomites-trip-v13';
+const CACHE = 'dolomites-trip-v15';
 
 const ASSETS = [
   './',
@@ -13,6 +13,7 @@ const ASSETS = [
   '魔多之塔.png',
   '布萊埃斯湖.png',
   '斯佩奇山.jpg',
+  'Lago di Misurina 米蘇里納湖.jpg',
   '五塔山.png',
   '索拉皮斯湖.png',
   'Seceda 刀鋒稜線.png',
