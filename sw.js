@@ -1,6 +1,6 @@
 /* 柏林馬拉松與多洛米蒂之旅 — 離線快取 Service Worker
    改版時把 CACHE 的版本號 +1，使用者下次連網開啟就會自動更新。 */
-const CACHE = 'dolomites-trip-v15';
+const CACHE = 'dolomites-trip-v16';
 
 const ASSETS = [
   './',
@@ -36,7 +36,7 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== CACHE + '-img').map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -47,7 +47,21 @@ self.addEventListener('fetch', event => {
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
-  if (url.origin !== self.location.origin) return; // 外部連結（Google Maps 等）不攔
+  // 外站圖片（Wikimedia 景點照）：快取優先，第一次連網看過之後離線也看得到
+  if (url.origin !== self.location.origin) {
+    if (req.destination === 'image') {
+      event.respondWith(
+        caches.match(req).then(cached => cached || fetch(req).then(res => {
+          if (res && (res.ok || res.type === 'opaque')) {
+            const copy = res.clone();
+            caches.open(CACHE + '-img').then(c => c.put(req, copy));
+          }
+          return res;
+        }).catch(() => cached || new Response('', { status: 504 })))
+      );
+    }
+    return; // 其他外部連結（Google Maps 等）不攔
+  }
 
   event.respondWith(
     caches.match(req, { ignoreSearch: true }).then(cached => {
