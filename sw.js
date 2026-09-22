@@ -1,6 +1,6 @@
 /* 柏林馬拉松與多洛米蒂之旅 — 離線快取 Service Worker
    改版時把 CACHE 的版本號 +1，使用者下次連網開啟就會自動更新。 */
-const CACHE = 'dolomites-trip-v20';
+const CACHE = 'dolomites-trip-v21';
 
 const ASSETS = [
   './',
